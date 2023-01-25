@@ -18,7 +18,7 @@
                     <tr>
                         <td style= "text-align: center;"><%= index + 1 %></td>
                         <td><%= link_to department.title, department_path(department) %><%= " (#{department.short_title})" %></td>
-                        <td><%= department.number %></td>
+                        <td><%= department.number.to_s << ".00.00.00" %></td>
                     </tr>
                 <% end %>
             </tbody>
