@@ -1,0 +1,8 @@
+<%- title Rails.configuration.settings.attributes[:settings] %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to current_user.name, account_path %>
+        <%= content_tag("a", Rails.configuration.settings.attributes[:settings]) %>
+    </div>
+</div>

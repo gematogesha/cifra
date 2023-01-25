@@ -1,0 +1,16 @@
+shared:
+  logo:
+    logo_simple: "ЦиФРА"
+    logo_admin: "ЦиФРА | Панель админитсратора"
+    logo_user: "ЦиФРА | Панель пользователя"
+  commands:
+    logout: "Выйти"
+  attributes:
+    account: "Аккаунт"
+    settings: "Настройка аккаунта"
+    create_user: "Регистрация пользователя"
+    edit_user: "Редактировать пользователя"
+    create_license: "Создать лицензию"
+    edit_license: "Редактировать лицензию"
+    create_department: "Создать отдел"
+    edit_department: "Редактировать отдел"

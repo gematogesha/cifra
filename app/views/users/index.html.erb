@@ -1,0 +1,29 @@
+<%- title @model_many %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @model_many %></h2>
+    </div>
+    <div class="module-body table">
+        <table id="dttb" class="hover table-bordered cell-border">
+            <thead>
+                <tr>
+                    <th style= "text-align: center;">№</th>
+                    <th><%= t(User.human_attribute_name :name) %></th>
+                    <th><%= t(User.human_attribute_name :email) %></th>
+                    <th><%= t(User.human_attribute_name :post) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each_with_index do |user, index| %>
+                    <tr>
+                        <td style= "text-align: center;"><%= index + 1 %></td>
+                        <td><%= link_to user.name, user_path(user) %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.post %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<%- title Rails.configuration.settings.attributes[:create_user] %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, users_path %>
+        <%= content_tag("a", Rails.configuration.settings.attributes[:create_user]) %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+       <h2><%= Rails.configuration.settings.attributes[:create_user] %></h2>
+    </div>
+    <%= render "form", user: @user %>
+</div>
+

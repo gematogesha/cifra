@@ -1,0 +1,19 @@
+<%- title Rails.configuration.settings.attributes[:edit_license] %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, licenses_path, data: { turbolinks: false } %>
+        <%= link_to @license.title.truncate(70, separator: ' '), license_path %>
+        <%= link_to Rails.configuration.settings.attributes[:edit_license] %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= link_to @license.title, license_path %></h2>
+    </div>
+
+    <%= render "form", license: @license %>
+</div>

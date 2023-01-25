@@ -1,0 +1,70 @@
+<%- title @model_many %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @model_many %></h2>
+    </div>
+    <div class="module-body table">
+        <table id="dttb" class="hover table-bordered cell-border">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">№</th>
+                    <th><%= t(License.human_attribute_name :title) %></th>
+                    <th><%= t(License.human_attribute_name :created_at) %></th>
+                    <th><%= t(License.human_attribute_name :begin) %></th>
+                    <th><%= t(License.human_attribute_name :ending) %></th>
+                    <th><%= t(License.human_attribute_name :updated_at) %></th>
+                    <th><%= t(License.human_attribute_name :responsible) %></th>
+                    <th><%= t(License.human_attribute_name :status) %></th>
+                    <th><%= t(License.human_attribute_name :file_license) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if current_user.admin? %>
+                    <% @licenses.each_with_index do |license, index| %>
+                        <tr>
+                            <td style="text-align: center;"><%= index + 1 %></td>
+                            <td><%= link_to license.title, license_path(license) %></td>
+                            <td><%= l(license.created_at, format: :long) %></td>
+                            <td><%= l(license.begin, format: :long) %></td>
+                            <td><%= l(license.ending, format: :long) %></td>
+                            <td><%= l(license.updated_at, format: :long) %></td>
+                            <td><%= link_to license.responsible, User.find_by(name: license.responsible) %></td>
+                            <td>
+                                <b><%= license.status %></b>
+                            </td>
+                            <td>
+                                <% if license.file_license.attached?%>
+                                    <%= link_to license.file_license.filename, rails_blob_path(license.file_license, disposition: 'attachment') %>
+                                    <span class="file-size"><%= number_to_human_size(license.file_license.byte_size) %></span>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <% @licenses.where(responsible: current_user.name).each_with_index do |license, index| %>
+                        <tr>
+                            <td style="text-align: center;"><%= index + 1 %></td>
+                            <td><%= link_to license.title, license_path(license) %></td>
+                            <td><%= l(license.created_at, format: :long) %></td>
+                            <td><%= l(license.begin, format: :long) %></td>
+                            <td><%= l(license.ending, format: :long) %></td>
+                            <td><%= l(license.updated_at, format: :long) %></td>
+                            <td><%= link_to license.responsible, account_path %></td>
+                            <td>
+                                <b><%= license.status %></b>
+                            </td>
+                            <td>
+                                <% if license.file_license.attached?%>
+                                    <%= link_to license.file_license.filename, rails_blob_path(license.file_license, disposition: 'attachment') %>
+                                    <span class="file-size"><%= number_to_human_size(license.file_license.byte_size) %></span>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<%- title Rails.configuration.settings.attributes[:edit_user] %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, users_path, data: { turbolinks: false } %>
+        <%= link_to @user.name, user_path %>
+        <%= link_to Rails.configuration.settings.attributes[:edit_user] %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @user.name %></h2>
+    </div>
+
+    <%= render "form", license: @user %>
+</div>

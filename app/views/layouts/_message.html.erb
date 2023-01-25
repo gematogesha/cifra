@@ -1,0 +1,16 @@
+<% if flash[:success].present? %>
+    <div class="message message-success">
+        <%= fa_icon("check-circle")%>
+        <span><%= flash[:success] %></span>
+    </div>
+    <% elsif flash[:error].present?%>
+    <div class="message message-error">
+        <%= fa_icon("exclamation-circle")%>
+        <span><%= flash[:error] %></span>
+    </div>
+    <% elsif flash[:info].present?%>
+    <div class="message message-info">
+        <%= fa_icon("info-circle")%>
+        <span><%= flash[:info] %></span>
+    </div>
+<% end %>

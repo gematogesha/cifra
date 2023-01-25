@@ -1,0 +1,39 @@
+<div class="module-body">
+    <%= form_with model: @user, data: {turbo: false} do |form| %>
+        <div class="control-group">
+            <%= form.label :name, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_field :name %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :password, class: "control-label" %>
+            <div class="controls">
+                <%= form.password_field :password %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :email, class: "control-label" %>
+            <div class="controls">
+                <%= form.email_field :email %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :post, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_field :post %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :admin, class: "control-label" %>
+            <div class="controls">
+                <%= form.check_box :admin %>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <%= form.submit class: "button"%>
+            </div>
+        </div>
+    <% end %>
+</div>

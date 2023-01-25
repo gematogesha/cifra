@@ -1,0 +1,39 @@
+<%- title @user.name %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, users_path %>
+        <%= content_tag("a", @user.name) %>
+    </div>
+</div>
+
+<div class="module">
+    <div class="module-head">
+        <h2 class="left"><%= @user.name.humanize %></h2>
+        <%= link_to fa_icon("pencil-square-o"), edit_user_path(@user), title: "Редактровать", class: "right edit-fa" %>
+
+
+    </div>
+    <div class="module-body">
+        <div class="control-group">
+            <%= label_tag nil, t(User.human_attribute_name :name), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @user.name %>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="control-label text">
+                    <%= button_to fa_icon("trash-o") + " Удалить", user_path(@user), 
+                        method: :delete, 
+                        form: {data: {turbo_confirm: "Вы точно хотите удалить пользователя?" }}, 
+                        class: "button text-alert" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

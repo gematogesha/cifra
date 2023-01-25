@@ -1,0 +1,18 @@
+<%- title Rails.configuration.settings.attributes[:create_department] %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, departments_path %>
+        <%= content_tag("a", Rails.configuration.settings.attributes[:create_department]) %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+       <h2><%= Rails.configuration.settings.attributes[:create_department] %></h2>
+    </div>
+    <%= render "form", department: @department %>
+</div>
+

@@ -1,0 +1,27 @@
+<%- title @model_many %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @model_many %></h2>
+    </div>
+    <div class="module-body table">
+        <table id="dttb" class="hover table-bordered cell-border">
+            <thead>
+                <tr>
+                    <th style= "text-align: center;">№</th>
+                    <th><%= t(Department.human_attribute_name :title) %></th>
+                    <th><%= t(Department.human_attribute_name :number) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @departments.each_with_index do |department, index| %>
+                    <tr>
+                        <td style= "text-align: center;"><%= index + 1 %></td>
+                        <td><%= link_to department.title, department_path(department) %><%= " (#{department.short_title})" %></td>
+                        <td><%= department.number %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

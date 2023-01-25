@@ -1,0 +1,72 @@
+.message{
+	position: absolute;
+	max-width: 300px;
+	top: 71px;
+	right: -350px;
+	z-index: 1000;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 15px 20px;
+    -webkit-animation: move 5s ease-in-out;
+    animation: move 5s ease-in-out;
+}
+
+@keyframes move {
+  0%, 5% {right: -350px;}
+  15%, 85% {right: 20px;}
+  95%, 100% {right: -350px;}
+}
+
+.message-success{
+	border: 1px solid #c3e6cb;
+    color: #155724 !important;
+	background-color: #e7f5eb;
+}
+
+.message-info{
+	border: 1px solid #b8daff;
+    color: #004085 !important;
+	background-color: #ecf5ff;
+}
+
+.message-error{
+	border: 1px solid #f5c6cb;
+	color: #cc1a2c !important;
+	background-color: #fdf2f3;
+}
+
+.message>span {
+    display: table-cell;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.message .fa{
+    float: left;
+    margin-right: 20px;
+    font-size: 30px;
+	vertical-align: middle;
+	margin-top: 5px;
+}
+
+.message-error .fa{
+	color: #cc1a2c !important;
+}
+
+.message-success .fa{
+	color: #155724 !important;
+}
+
+.message-info .fa{
+	color: #004085 !important;
+}
+
+.module-alert{
+	border-color: #f5c6cb !important;
+
+}
+
+.module-head-alert{
+	background-color: #fdf2f3 !important;
+	color: #cc1a2c !important;
+}

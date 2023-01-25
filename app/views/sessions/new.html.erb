@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="module module-login">
+        <div class="module-head">
+            <h2>Вход</h2>
+        </div>
+        <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
+            <div class="module-body">
+
+                <div class="control-group">
+                    <div><%= form.text_field :email, class: "form-text-field", placeholder: "Логин" %></div>
+                </div>
+                <div class="control-group">
+                    <div><%= form.password_field :password, class: "form-text-field", placeholder: "Пароль" %></div>
+                </div>
+            </div>
+            <div class="module-foot">
+                <%= form.submit "Войти", class: "button right" %>
+            </div>
+        <% end %>
+    </div>
+</div>

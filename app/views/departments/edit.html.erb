@@ -1,0 +1,19 @@
+<%- title Rails.configuration.settings.attributes[:edit_department] %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, departments_path, data: { turbolinks: false } %>
+        <%= link_to @department.title, department_path %>
+        <%= link_to Rails.configuration.settings.attributes[:edit_department] %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @department.title %></h2>
+    </div>
+
+    <%= render "form", license: @department %>
+</div>

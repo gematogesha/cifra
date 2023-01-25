@@ -1,0 +1,57 @@
+<%- title @department.title %>
+
+<div class="module">
+    <div class="module-head path">
+        <%= link_to @model_many, departments_path %>
+        <%= content_tag("a", @department.title) %>
+    </div>
+</div>
+
+<div class="module">
+    <div class="module-head">
+        <h2 class="left"><%= @department.title %></h2>
+        <%= link_to fa_icon("pencil-square-o"), edit_department_path(@department), title: "Редактровать", class: "right edit-fa" %>
+
+
+    </div>
+    <div class="module-body">
+        <div class="control-group">
+            <%= label_tag nil, t(Department.human_attribute_name :title), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @department.title %>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <%= label_tag nil, t(Department.human_attribute_name :short_title), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @department.short_title %>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <%= label_tag nil, t(Department.human_attribute_name :number), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @department.number %>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="control-label text">
+                    <%= button_to fa_icon("trash-o") + " Удалить", department_path(@department), 
+                        method: :delete, 
+                        form: {data: {turbo_confirm: "Вы точно хотите удалить отдел?" }}, 
+                        class: "button text-alert" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

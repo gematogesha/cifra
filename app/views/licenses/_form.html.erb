@@ -1,0 +1,76 @@
+
+<div class="module-body">
+    <%= form_with model: @license, data: {turbo: false} do |form| %>
+        <div class="control-group">
+            <%= form.label :title, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_area :title, rows: 5 , cols: 45 %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :reg_number, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_field :reg_number %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :issued, class: "control-label" %>
+            <div class="controls">
+                <%= form.select :issued, ["1", "2"] %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :series, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_field :series %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :content, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_area :content, rows: 5, cols: 45 %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :begin, class: "control-label" %>
+            <div class="controls">
+                <%= form.date_field :begin %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :ending, class: "control-label" %>
+            <div class="controls">
+                <%= form.date_field :ending %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :responsible, class: "control-label" %>
+            <div class="controls">
+                <%= form.select :responsible,  User.all.collect(&:name) %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :remark, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_area :remark, rows: 5, cols: 45 %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :file_license, class: "control-label" %>
+            <div class="controls">
+                <%= form.file_field :file_license  %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :status, class: "control-label" %>
+            <div class="controls">
+                <%= form.select :status, ["Действующий", "Не действующий", "Не начат", "В процессе", "Закончен"] %>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <%= form.submit class: "button"%>
+            </div>
+        </div>
+    <% end %>
+</div>

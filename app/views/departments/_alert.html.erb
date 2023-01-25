@@ -1,0 +1,7 @@
+<% if @department.errors.any? %>
+    <% @department.errors.full_messages.each do |message| %>
+        <div class="module module-alert">
+            <div class="module-head module-head-alert path"><%= message %></div>
+        </div>
+    <% end %>
+<% end %>

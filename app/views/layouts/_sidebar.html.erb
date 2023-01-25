@@ -1,0 +1,104 @@
+<div class="row-sm left">
+    <div class="sidebar">
+        <ul class="widget widget-menu">
+            <li class="widget-menu-li">
+                <a class="widget-menu-link">
+                    <%= fa_icon "calendar", class: "menu-icon" %>
+                    Ближайшие
+                    <%= fa_icon "chevron-down", class: "right" %>
+                </a>
+
+                <ul class="widget-menu-data collapse">
+                    <li>
+                        <a class="widget-menu-link"><%= fa_icon "calendar", class: "menu-icon" %>Ближайшие</a>
+                    </li>
+                    <li>
+                        <a class="widget-menu-link"><%= fa_icon "calendar", class: "menu-icon" %>Ближайшие</a>
+                    </li>
+                    <li>
+                        <a class="widget-menu-link"><%= fa_icon "calendar", class: "menu-icon" %>Ближайшие</a>
+                    </li>
+                </ul>
+            </li>
+            <% if current_user.admin? %>
+                <li class="widget-menu-li">
+                    <a class="widget-menu-link">
+                        <%= fa_icon "file-o", class: "menu-icon" %>
+                        <%= t(License.model_name.human(count: :many)) %>
+                        <%= fa_icon "chevron-down", class: "right" %>
+                    </a>
+                    <ul class="widget-menu-data collapse">
+                        <li>
+                            <%= link_to licenses_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "files-o", class: "menu-icon" %>
+                                <%= t(License.model_name.human(count: :many)) %>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_license_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "file-text-o", class: "menu-icon" %>
+                                <%= Rails.configuration.settings.attributes[:create_license] %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </li>
+            <% else %>
+                <li class="widget-menu-li">
+                    <%= link_to licenses_path, class: "widget-menu-link" do %>
+                        <%= fa_icon "files-o", class: "menu-icon" %>
+                        <%= t(License.model_name.human(count: :many)) %>
+                    <% end %>
+
+                </li>
+            <% end %>
+        </ul>
+        <% if current_user.admin? %>
+            <ul class="widget widget-menu">
+                <li class="widget-menu-li">
+                    <a class="widget-menu-link">
+                        <%= fa_icon "users", class: "menu-icon" %>
+                        <%= t(User.model_name.human(count: :many)) %>
+                        <%= fa_icon "chevron-down", class: "right" %>
+                    </a>
+                    <ul class="widget-menu-data collapse">
+                        <li>
+                            <%= link_to users_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "users", class: "menu-icon" %>
+                                <%= t(User.model_name.human(count: :many)) %>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_user_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "user-plus", class: "menu-icon" %>
+                                <%= Rails.configuration.settings.attributes[:create_user] %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="widget widget-menu">
+                <li class="widget-menu-li">
+                    <a class="widget-menu-link">
+                        <%= fa_icon "users", class: "menu-icon" %>
+                        <%= t(Department.model_name.human(count: :many)) %>
+                        <%= fa_icon "chevron-down", class: "right" %>
+                    </a>
+                    <ul class="widget-menu-data collapse">
+                        <li>
+                            <%= link_to departments_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "users", class: "menu-icon" %>
+                                <%= t(Department.model_name.human(count: :many)) %>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_department_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "user-plus", class: "menu-icon" %>
+                                <%= Rails.configuration.settings.attributes[:create_department] %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        <% end %>
+    </div>
+</div>
