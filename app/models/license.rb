@@ -2,6 +2,8 @@ class License < ApplicationRecord
 
     has_one_attached :file_license
 
+    belongs_to :user
+
     before_save :capitalize_title, :strip_ize
 
     validates :begin, :ending, presence: true
@@ -13,9 +15,6 @@ class License < ApplicationRecord
 
     def strip_ize
         title.strip!
-        description.strip!
-        content.strip!
-        remark.strip!
         reg_number.strip!
     end
 

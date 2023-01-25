@@ -14,7 +14,7 @@
                     <th><%= t(License.human_attribute_name :begin) %></th>
                     <th><%= t(License.human_attribute_name :ending) %></th>
                     <th><%= t(License.human_attribute_name :updated_at) %></th>
-                    <th><%= t(License.human_attribute_name :responsible) %></th>
+                    <th><%= t(License.human_attribute_name :user_id) %></th>
                     <th><%= t(License.human_attribute_name :status) %></th>
                     <th><%= t(License.human_attribute_name :file_license) %></th>
                 </tr>
@@ -29,7 +29,7 @@
                             <td><%= l(license.begin, format: :long) %></td>
                             <td><%= l(license.ending, format: :long) %></td>
                             <td><%= l(license.updated_at, format: :long) %></td>
-                            <td><%= link_to license.responsible, User.find_by(name: license.responsible) %></td>
+                            <td><%= link_to User.find_by(id: license.user_id).name, user_path(license.user_id) %></td>
                             <td>
                                 <b><%= license.status %></b>
                             </td>
@@ -42,7 +42,7 @@
                         </tr>
                     <% end %>
                 <% else %>
-                    <% @licenses.where(responsible: current_user.name).each_with_index do |license, index| %>
+                    <% @licenses.where(user_id: current_user.name).each_with_index do |license, index| %>
                         <tr>
                             <td style="text-align: center;"><%= index + 1 %></td>
                             <td><%= link_to license.title, license_path(license) %></td>
@@ -50,7 +50,7 @@
                             <td><%= l(license.begin, format: :long) %></td>
                             <td><%= l(license.ending, format: :long) %></td>
                             <td><%= l(license.updated_at, format: :long) %></td>
-                            <td><%= link_to license.responsible, account_path %></td>
+                            <td><%= link_to license.user_id, account_path %></td>
                             <td>
                                 <b><%= license.status %></b>
                             </td>

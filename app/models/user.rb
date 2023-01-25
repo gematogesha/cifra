@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
 
+    has_many :license
+
     before_save :title_ize, :upcase_name, :strip_ize
     
     validates :name, :email, presence: true, uniqueness: true
