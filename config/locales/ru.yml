@@ -16,6 +16,7 @@ ru:
         password: "Пароль"
         email: "Почта"
         post: "Должность"
+        department_id: "Отдел"
         admin: "Администратор"
       license:
         title: "Наименование"

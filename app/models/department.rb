@@ -18,12 +18,12 @@ class Department < ApplicationRecord
     end
 
     def short_title
-        short_name = Array.new()
+        short_title = Array.new()
         title.split(/[\s,-]/).each do |i|
             if i == "и"
-                short_name.push(i[0])
+                short_title.push(i[0])
             else
-                short_name.push(i[0].capitalize)
+                short_title.push(i[0].capitalize)
             end
         end 
 

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :license
+    has_one :department
 
     before_save :title_ize, :upcase_name, :strip_ize
     
