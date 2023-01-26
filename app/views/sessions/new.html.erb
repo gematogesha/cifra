@@ -4,7 +4,7 @@
             <h2>Вход</h2>
         </div>
         <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
-            <div class="module-body">
+            <div class="module-body module-body-login">
 
                 <div class="control-group">
                     <div><%= form.text_field :email, class: "form-text-field", placeholder: "Логин" %></div>

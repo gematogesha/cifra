@@ -5,7 +5,7 @@
     background-image: none;
     padding: 4px 10px;
     font-size: 14px;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

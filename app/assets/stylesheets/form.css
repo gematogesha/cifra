@@ -17,9 +17,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     padding: 4px 6px;
     font-size: 14px;
     line-height: 20px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
     vertical-align: middle;
 }
 
