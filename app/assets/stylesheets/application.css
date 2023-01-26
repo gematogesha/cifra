@@ -14,7 +14,7 @@
 *= require message
 *= require module
 *= require sidebar
-*= require page_error
+*= require page-error
 
 *= require table
 *= require datatables

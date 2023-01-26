@@ -23,27 +23,31 @@
                     </li>
                     <li class="nav-user dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
-                            <div class="nav-avatar">
-                                <div class="name"><%= short_name(current_user.name) %></div>
-                            </div>
-                            <%= fa_icon "chevron-down", class: "right" %>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <%= link_to Rails.configuration.settings.attributes[:account], account_path %>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <%= link_to Rails.configuration.settings.attributes[:settings], account_settings_path %>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <%= button_to Rails.configuration.settings.commands[:logout], session_path, method: :delete %>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            <% end %>
+                            <% if current_user.admin? %>
+                                <div class="nav-avatar avatar-admin">
+                                <% else %>
+                                    <div class="nav-avatar avatar-user">
+                                    <% end %>
+                                    <div class="name"><%= short_name(current_user.name) %></div>
+                                </div>
+                                <%= fa_icon "chevron-down", class: "right" %>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <%= link_to Rails.configuration.settings.attributes[:account], account_path %>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <%= link_to Rails.configuration.settings.attributes[:settings], account_settings_path %>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <%= button_to Rails.configuration.settings.commands[:logout], session_path, method: :delete %>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                <% end %>
+            </div>
         </div>
     </div>
-</div>

@@ -2,25 +2,26 @@
     padding-top: 50px;
 }
 
-.page_error{
+.page-error{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
-.number_error{
+.number-error{
     font-size: 130px;
     padding: 0 50px;
 }
 
-.number_error>span{
+.number-error>span{
     color: #0088cc;
 }
 
-.text_error{
+.text-error{
     height: fit-content;
 }
 
-.text_error>h1{
+.text-error>h1{
     margin-bottom: 15px;
 }
