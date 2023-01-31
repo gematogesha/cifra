@@ -94,3 +94,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .edit-fa{
     line-height: 25px;
 }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    transition: 0.1s !important;
+}

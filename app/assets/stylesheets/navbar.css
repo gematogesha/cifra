@@ -15,10 +15,10 @@
 }
 
 
-
 .navbar .nav>li {
     float: left;
     cursor: pointer;
+    transition: 0.1s !important;
 }
 
 .nav>li>a>span{

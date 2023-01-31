@@ -79,6 +79,7 @@ document.addEventListener("turbo:load", () => {
                 $(this).removeClass("open");
                 $(this).children('ul').animate({ 'height': 0 }, 100);
                 $(this).children('ul').animate({ 'opacity': 0 }, 300);
+                $(this).children().children('.right').addClass("fa-chevron-down").removeClass("fa-chevron-up");
             } else {
 
                 var len = $(this).children("ul").children().length
@@ -86,7 +87,7 @@ document.addEventListener("turbo:load", () => {
                 $(this).addClass("open");
                 $(this).children('ul').css('height', heig);
                 $(this).children('ul').animate({ 'opacity': 1 }, 300);
-                $(this).children().children('dropdown-toggle').children('nav-avatar').addClass("fa-chevron-up").removeClass("fa-chevron-down");
+                $(this).children().children('.right').addClass("fa-chevron-up").removeClass("fa-chevron-down");
             };
         });
     });
