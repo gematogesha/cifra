@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     else
       flash.now[:error] = "Неправильно заполнены формы регистрации"
 
-        render :edit
+      render :edit
     end
   end
 

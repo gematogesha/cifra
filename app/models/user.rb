@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
 
+    has_many :rooms, dependent: :destroy
     has_many :license
     has_one :department
 
