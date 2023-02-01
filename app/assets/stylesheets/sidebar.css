@@ -45,6 +45,7 @@
 	-webkit-transition: 0.1s !important;
 	-o-transition: 0.1s !important;
 	transition: 0.1s !important;
+    cursor: pointer;
 }
 
 .widget-menu>li ul li+li {

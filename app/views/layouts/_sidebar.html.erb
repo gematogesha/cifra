@@ -23,20 +23,20 @@
             <% if current_user.admin? %>
                 <li class="widget-menu-li">
                     <a class="widget-menu-link">
-                        <%= fa_icon "file-o", class: "menu-icon" %>
+                        <%= fa_icon "file", class: "menu-icon" %>
                         <%= t(License.model_name.human(count: :many)) %>
                         <%= fa_icon "chevron-down", class: "right" %>
                     </a>
                     <ul class="widget-menu-data collapse">
                         <li>
                             <%= link_to licenses_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "files-o", class: "menu-icon" %>
+                                <%= fa_icon "file", class: "menu-icon" %>
                                 <%= t(License.model_name.human(count: :many)) %>
                             <% end %>
                         </li>
                         <li>
                             <%= link_to new_license_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "file-text-o", class: "menu-icon" %>
+                                <%= fa_icon "file-text", class: "menu-icon" %>
                                 <%= Rails.configuration.settings.attributes[:create_license] %>
                             <% end %>
                         </li>

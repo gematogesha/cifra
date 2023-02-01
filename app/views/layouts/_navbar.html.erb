@@ -15,39 +15,43 @@
         <% if current_user.present? %>
             <ul class="nav right">
                 <li>
+                    <%= link_to rooms_path do %>
+                        <%= fa_icon "envelope" %>
+                    <% end %>
+                </li>
+                <li>
                     <%= link_to account_path, class: "nav-name" do %>
                         <b><%= "#{current_user.name}" %></b>
                         <br>
                             <span><%= "#{current_user.post}" %></span>
-                        <% end %>
-                    </li>
-                    <li class="nav-user dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <% if current_user.admin? %>
-                                <div class="nav-avatar avatar-admin">
-                                <% else %>
-                                    <div class="nav-avatar avatar-user">
-                                    <% end %>
-                                    <div class="name"><%= short_name(current_user.name) %></div>
-                                </div>
-                                <%= fa_icon "chevron-down", class: "right" %>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <%= link_to Rails.configuration.settings.attributes[:account], account_path %>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <%= link_to Rails.configuration.settings.attributes[:settings], account_settings_path %>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <%= button_to Rails.configuration.settings.commands[:logout], session_path, method: :delete %>
-                                </li>
-                            </ul>
+                    <% end %>
+                </li>
+                <li class="nav-user dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <% if current_user.admin? %>
+                        <div class="nav-avatar avatar-admin">
+                        <% else %>
+                            <div class="nav-avatar avatar-user">
+                            <% end %>
+                            <div class="name"><%= short_name(current_user.name) %></div>
+                        </div>
+                        <%= fa_icon "chevron-down", class: "right" %>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <%= link_to Rails.configuration.settings.attributes[:account], account_path %>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <%= link_to Rails.configuration.settings.attributes[:settings], account_settings_path %>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <%= button_to Rails.configuration.settings.commands[:logout], session_path, method: :delete %>
                         </li>
                     </ul>
-                <% end %>
-            </div>
-        </div>
+                </li>
+            </ul>
+        <% end %>
     </div>
+</div>
