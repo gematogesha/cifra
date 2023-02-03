@@ -1,6 +1,6 @@
 class License < ApplicationRecord
 
-    has_one_attached :file_license
+    has_one_attached :file_license, dependent: :destroy
 
     belongs_to :user
 
