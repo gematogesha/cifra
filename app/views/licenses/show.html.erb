@@ -1,7 +1,7 @@
 <%- title @license.title.truncate(70, separator: ' ') %>
 
 <div class="module">
-    <div class="module-head path">
+    <div class="module-head module-small">
         <%= link_to @model_many, licenses_path %>
         <%= content_tag("a", @license.title.truncate(70, separator: ' ')) %>
     </div>

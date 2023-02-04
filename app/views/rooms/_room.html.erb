@@ -1,1 +1,8 @@
-<%= link_to room.title, room_path(room.title), target: "_blank", rel: "noopener noreferer" %>
+<div class="room-container <%= dom_id(room) %>" id=" <%=room.id %>">
+
+    <%= link_to room_path(room.title), target: "_blank", rel: "noopener noreferer" do %>
+        <span class='relative'>
+            <%= room.title %>
+        </span>
+    <% end %>
+</div>

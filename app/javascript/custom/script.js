@@ -1,5 +1,6 @@
 document.addEventListener("turbo:load", () => {
 
+
     $(document).ready(function () {
         $('#dttb').dataTable({
             "order": [0, "asc"],
@@ -94,3 +95,4 @@ document.addEventListener("turbo:load", () => {
 
     console.log("turbo loaded");
 });
+

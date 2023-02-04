@@ -39,7 +39,7 @@ input::placeholder{
 	color: var(--color) !important;
 }
 
-.path a::after{
+.module-small a::after{
     background: var(--border) !important;
 	color: var(--color) !important;
 }

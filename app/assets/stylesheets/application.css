@@ -11,10 +11,11 @@
 *= require layout
 *= require button
 *= require form
-*= require message
+*= require notification
 *= require module
 *= require sidebar
 *= require page-error
+*= require chat
 
 *= require table
 *= require datatables

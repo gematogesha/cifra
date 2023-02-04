@@ -1,7 +1,7 @@
 shared:
   logo:
     logo_simple: "ЦиФРА"
-    logo_admin: "ЦиФРА | Панель админитсратора"
+    logo_admin: "ЦиФРА | Панель администратора"
     logo_user: "ЦиФРА | Панель пользователя"
   commands:
     logout: "Выйти"

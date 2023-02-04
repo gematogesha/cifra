@@ -1,4 +1,4 @@
-.message{
+.notification{
 	position: absolute;
 	max-width: 300px;
 	top: 71px;
@@ -17,31 +17,31 @@
   95%, 100% {right: -350px;}
 }
 
-.message-success{
+.notification-success{
 	border: 1px solid #c3e6cb;
     color: #155724 !important;
 	background-color: #e7f5eb;
 }
 
-.message-info{
+.notification-info{
 	border: 1px solid #b8daff;
     color: #004085 !important;
 	background-color: #ecf5ff;
 }
 
-.message-error{
+.notification-error{
 	border: 1px solid #f5c6cb;
 	color: #cc1a2c !important;
 	background-color: #fdf2f3;
 }
 
-.message>span {
+.notification>span {
     display: table-cell;
     height: 30px;
     vertical-align: middle;
 }
 
-.message .fa{
+.notification .fa{
     float: left;
     margin-right: 20px;
     font-size: 30px;
@@ -49,15 +49,15 @@
 	margin-top: 5px;
 }
 
-.message-error .fa{
+.notification-error .fa{
 	color: #cc1a2c !important;
 }
 
-.message-success .fa{
+.notification-success .fa{
 	color: #155724 !important;
 }
 
-.message-info .fa{
+.notification-info .fa{
 	color: #004085 !important;
 }
 

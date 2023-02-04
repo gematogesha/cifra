@@ -1,7 +1,7 @@
 <%- title Rails.configuration.settings.attributes[:edit_license] %>
 
 <div class="module">
-    <div class="module-head path">
+    <div class="module-head module-small">
         <%= link_to @model_many, licenses_path, data: { turbolinks: false } %>
         <%= link_to @license.title.truncate(70, separator: ' '), license_path %>
         <%= link_to Rails.configuration.settings.attributes[:edit_license] %>

@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   get "/account", to: "users#account"
   get "/account/settings", to: "users#settings"
 
-  get "/rooms", to: "rooms#new"
-
   resources :licenses
   resource :session, only: %i[new create destroy]
-  resources :rooms, only: %i[create show new], param: :title
+  resources :rooms, only: %i[index create show], param: :title
+  resources :messages, only: :create
   resources :users
   resources :departments
 
