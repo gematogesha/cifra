@@ -5,24 +5,20 @@
 }
 
 .module{
-    box-shadow: 0 0 3px rgb(0 0 0 / 10%);
-    border-color: #e9e9e9;
     margin-bottom: 20px;
     background-color: var(--background-dark);
     border-radius: var(--border-radius);
-    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
 
-    -webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-    -moz-box-shadow: 0 1px 2px var(--shadow) !important;
-    box-shadow: 0 1px 2px var(--shadow) !important;
+    -webkit-box-shadow: var(--border-shadow) !important;
+    -moz-box-shadow: var(--border-shadow) !important;
+    box-shadow: var(--border-shadow) !important;
 }
 
 .module-head {
     color: var(--color);
     background-color: var(--background-dark);
-    border-color: #e9e9e9;
+    border-color: var(--border);
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
     border-top-right-radius: var(--border-radius);
@@ -42,8 +38,7 @@
 
 .module-foot {
     background: var(--background-dark);
-    border-color: var(--border);
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border);
     -webkit-border-radius: 0 0 2px 2px;
     -moz-border-radius: 0 0 2px 2px;
     border-radius: 0 0 var(--border-radius) var(--border-radius);

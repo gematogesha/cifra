@@ -4,16 +4,16 @@ class MessagesController < ApplicationController
 
 
     def create
-        @new_message = current_user&.messages&.build(strong_params)
+        @new_message = current_user&.messages&.build(message_params)
         
-        if @new_message&.save
+        if @new_message.save
             @new_message.broadcast_append_to @new_message.room, locals: {user: current_user}
         end
     end
 
     private
 
-    def strong_params
+    def message_params
         params.require(:message).permit(:room_id, :body)
     end
 

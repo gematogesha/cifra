@@ -64,9 +64,9 @@
     -webkit-border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
     -moz-border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
     border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
-    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    -webkit-box-shadow: var(--border-shadow);
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    box-shadow: var(--border-shadow);
     left: -1px;
     min-width: 200px;
     margin: -1px 0 0;
@@ -116,9 +116,9 @@
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    -webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-    -moz-box-shadow: 0 1px 2px var(--shadow) !important;
-    box-shadow: 0 1px 2px var(--shadow) !important;
+    -webkit-box-shadow: var(--border-shadow) !important;
+    -moz-box-shadow: var(--border-shadow) !important;
+    box-shadow: var(--border-shadow) !important;
 
 
     
@@ -177,4 +177,12 @@
 
 .navbar .nav>li>.dropdown-menu li>form>button:hover {
     background-color: var(--background) !important;
+}
+
+.envelope-link{
+    height: 60px;
+}
+
+.envelope-link>i{
+    font-size: 25px;
 }

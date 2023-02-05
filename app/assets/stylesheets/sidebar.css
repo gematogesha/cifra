@@ -5,9 +5,9 @@
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    -webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-    -moz-box-shadow: 0 1px 2px var(--shadow) !important;
-    box-shadow: 0 1px 2px var(--shadow) !important;
+    -webkit-box-shadow: var(--border-shadow) !important;
+    -moz-box-shadow: var(--border-shadow) !important;
+    box-shadow: var(--border-shadow) !important;
 }
 
 .widget-menu a {
@@ -58,6 +58,11 @@
 	border-bottom: none;
 	padding-top: 9px;
 	padding-bottom: 9px;
+}
+
+.active>.widget-menu-link{
+    -webkit-box-shadow: inset var(--border-shadow) !important;
+	box-shadow: inset var(--border-shadow) !important;
 }
 
 .widget-menu>li ul li:first-child a:hover {

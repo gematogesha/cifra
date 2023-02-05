@@ -6,6 +6,7 @@ class DepartmentsController < ApplicationController
 
   add_flash_types :info, :error, :success
 
+  
   def new
     @department = Department.new
   end

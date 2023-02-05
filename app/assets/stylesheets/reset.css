@@ -1,4 +1,9 @@
 /* Reset and base styles  */
+
+html{
+	overflow: hidden;
+}
+
 * {
 	padding: 0px;
 	margin: 0px;

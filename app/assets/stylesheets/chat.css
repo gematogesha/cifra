@@ -3,9 +3,15 @@
 
 }
 
+.message-container{
+    display: flow-root;
+    margin-bottom: 10px;
+}
+
 .module-message{
     max-width: 500px;
     margin-bottom: 0px !important;
+    background-color: var(--background-dark);
 }
 
 .chat-container{
@@ -13,16 +19,6 @@
     overflow: auto;
 }
 
-.chat-section{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.message-container{
-    display: flow-root;
-    margin-bottom: 10px;
-}
 
 .message-text{
     margin-bottom: 5px;
@@ -38,4 +34,6 @@
     font-size: 12px;
 }
 
-.module-message>.module-body>.message-name, .module-message>.module-body>.message-name{}
+.from-previous>.module-message>.module-body>.message-name{
+    display: none;
+}

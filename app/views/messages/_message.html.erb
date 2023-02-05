@@ -1,7 +1,7 @@
-<% if message.user_id == user.id %>
-    <% float = "right" %>
-<% else %>
+<% if message.user_id != user.id %>
     <% float = "left" %>
+<% else %>
+    <% float = "right" %>
 <% end %>
 
 <div class="message-container <%= dom_id(message) %> author_<%= message.user.id %>" data-controller="message" data-search-loading-class data-message-mine-class="mine" data-message-owner-id-value="<%= message.user.id %>">
@@ -11,7 +11,6 @@
             <div class="message-text text"><%= message.body %></div>
 
             <div class="message-date"><%= l(message.created_at, format: :short) %></div>
-            <%= float %>
         </div>
     </div>
 </div>

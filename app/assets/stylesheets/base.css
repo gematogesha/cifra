@@ -1,13 +1,13 @@
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus, select:focus {
 	border-color: var(--shadow-heavy) !important;
-    -webkit-box-shadow: 0 0 6px var(--shadow-heavy) !important;
-    box-shadow: 0 0 6px var(--shadow-heavy) !important;
+    -webkit-box-shadow: var(--border-shadow) !important;
+    box-shadow: var(--border-shadow) !important;
 }
 
 input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus {
     border-color: var(--shadow-heavy) !important;
-    -webkit-box-shadow: 0 0 6px var(--shadow-heavy) !important;
-    box-shadow: 0 0 6px var(--shadow-heavy) !important;
+    -webkit-box-shadow: var(--border-shadow) !important;
+    box-shadow: var(--border-shadow) !important;
 }
 
 .navbar .nav>li>.dropdown-menu li>a:hover {
@@ -54,8 +54,8 @@ body [class^="fa-"], body [class*=" fa-"] {
 
 .navbar {
 	border-bottom: 1px solid var(--border) !important;
-	-webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-	box-shadow: 0 1px 2px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+	box-shadow: var(--border-shadow) !important;
 }
 
 .navbar .navbar-inner, .module-body, .widget-menu>li ul li {
@@ -64,9 +64,9 @@ body [class^="fa-"], body [class*=" fa-"] {
 
 .button, .button-primary, input::file-selector-button{
 	color: var(--color) !important;
-	-webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-    -moz-box-shadow: 0 1px 2px var(--shadow) !important;
-    box-shadow: 0 1px 2px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+    -moz-box-shadow: var(--border-shadow) !important;
+    box-shadow: var(--border-shadow) !important;
 }
 
 .button.active:focus, .button:active:focus, .button:focus {
@@ -105,13 +105,13 @@ input::file-selector-button:hover, .button:hover, .button-box:hover, .button-pri
 }
 
 .button.active, .button:active {
-	-webkit-box-shadow: inset 0 3px 5px var(--shadow-light) !important;
-	box-shadow: inset 0 3px 5px var(--shadow-light) !important;
+	-webkit-box-shadow: inset var(--border-shadow) !important;
+	box-shadow: inset var(--border-shadow) !important;
 }
 
 .modal {
-	-webkit-box-shadow: 0 0 5px var(--shadow) !important;
-	box-shadow: 0 0 5px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+	box-shadow: var(--border-shadow) !important;
 }
 
 .modal .modal-header .close {
@@ -119,8 +119,8 @@ input::file-selector-button:hover, .button:hover, .button-box:hover, .button-pri
 }
 
 .accordion-group {
-	-webkit-box-shadow: 0 0 1px var(--shadow) !important;
-	box-shadow: 0 0 1px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+	box-shadow: var(--border-shadow) !important;
 }
 
 
@@ -139,8 +139,8 @@ input::file-selector-button:hover, .button:hover, .button-box:hover, .button-pri
 
 .navbar .nav>li>.dropdown-menu {
 	border: 1px solid var(--border) !important;
-	-webkit-box-shadow: 0 1px 1px var(--shadow) !important;
-	box-shadow: 0 1px 1px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+	box-shadow: var(--border-shadow) !important;
 }
 
 .navbar .nav>li.active , .navbar .nav>li.active , .navbar .nav>li.active, .navbar .nav>li:hover  {
@@ -168,8 +168,8 @@ input::file-selector-button:hover, .button:hover, .button-box:hover, .button-pri
 .wrapper{
     background-color: var(--background) !important;
 	border-bottom: 1px solid var(--border) !important;
-	-webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-	box-shadow: 0 1px 2px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+	box-shadow: var(--border-shadow) !important;
 }
 
 .widget-menu>li ul li {
@@ -228,8 +228,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .module{
 	border-color: var(--border) !important;
-	-webkit-box-shadow: 0 0 1px var(--shadow) !important;
-	box-shadow: 0 0 1px var(--shadow) !important;
+	-webkit-box-shadow: var(--border-shadow) !important;
+	box-shadow: var(--border-shadow) !important;
 }
 
 strong, b {

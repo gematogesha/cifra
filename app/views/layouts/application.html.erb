@@ -13,12 +13,12 @@
     </head>
 
     <body>
-        <%= render "layouts/navbar" %>
+        <%= render "shared/navbar" %>
         <div class="wrapper">
-            <%= render "layouts/notification" %>
+            <%= render "shared/notification" %>
             <div class="container">
                 <% if !current_page?(root_url) %>
-                    <%= render "layouts/sidebar" %>
+                    <%= render "shared/sidebar" %>
                     <div class="row-bg left">
                         <div class="content">
                         <% end %>

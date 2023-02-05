@@ -1,5 +1,5 @@
 <% if @department.errors.any? %>
-    <% @department.errors.full_notifications.each do |notification| %>
+    <% @department.errors.full_messages.each do |notification| %>
         <div class="module module-alert">
             <div class="module-head module-head-alert module-small"><%= notification %></div>
         </div>
