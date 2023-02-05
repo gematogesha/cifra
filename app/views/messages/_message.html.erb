@@ -8,7 +8,7 @@
     <div class="module <%= float %> module-message" style="text-align: <%= float %> !important; margin-<%= float %>: 10px;">
         <div class="module-body">
             <div class="message-name"><%= message.user.name %></div>
-            <div class="message-text text"><%= message.body %></div>
+            <div class="message-text text-message"><%= message.body %></div>
 
             <div class="message-date"><%= l(message.created_at, format: :short) %></div>
         </div>
