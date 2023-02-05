@@ -23,6 +23,12 @@ a:hover {
 .text {
     color: var(--color) !important;
     font-weight: 500;
+    text-align: left !important;
+}
+
+.text-message{
+    color: var(--color) !important;
+    font-weight: 500;
 }
 
 .file-size {
