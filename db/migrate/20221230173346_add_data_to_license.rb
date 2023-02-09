@@ -7,7 +7,7 @@ class AddDataToLicense < ActiveRecord::Migration[7.0]
     add_column :licenses, :content, :string
     add_column :licenses, :begin, :date
     add_column :licenses, :ending, :date
-    add_column :licenses, :user_id, :string
+    add_column :licenses, :responsible, :string
     add_column :licenses, :remark, :string
     add_column :licenses, :status, :string
   end
