@@ -11,6 +11,12 @@
     animation: move 5s ease-in-out;
 }
 
+@-webkit-keyframes move {
+  0%, 5% {right: -350px;}
+  15%, 85% {right: 20px;}
+  95%, 100% {right: -350px;}
+}
+
 @keyframes move {
   0%, 5% {right: -350px;}
   15%, 85% {right: 20px;}

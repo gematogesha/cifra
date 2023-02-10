@@ -1,12 +1,13 @@
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input, select {
     background-color: #ffffff;
-    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%); 
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%); 
-    -webkit-transition: border linear .2s, box-shadow linear .2s; 
-    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
     -o-transition: border linear .2s, box-shadow linear .2s;
+    -webkit-transition: border linear .2s, -webkit-box-shadow linear .2s;
+    transition: border linear .2s, -webkit-box-shadow linear .2s;
     transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s, -webkit-box-shadow linear .2s;
 }
 
 .form-text-area,
@@ -17,8 +18,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     padding: 4px 6px;
     font-size: 14px;
     line-height: 20px;
-    -webkit-border-radius: var(--border-radius);
-    -moz-border-radius: var(--border-radius);
     border-radius: var(--border-radius);
     vertical-align: middle;
 }

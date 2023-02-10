@@ -18,6 +18,8 @@
 .navbar .nav>li {
     float: left;
     cursor: pointer;
+    -webkit-transition: 0.1s !important;
+    -o-transition: 0.1s !important;
     transition: 0.1s !important;
 }
 
@@ -40,8 +42,6 @@
     width: 40px;
     height: 40px;
     margin: -11px 5px 0 0;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
     display: inline-block;
 }
@@ -61,11 +61,8 @@
 
 .navbar .nav>li>.dropdown-menu {
     border: 1px solid #ccc;
-    -webkit-border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
-    -moz-border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
     border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
     -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
     left: -1px;
     min-width: 200px;
@@ -113,11 +110,8 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     *border-right-width: 2px;
     *border-bottom-width: 2px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
     border-radius: 6px;
     -webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-    -moz-box-shadow: 0 1px 2px var(--shadow) !important;
     box-shadow: 0 1px 2px var(--shadow) !important;
 
 
@@ -125,11 +119,12 @@
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding;
     background-clip: padding-box;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
     transition: 0.1s;
     height: 0;
     overflow: hidden;
     -webkit-transition: height 0.35s ease;
-    -moz-transition: height 0.35s ease;
     -o-transition: height 0.35s ease;
     transition: height 0.35s ease;
     opacity: 0;

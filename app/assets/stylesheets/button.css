@@ -1,3 +1,22 @@
+input::-webkit-file-upload-button{
+    display: inline-block;
+    font-weight: 400;
+    cursor: pointer;
+    background-image: none;
+    padding: 4px 10px;
+    font-size: 14px;
+    border-radius: var(--border-radius);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid var(--border) !important;
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
 .button, input::file-selector-button{
     display: inline-block;
     font-weight: 400;
@@ -11,6 +30,8 @@
     -ms-user-select: none;
     user-select: none;
     border: 1px solid var(--border) !important;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
     transition: 0.1s;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;

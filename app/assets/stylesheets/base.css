@@ -62,10 +62,15 @@ body [class^="fa-"], body [class*=" fa-"] {
 	background: var(--module-body) !important;
 }
 
+input::-webkit-file-upload-button{
+	color: var(--color) !important;
+	-webkit-box-shadow: 0 1px 2px var(--shadow) !important;
+    box-shadow: 0 1px 2px var(--shadow) !important;
+}
+
 .button, .button-primary, input::file-selector-button{
 	color: var(--color) !important;
 	-webkit-box-shadow: 0 1px 2px var(--shadow) !important;
-    -moz-box-shadow: 0 1px 2px var(--shadow) !important;
     box-shadow: 0 1px 2px var(--shadow) !important;
 }
 
@@ -77,6 +82,13 @@ body [class^="fa-"], body [class*=" fa-"] {
 
 .button, .button-primary{
 	background-color: var(--background-dark) !important;
+}
+
+input::-webkit-file-upload-button:hover{
+	background-color: var(--border) !important;
+	color: var(--color) !important;
+	-webkit-box-shadow: 0 0 2px var(--shadow) !important;
+	box-shadow: 0 0 2px var(--shadow) !important;
 }
 
 input::file-selector-button:hover, .button:hover, .button-box:hover, .button-primary:hover{
