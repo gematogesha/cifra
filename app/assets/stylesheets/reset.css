@@ -1,7 +1,7 @@
 /* Reset and base styles  */
 
 html{
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 * {
