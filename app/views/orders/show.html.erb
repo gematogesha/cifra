@@ -1,0 +1,92 @@
+<%- title @order.title.truncate(70, separator: ' ') %>
+
+<div class="module">
+    <div class="module-head module-small">
+        <%= link_to @model_many, orders_path %>
+        <%= content_tag("a", @order.title.truncate(70, separator: ' ')) %>
+    </div>
+</div>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @order.title %></h2>
+        <% if @order.created_at == @order.updated_at %>
+            <span>изменений нет</span>
+        <% else %>
+            <span>изменено:
+                <%= l(@order.updated_at, format: :long) %></span>
+        <% end %>
+        <% if current_user.admin? %>
+            <%= link_to fa_icon("pencil-square-o"), edit_order_path(@order), title: "Редактровать", class: "right" %>
+        <% end %>
+
+    </div>
+    <div class="module-body">
+        <div class="control-group">
+            <%= label_tag nil, t(Order.human_attribute_name :title), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @order.title %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Order.human_attribute_name :number), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @order.number %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Order.human_attribute_name :number), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @order.number.to_s %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Order.human_attribute_name :create_date), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= l(@order.create_date, format: :long) %>
+                </div>
+            </div>
+        </div>
+        <% if @order.file_order.attached?%>
+            <div class="control-group">
+                <%= label_tag nil, t(Order.human_attribute_name :file_order), class: 'control-label' %>
+                <div class="controls">
+                    <div class="control-label text">
+                        <%= link_to @order.file_order.filename, rails_blob_path(@order.file_order, disposition: 'attachment') %>
+                        <span>
+                            <%= number_to_human_size(@order.file_order.byte_size) %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <div class="control-group">
+            <%= label_tag nil, t(Order.human_attribute_name :status), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @order.status %>
+                </div>
+            </div>
+        </div>
+        <% if current_user.admin? %>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="control-label text">
+                        <%= button_to fa_icon("trash-o") + " Удалить", order_path(@order), 
+                        method: :delete, 
+                        form: {data: {turbo_confirm: "Вы точно хотите удалить лицензию?" }}, 
+                        class: "button text-alert" %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+    </div>
+</div>

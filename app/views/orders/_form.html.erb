@@ -1,0 +1,40 @@
+
+<div class="module-body">
+    <%= form_with model: @order, data: {turbo: false} do |form| %>
+        <div class="control-group">
+            <%= form.label :title, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_area :title, rows: 5 , cols: 45 %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :number, class: "control-label" %>
+            <div class="controls">
+                <%= form.text_field :number %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :create_date, class: "control-label" %>
+            <div class="controls">
+                <%= form.date_field :create_date %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :status, class: "control-label" %>
+            <div class="controls">
+                <%= form.select :status, ["Действующий", "Не действующий", "Не начат", "В процессе", "Закончен"] %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= form.label :file_order, class: "control-label" %>
+            <div class="controls">
+                <%= form.file_field :file_order  %>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <%= form.submit class: "button"%>
+            </div>
+        </div>
+    <% end %>
+</div>

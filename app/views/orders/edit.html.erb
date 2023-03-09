@@ -1,0 +1,19 @@
+<%- title Rails.configuration.settings.attributes[:edit_order] %>
+
+<div class="module">
+    <div class="module-head module-small">
+        <%= link_to @model_many, orders_path, data: { turbolinks: false } %>
+        <%= link_to @order.title.truncate(70, separator: ' '), order_path %>
+        <%= link_to Rails.configuration.settings.attributes[:edit_order] %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= link_to @order.title, order_path %></h2>
+    </div>
+
+    <%= render "form", order: @order %>
+</div>

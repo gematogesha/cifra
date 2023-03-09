@@ -42,6 +42,27 @@
                         </li>
                     </ul>
                 </li>
+                <li class="widget-menu-li">
+                    <a class="widget-menu-link">
+                        <%= fa_icon "file", class: "menu-icon" %>
+                        <%= t(Order.model_name.human(count: :many)) %>
+                        <%= fa_icon "chevron-down", class: "right" %>
+                    </a>
+                    <ul class="widget-menu-data collapse">
+                        <li>
+                            <%= link_to orders_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "file", class: "menu-icon" %>
+                                <%= t(Order.model_name.human(count: :many)) %>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_order_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "file-text", class: "menu-icon" %>
+                                <%= Rails.configuration.settings.attributes[:create_order] %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </li>
             <% else %>
                 <li class="widget-menu-li">
                     <%= link_to licenses_path, class: "widget-menu-link" do %>

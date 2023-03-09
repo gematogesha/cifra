@@ -7,6 +7,9 @@ ru:
       license:
         one: "Лицензия"
         other: "Лицензии"  
+      order:
+        one: "Приказ"
+        other: "Приказы"  
       department:
         one: "Отдел"
         other: "Отделы"  
@@ -30,6 +33,14 @@ ru:
         user_id: "Ответсвенный"
         remark: "Примечание"
         file_license: "Файл"
+        status: "Статус"
+        created_at: "Дата создания"
+        updated_at: "Дата обновления"
+      order:
+        title: "Наименование"
+        create_date: "Дата создания"
+        number: "Номер приказа"
+        file_order: "Файл"
         status: "Статус"
         created_at: "Дата создания"
         updated_at: "Дата обновления"

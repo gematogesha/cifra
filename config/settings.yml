@@ -12,5 +12,7 @@ shared:
     edit_user: "Редактировать пользователя"
     create_license: "Создать лицензию"
     edit_license: "Редактировать лицензию"
+    create_order: "Создать приказ"
+    edit_order: "Редактировать приказ"
     create_department: "Создать отдел"
     edit_department: "Редактировать отдел"

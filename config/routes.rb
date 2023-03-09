@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/account/settings", to: "users#settings"
 
   resources :licenses
+  resources :orders
   resource :session, only: %i[new create destroy]
   resources :rooms, only: %i[index create show], param: :title
   resources :messages, only: :create

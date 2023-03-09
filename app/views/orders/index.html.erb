@@ -1,0 +1,61 @@
+<%- title @model_many %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @model_many %></h2>
+    </div>
+    <div class="module-body table">
+        <table id="dttb" class="hover table-bordered cell-border">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">№</th>
+                    <th><%= t(Order.human_attribute_name :title) %></th>
+                    <th><%= t(Order.human_attribute_name :create_date) %></th>
+                    <th><%= t(Order.human_attribute_name :updated_at) %></th>
+                    <th><%= t(Order.human_attribute_name :status) %></th>
+                    <th><%= t(Order.human_attribute_name :file_order) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if current_user.admin? %>
+                    <% @orders.each_with_index do |order, index| %>
+                        <tr>
+                            <td style="text-align: center;"><%= index + 1 %></td>
+                            <td><%= link_to order.title, order_path(order) %></td>
+                            <td><%= l(order.create_date, format: :long) %></td>
+                            <td><%= l(order.updated_at, format: :long) %></td>
+                            <td>
+                                <b><%= order.status %></b>
+                            </td>
+                            <td>
+                                <% if order.file_order.attached?%>
+                                    <%= link_to order.file_order.filename, rails_blob_path(order.file_order, disposition: 'attachment') %>
+                                    <span class="file-size"><%= number_to_human_size(order.file_order.byte_size) %></span>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <% @orders.where(user_id: current_user.name).each_with_index do |order, index| %>
+                        <tr>
+                            <td style="text-align: center;"><%= index + 1 %></td>
+                            <td><%= link_to order.title, order_path(order) %></td>
+                            <td><%= l(order.create_date, format: :long) %></td>
+                            <td><%= l(order.updated_at, format: :long) %></td>
+                            <td>
+                                <b><%= order.status %></b>
+                            </td>
+                            <td>
+                                <% if order.file_order.attached?%>
+                                    <%= link_to order.file_order.filename, rails_blob_path(order.file_order, disposition: 'attachment') %>
+                                    <span class="file-size"><%= number_to_human_size(order.file_order.byte_size) %></span>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
