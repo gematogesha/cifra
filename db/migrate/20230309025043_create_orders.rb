@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.integer :number 
       t.string :status 
       t.date :create_date
+      t.date :archive_date
 
 
       t.timestamps

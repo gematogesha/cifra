@@ -39,6 +39,7 @@ ru:
       order:
         title: "Наименование"
         create_date: "Дата создания"
+        archive_date: "Дата архивирования"
         number: "Номер приказа"
         file_order: "Файл"
         status: "Статус"

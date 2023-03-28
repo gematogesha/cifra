@@ -20,9 +20,15 @@
             </div>
         </div>
         <div class="control-group">
+            <%= form.label :archive_date, class: "control-label" %>
+            <div class="controls">
+                <%= form.date_field :archive_date %>
+            </div>
+        </div>
+        <div class="control-group">
             <%= form.label :status, class: "control-label" %>
             <div class="controls">
-                <%= form.select :status, ["Действующий", "Не действующий", "Не начат", "В процессе", "Закончен"] %>
+                <%= form.select :status, ["Действующий", "Архив"] %>
             </div>
         </div>
         <div class="control-group">

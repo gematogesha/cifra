@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_025043) do
     t.integer "number"
     t.string "status"
     t.date "create_date"
+    t.date "archive_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
