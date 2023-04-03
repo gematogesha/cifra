@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "/account", to: "users#account"
   get "/account/settings", to: "users#settings"
+  get "/orders/archive", to: "orders#archive"
 
   resources :licenses
   resources :orders

@@ -61,6 +61,12 @@
                                 <%= Rails.configuration.settings.attributes[:create_order] %>
                             <% end %>
                         </li>
+                        <li>
+                            <%= link_to orders_archive_path, class: "widget-menu-link" do %>
+                                <%= fa_icon "file", class: "menu-icon" %>
+                                <%= Rails.configuration.settings.attributes[:archive_orders] %>
+                            <% end %>
+                        </li>
                     </ul>
                 </li>
             <% else %>

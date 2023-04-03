@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
     before_action :loggedin, :model_name
-    before_action :admin_check, only: %i[new create update destroy edit]
+    before_action :admin_check, only: %i[new create update destroy edit archive]
     before_action :set_order, only: %i[update show destroy edit]
     
     add_flash_types :info, :error, :success
@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
     end
     
     def index
-      @orders = Order.all
+      @orders = Order.all.where(status: "Действующий")
     end
   
     def new
@@ -51,6 +51,10 @@ class OrdersController < ApplicationController
     def edit
     end
   
+    def archive
+      @orders = Order.all.where(status: "Архив")
+    end
+
     private
   
     def order_params

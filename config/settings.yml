@@ -16,3 +16,4 @@ shared:
     edit_order: "Редактировать приказ"
     create_department: "Создать отдел"
     edit_department: "Редактировать отдел"
+    archive_orders: "Архив"
