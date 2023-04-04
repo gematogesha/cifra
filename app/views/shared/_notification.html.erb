@@ -1,16 +1,16 @@
 <% if flash[:success].present? %>
     <div id="notification" class="notification notification-success">
-        <%= icon("fa-regular", "check-circle")%>
+        <%= icon("fa-solid", "check-circle")%>
         <span><%= flash[:success] %></span>
     </div>
     <% elsif flash[:error].present?%>
     <div id="notification" class="notification notification-error">
-        <%= icon("fa-regular", "exclamation-circle")%>
+        <%= icon("fa-solid", "exclamation-circle")%>
         <span><%= flash[:error] %></span>
     </div>
     <% elsif flash[:info].present?%>
     <div id="notification" class="notification notification-info">
-        <%= icon("fa-regular", "info-circle")%>
+        <%= icon("fa-solid", "info-circle")%>
         <span><%= flash[:info] %></span>
     </div>
 <% end %>

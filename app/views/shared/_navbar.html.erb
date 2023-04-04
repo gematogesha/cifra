@@ -15,7 +15,7 @@
             <% if current_user.present? %>
                 <ul class="nav right">
                     <li>
-                        <%= link_to icon('fa-regular', 'envelope'), rooms_path, class: "envelope-link" %>
+                        <%= link_to icon('fa-solid', 'envelope'), rooms_path, class: "envelope-link" %>
                     </li>
                     <li>
                         <%= link_to account_path, class: "nav-name" do %>
@@ -33,7 +33,7 @@
                                 <% end %>
                                 <div class="name"><%= short_name(current_user.name) %></div>
                             </div>
-                            <%= icon('fa-regular', 'chevron-down', class: "right") %>
+                            <%= icon('fa-solid', 'chevron-down', class: "right") %>
                         </a>
                         <ul class="dropdown-menu">
                             <li>

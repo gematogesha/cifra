@@ -230,7 +230,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  font-awesome-sass (~> 6.3.0)
+  font-awesome-sass
   importmap-rails
   jbuilder
   jquery-datatables
