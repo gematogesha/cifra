@@ -3,40 +3,40 @@
         <ul class="widget widget-menu">
             <li class="widget-menu-li">
                 <a class="widget-menu-link">
-                    <%= fa_icon "calendar", class: "menu-icon" %>
+                    <%= icon("fa-regular", "calendar", class: "menu-icon") %>
                     Ближайшиe
-                    <%= fa_icon "chevron-down", class: "right" %>
+                    <%= icon('fa-regular', 'chevron-down', class: "right") %>
                 </a>
 
                 <ul class="widget-menu-data collapse">
                     <li>
-                        <a class="widget-menu-link"><%= fa_icon "calendar", class: "menu-icon" %>Ближайшие</a>
+                        <a class="widget-menu-link"><%= icon("fa-regular", "calendar", class: "menu-icon") %>Ближайшие</a>
                     </li>
                     <li>
-                        <a class="widget-menu-link"><%= fa_icon "calendar", class: "menu-icon" %>Ближайшие</a>
+                        <a class="widget-menu-link"><%= icon("fa-regular", "calendar", class: "menu-icon") %>Ближайшие</a>
                     </li>
                     <li>
-                        <a class="widget-menu-link"><%= fa_icon "calendar", class: "menu-icon" %>Ближайшие</a>
+                        <a class="widget-menu-link"><%= icon("fa-regular", "calendar", class: "menu-icon") %>Ближайшие</a>
                     </li>
                 </ul>
             </li>
             <% if current_user.admin? %>
                 <li class="widget-menu-li">
                     <a class="widget-menu-link">
-                        <%= fa_icon "file", class: "menu-icon" %>
+                        <%= icon("fa-regular", "file", class: "menu-icon") %>
                         <%= t(License.model_name.human(count: :many)) %>
-                        <%= fa_icon "chevron-down", class: "right" %>
+                        <%= icon('fa-regular', 'chevron-down', class: "right") %>
                     </a>
                     <ul class="widget-menu-data collapse">
                         <li>
                             <%= link_to licenses_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "file", class: "menu-icon" %>
+                                <%= icon("fa-regular", "file", class: "menu-icon") %>
                                 <%= t(License.model_name.human(count: :many)) %>
                             <% end %>
                         </li>
                         <li>
                             <%= link_to new_license_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "file-text", class: "menu-icon" %>
+                                <%= icon("fa-regular", "file-text", class: "menu-icon") %>
                                 <%= Rails.configuration.settings.attributes[:create_license] %>
                             <% end %>
                         </li>
@@ -44,26 +44,26 @@
                 </li>
                 <li class="widget-menu-li">
                     <a class="widget-menu-link">
-                        <%= fa_icon "file", class: "menu-icon" %>
+                        <%= icon("fa-regular", "file", class: "menu-icon") %>
                         <%= t(Order.model_name.human(count: :many)) %>
-                        <%= fa_icon "chevron-down", class: "right" %>
+                        <%= icon('fa-regular', 'chevron-down', class: "right") %>
                     </a>
                     <ul class="widget-menu-data collapse">
                         <li>
                             <%= link_to orders_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "file", class: "menu-icon" %>
+                                <%= icon("fa-regular", "file", class: "menu-icon") %>
                                 <%= t(Order.model_name.human(count: :many)) %>
                             <% end %>
                         </li>
                         <li>
                             <%= link_to new_order_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "file-text", class: "menu-icon" %>
+                                <%= icon("fa-regular", "file-text", class: "menu-icon") %>
                                 <%= Rails.configuration.settings.attributes[:create_order] %>
                             <% end %>
                         </li>
                         <li>
                             <%= link_to orders_archive_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "file", class: "menu-icon" %>
+                                <%= icon("fa-regular", "box-archive", class: "menu-icon") %>
                                 <%= Rails.configuration.settings.attributes[:archive_orders] %>
                             <% end %>
                         </li>
@@ -72,7 +72,7 @@
             <% else %>
                 <li class="widget-menu-li">
                     <%= link_to licenses_path, class: "widget-menu-link" do %>
-                        <%= fa_icon "files-o", class: "menu-icon" %>
+                        <%= icon("fa-regular", "files", class: "menu-icon") %>
                         <%= t(License.model_name.human(count: :many)) %>
                     <% end %>
 
@@ -83,20 +83,20 @@
             <ul class="widget widget-menu">
                 <li class="widget-menu-li">
                     <a class="widget-menu-link">
-                        <%= fa_icon "users", class: "menu-icon" %>
+                        <%= icon("fa-regular", "users", class: "menu-icon") %>
                         <%= t(User.model_name.human(count: :many)) %>
-                        <%= fa_icon "chevron-down", class: "right" %>
+                        <%= icon('fa-regular', 'chevron-down', class: "right") %>
                     </a>
                     <ul class="widget-menu-data collapse">
                         <li>
                             <%= link_to users_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "users", class: "menu-icon" %>
+                                <%= icon("fa-regular","user-plus", class: "menu-icon") %>
                                 <%= t(User.model_name.human(count: :many)) %>
                             <% end %>
                         </li>
                         <li>
                             <%= link_to new_user_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "user-plus", class: "menu-icon" %>
+                                <%= icon("fa-regular","user-plus", class: "menu-icon") %>
                                 <%= Rails.configuration.settings.attributes[:create_user] %>
                             <% end %>
                         </li>
@@ -106,20 +106,20 @@
             <ul class="widget widget-menu">
                 <li class="widget-menu-li">
                     <a class="widget-menu-link">
-                        <%= fa_icon "users", class: "menu-icon" %>
+                        <%= icon("fa-regular", "users", class: "menu-icon") %>
                         <%= t(Department.model_name.human(count: :many)) %>
-                        <%= fa_icon "chevron-down", class: "right" %>
+                        <%= icon('fa-regular', 'chevron-down', class: "right") %>
                     </a>
                     <ul class="widget-menu-data collapse">
                         <li>
                             <%= link_to departments_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "users", class: "menu-icon" %>
+                                <%= icon("fa-regular", "users", class: "menu-icon") %>
                                 <%= t(Department.model_name.human(count: :many)) %>
                             <% end %>
                         </li>
                         <li>
                             <%= link_to new_department_path, class: "widget-menu-link" do %>
-                                <%= fa_icon "user-plus", class: "menu-icon" %>
+                                <%= icon("fa-regular","user-plus", class: "menu-icon") %>
                                 <%= Rails.configuration.settings.attributes[:create_department] %>
                             <% end %>
                         </li>

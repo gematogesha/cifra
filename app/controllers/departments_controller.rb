@@ -66,18 +66,19 @@ class DepartmentsController < ApplicationController
     @model_one = Department.model_name.human
     @model_many = Department.model_name.human(count: :many)
   end     
-def short_title
 
-  @department.short_title = ''
-  @department.title.split(/[\s,-]/).each do |i|
-    if i == "и"
-      @department.short_title << i[0]
-    else
-      @department.short_title << i[0][0].capitalize
-    end
-  end 
-  
-end
+  def short_title
+
+    @department.short_title = ''
+    @department.title.split(/[\s,-]/).each do |i|
+      if i == "и"
+        @department.short_title << i[0]
+      else
+        @department.short_title << i[0][0].capitalize
+      end
+    end 
+    
+  end
 
 
 end
