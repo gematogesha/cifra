@@ -16,6 +16,12 @@ module CifraApp
     config.exceptions_app = self.routes
 
     config.settings = config_for(:settings)
+
+    config.time_zone = 'Asia/Yekaterinburg'
+
+    #SSL
+
+    config.force_ssl = false
     
     # Configuration for the application, engines, and railties goes here.
     #
