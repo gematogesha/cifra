@@ -7,6 +7,9 @@ ru:
       license:
         one: "Лицензия"
         other: "Лицензии"  
+      agreement:
+        one: "Соглашение"
+        other: "Соглашения"  
       order:
         one: "Приказ"
         other: "Приказы"  
@@ -22,6 +25,21 @@ ru:
         department_id: "Отдел"
         admin: "Администратор"
       license:
+        title: "Наименование"
+        description: "Описание"
+        reg_number: "Регистрационный номер"
+        issued: "Выдано"
+        series: "Серия"
+        content: "Содержание"
+        begin: "Начало срока"
+        ending: "Окончание срока"
+        user_id: "Ответсвенный"
+        remark: "Примечание"
+        file_license: "Файл"
+        status: "Статус"
+        created_at: "Дата создания"
+        updated_at: "Дата обновления"
+      agreement:
         title: "Наименование"
         description: "Описание"
         reg_number: "Регистрационный номер"

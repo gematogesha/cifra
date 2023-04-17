@@ -1,0 +1,133 @@
+<%- title @agreement.title.truncate(70, separator: ' ') %>
+
+<div class="module">
+    <div class="module-head module-small">
+        <%= link_to @model_many, agreements_path %>
+        <%= content_tag("a", @agreement.title.truncate(70, separator: ' ')) %>
+    </div>
+</div>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @agreement.title %></h2>
+        <% if @agreement.created_at == @agreement.updated_at %>
+            <span>изменений нет</span>
+        <% else %>
+            <span>изменено:
+                <%= l(@agreement.updated_at, format: :long) %></span>
+        <% end %>
+        <% if current_user.admin? %>
+            <%= link_to icon("fa-solid", "pen"), edit_agreement_path(@agreement), title: "Редактровать", class: "right" %>
+        <% end %>
+
+    </div>
+    <div class="module-body">
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :title), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.title %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :reg_number), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.reg_number %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :issued), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.issued %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :series), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.series.to_s %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :content), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.content %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :begin), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= l(@agreement.begin, format: :long) %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :ending), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= l(@agreement.ending, format: :long) %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :user_id), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.user_id %>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :remark), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.remark %>
+                </div>
+            </div>
+        </div>
+        <% if @agreement.file_agreement.attached?%>
+            <div class="control-group">
+                <%= label_tag nil, t(Agreement.human_attribute_name :file_agreement), class: 'control-label' %>
+                <div class="controls">
+                    <div class="control-label text">
+                        <%= link_to @agreement.file_agreement.filename, rails_blob_path(@agreement.file_agreement, disposition: 'attachment') %>
+                        <span>
+                            <%= number_to_human_size(@agreement.file_agreement.byte_size) %>
+                        </span>
+                        <%= icon("fa-solid", "file-" + @agreement.file_agreement.content_type.split('/')[1]) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <div class="control-group">
+            <%= label_tag nil, t(Agreement.human_attribute_name :status), class: 'control-label' %>
+            <div class="controls">
+                <div class="control-label text">
+                    <%= @agreement.status %>
+                </div>
+            </div>
+        </div>
+        <% if current_user.admin? %>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="control-label text">
+                        <%= button_to icon("fa-solid", "trash") + " Удалить", agreement_path(@agreement), 
+                        method: :delete, 
+                        form: {data: {turbo_confirm: "Вы точно хотите удалить лицензию?" }}, 
+                        class: "button text-alert" %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+    </div>
+</div>

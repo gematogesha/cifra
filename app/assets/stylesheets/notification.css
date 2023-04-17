@@ -11,6 +11,11 @@
     animation: move 5s ease-in-out;
 }
 
+.notification i {
+	float: left;
+	margin-right: 20px;
+}
+
 @keyframes move {
   0%, 5% {right: -350px;}
   15%, 85% {right: 20px;}

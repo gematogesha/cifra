@@ -1,0 +1,19 @@
+<%- title Rails.configuration.settings.attributes[:edit_agreement] %>
+
+<div class="module">
+    <div class="module-head module-small">
+        <%= link_to @model_many, agreements_path, data: { turbolinks: false } %>
+        <%= link_to @agreement.title.truncate(70, separator: ' '), agreement_path %>
+        <%= link_to Rails.configuration.settings.attributes[:edit_agreement] %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= link_to @agreement.title, agreement_path %></h2>
+    </div>
+
+    <%= render "form", agreement: @agreement %>
+</div>

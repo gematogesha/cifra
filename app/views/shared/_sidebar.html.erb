@@ -45,6 +45,27 @@
                 <li class="widget-menu-li">
                     <a class="widget-menu-link">
                         <%= icon("fa-solid", "file", class: "menu-icon") %>
+                        <%= t(Agreement.model_name.human(count: :many)) %>
+                        <%= icon('fa-solid', 'chevron-down', class: "right") %>
+                    </a>
+                    <ul class="widget-menu-data collapse">
+                        <li>
+                            <%= link_to agreements_path, class: "widget-menu-link" do %>
+                                <%= icon("fa-solid", "file", class: "menu-icon") %>
+                                <%= t(Agreement.model_name.human(count: :many)) %>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_agreement_path, class: "widget-menu-link" do %>
+                                <%= icon("fa-solid", "file-circle-plus", class: "menu-icon") %>
+                                <%= Rails.configuration.settings.attributes[:create_agreement] %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </li>
+                <li class="widget-menu-li">
+                    <a class="widget-menu-link">
+                        <%= icon("fa-solid", "file", class: "menu-icon") %>
                         <%= t(Order.model_name.human(count: :many)) %>
                         <%= icon('fa-solid', 'chevron-down', class: "right") %>
                     </a>

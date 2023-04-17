@@ -1,0 +1,17 @@
+<%- title Rails.configuration.settings.attributes[:create_agreement] %>
+
+<div class="module">
+    <div class="module-head module-small">
+        <%= link_to @model_many, agreements_path %>
+        <%= content_tag("a", Rails.configuration.settings.attributes[:create_agreement]) %>
+    </div>
+</div>
+
+<%= render "alert" %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= Rails.configuration.settings.attributes[:create_agreement] %></h2>
+    </div>
+    <%= render "form", agreement: @agreement %>
+</div>

@@ -1,0 +1,72 @@
+<%- title @model_many %>
+
+<div class="module">
+    <div class="module-head">
+        <h2><%= @model_many %></h2>
+    </div>
+    <div class="module-body table">
+        <table id="dttb" class="hover table-bordered cell-border">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">№</th>
+                    <th><%= t(Agreement.human_attribute_name :title) %></th>
+                    <th><%= t(Agreement.human_attribute_name :created_at) %></th>
+                    <th><%= t(Agreement.human_attribute_name :begin) %></th>
+                    <th><%= t(Agreement.human_attribute_name :ending) %></th>
+                    <th><%= t(Agreement.human_attribute_name :updated_at) %></th>
+                    <th><%= t(Agreement.human_attribute_name :user_id) %></th>
+                    <th><%= t(Agreement.human_attribute_name :status) %></th>
+                    <th><%= t(Agreement.human_attribute_name :file_agreement) %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if current_user.admin? %>
+                    <% @agreements.each_with_index do |agreement, index| %>
+                        <tr>
+                            <td style="text-align: center;"><%= index + 1 %></td>
+                            <td><%= link_to agreement.title, agreement_path(agreement) %></td>
+                            <td><%= l(agreement.created_at, format: :long) %></td>
+                            <td><%= l(agreement.begin, format: :long) %></td>
+                            <td><%= l(agreement.ending, format: :long) %></td>
+                            <td><%= l(agreement.updated_at, format: :long) %></td>
+                            <td><%= link_to User.find_by(id: agreement.user_id).name, user_path(agreement.user_id) %></td>
+                            <td>
+                                <b><%= agreement.status %></b>
+                            </td>
+                            <td>
+                                <% if agreement.file_agreement.attached?%>
+                                    <%= link_to agreement.file_agreement.filename, rails_blob_path(agreement.file_agreement, disposition: 'attachment') %>
+                                    <span class="file-size"><%= number_to_human_size(agreement.file_agreement.byte_size) %></span>
+                                    <%= icon("fa-solid", "file-" + agreement.file_agreement.content_type.split('/')[1]) %>   
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <% @agreements.where(user_id: current_user.name).each_with_index do |agreement, index| %>
+                        <tr>
+                            <td style="text-align: center;"><%= index + 1 %></td>
+                            <td><%= link_to agreement.title, agreement_path(agreement) %></td>
+                            <td><%= l(agreement.created_at, format: :long) %></td>
+                            <td><%= l(agreement.begin, format: :long) %></td>
+                            <td><%= l(agreement.ending, format: :long) %></td>
+                            <td><%= l(agreement.updated_at, format: :long) %></td>
+                            <td><%= link_to agreement.user_id, account_path %></td>
+                            <td>
+                                <b><%= agreement.status %></b>
+                            </td>
+                            <td>
+                                <% if agreement.file_agreement.attached?%>
+                                    <%= link_to agreement.file_agreement.filename, rails_blob_path(agreement.file_agreement, disposition: 'attachment') %>
+                                    <span class="file-size"><%= number_to_human_size(agreement.file_agreement.byte_size) %></span>
+                                    <%= icon("fa-solid", "file-" + agreement.file_agreement.content_type.split('/')[1]) %>                                    
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

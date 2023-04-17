@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/orders/archive", to: "orders#archive"
 
   resources :licenses
+  resources :agreements
   resources :orders
   resource :session, only: %i[new create destroy]
   resources :rooms, only: %i[index create show], param: :title
