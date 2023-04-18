@@ -22,7 +22,7 @@
                         <tr>
                             <td style="text-align: center;"><%= index + 1 %></td>
                             <td><%= link_to order.title, order_path(order) %></td>
-                            <td><%= order.status %></td>
+                            <td><%= order.number %></td>
                             <td><%= l(order.create_date, format: :long) %></td>
                             <td><%= l(order.updated_at, format: :long) %></td>
                             <td>
@@ -38,7 +38,7 @@
                         <tr>
                             <td style="text-align: center;"><%= index + 1 %></td>
                             <td><%= link_to order.title, order_path(order) %></td>
-                            <td><%= order.status %></td>
+                            <td><%= order.number %></td>
                             <td><%= l(order.create_date, format: :long) %></td>
                             <td><%= l(order.updated_at, format: :long) %></td>
                             <td>

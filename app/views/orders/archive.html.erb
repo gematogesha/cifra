@@ -1,8 +1,8 @@
-<%- title @model_many %>
+<%- title @model_many + " - " + Rails.configuration.settings.attributes[:archive_orders] %>
 
 <div class="module">
     <div class="module-head">
-        <h2><%= @model_many %></h2>
+        <h2><%= @model_many %> - <%= Rails.configuration.settings.attributes[:archive_orders] %></h2>
     </div>
     <div class="module-body table">
         <table id="dttb" class="hover table-bordered cell-border">
@@ -22,11 +22,9 @@
                         <tr>
                             <td style="text-align: center;"><%= index + 1 %></td>
                             <td><%= link_to order.title, order_path(order) %></td>
+                            <td><%= order.number %></td>
                             <td><%= l(order.create_date, format: :long) %></td>
                             <td><%= l(order.updated_at, format: :long) %></td>
-                            <td>
-                                <b><%= order.status %></b>
-                            </td>
                             <td>
                                 <% if order.file_order.attached?%>
                                     <%= link_to order.file_order.filename, rails_blob_path(order.file_order, disposition: 'attachment') %>
@@ -41,11 +39,9 @@
                         <tr>
                             <td style="text-align: center;"><%= index + 1 %></td>
                             <td><%= link_to order.title, order_path(order) %></td>
+                            <td><%= order.number %></td>
                             <td><%= l(order.create_date, format: :long) %></td>
                             <td><%= l(order.updated_at, format: :long) %></td>
-                            <td>
-                                <b><%= order.status %></b>
-                            </td>
                             <td>
                                 <% if order.file_order.attached?%>
                                     <%= link_to order.file_order.filename, rails_blob_path(order.file_order, disposition: 'attachment') %>
