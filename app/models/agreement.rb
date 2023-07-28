@@ -18,5 +18,4 @@ class Agreement < ApplicationRecord
         reg_number.strip!
     end
 
-
 end
