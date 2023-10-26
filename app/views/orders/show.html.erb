@@ -21,7 +21,7 @@
                 <%= l(@order.updated_at, format: :long) %></span>
         <% end %>
         <% if current_user.admin? %>
-            <%= link_to icon("fa-solid", "pen"), edit_order_path(@order), title: "Редактровать", class: "right" %>
+            <%= link_to edit_order_path(@order), title: "Редактровать", class: "right" %>
         <% end %>
 
     </div>
@@ -59,7 +59,6 @@
                         <span>
                             <%= number_to_human_size(@order.file_order.byte_size) %>
                         </span>
-                        <%= icon("fa-solid", "file-" + @order.file_order.content_type.split('/')[1]) %>
                     </div>
                 </div>
             </div>
@@ -76,7 +75,7 @@
             <div class="control-group">
                 <div class="controls">
                     <div class="control-label text">
-                        <%= button_to icon("fa-solid", "trash") + " Удалить", order_path(@order), 
+                        <%= button_to " Удалить", order_path(@order), 
                         method: :delete, 
                         form: {data: {turbo_confirm: "Вы точно хотите удалить лицензию?" }}, 
                         class: "button text-alert" %>

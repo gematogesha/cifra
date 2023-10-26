@@ -1,152 +1,86 @@
-<div class="row-sm left">
-    <div class="sidebar">
-        <ul class="widget widget-menu">
-            <li class="widget-menu-li">
-                <a class="widget-menu-link">
-                    <%= icon("fa-solid", "calendar", class: "menu-icon") %>
-                    Ближайшиe
-                    <%= icon('fa-solid', 'chevron-down', class: "right") %>
-                </a>
+<div class="RLayoutDashboard__menu">
+    <button tabindex="0" class="RButtonSimple RLayoutDashboard__close larishae transparent harakiri">
+        <i class="RIcon rir-close_20"></i>
+    </button>
+    <div class="RLayoutDashboard__menu-content">
+        <div class="RLayoutDashboard__header">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                <div class="RLayoutDashboard__title">Цифра</div>
+                <sup class="mozzarella troy--text">v0.0.1</sup>
+            </div>
+        </div>
+        <div class="RLayoutDashboard__list">
+            <section class="RMenu">
+                <%= render partial: "components/menu_item", locals: { icon: "night", title: "test", color: "rocky", count: "1" }  %>
 
-                <ul class="widget-menu-data collapse">
-                    <li>
-                        <a class="widget-menu-link"><%= icon("fa-solid", "calendar", class: "menu-icon") %>Ближайшие</a>
-                    </li>
-                    <li>
-                        <a class="widget-menu-link"><%= icon("fa-solid", "calendar", class: "menu-icon") %>Ближайшие</a>
-                    </li>
-                    <li>
-                        <a class="widget-menu-link"><%= icon("fa-solid", "calendar", class: "menu-icon") %>Ближайшие</a>
-                    </li>
-                </ul>
-            </li>
-            <% if current_user.admin? %>
-                <li class="widget-menu-li">
-                    <a class="widget-menu-link">
-                        <%= icon("fa-solid", "file", class: "menu-icon") %>
-                        <%= t(License.model_name.human(count: :many)) %>
-                        <%= icon('fa-solid', 'chevron-down', class: "right") %>
+                <div class="RMenu__item">
+                    <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                        <i class="RIcon rir-avatar_16 RMenu__icon"></i>
+                        <div class="RBulb RMenu__title-bulb">
+                            <span class="RMenu__title">menu1</span>
+                            <div class="RBulb__badge rocky marina celano title block">22</div>
+                        </div>
                     </a>
-                    <ul class="widget-menu-data collapse">
-                        <li>
-                            <%= link_to licenses_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "file", class: "menu-icon") %>
-                                <%= t(License.model_name.human(count: :many)) %>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to new_license_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "file-circle-plus", class: "menu-icon") %>
-                                <%= Rails.configuration.settings.attributes[:create_license] %>
-                            <% end %>
-                        </li>
-                    </ul>
-                </li>
-                <li class="widget-menu-li">
-                    <a class="widget-menu-link">
-                        <%= icon("fa-solid", "file", class: "menu-icon") %>
-                        <%= t(Agreement.model_name.human(count: :many)) %>
-                        <%= icon('fa-solid', 'chevron-down', class: "right") %>
+                </div>
+                <div class="RMenu__item">
+                    <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                        <i class="RIcon rir-avatar_16 RMenu__icon"></i>
+                        <span class="RMenu__title">menu2</span>
+                        <span class="RMenu__arrow">
+                            <i class="RIcon rir-arrow-down_16"></i>
+                        </span>
                     </a>
-                    <ul class="widget-menu-data collapse">
-                        <li>
-                            <%= link_to agreements_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "file", class: "menu-icon") %>
-                                <%= t(Agreement.model_name.human(count: :many)) %>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to new_agreement_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "file-circle-plus", class: "menu-icon") %>
-                                <%= Rails.configuration.settings.attributes[:create_agreement] %>
-                            <% end %>
-                        </li>
-                    </ul>
-                </li>
-                <li class="widget-menu-li">
-                    <a class="widget-menu-link">
-                        <%= icon("fa-solid", "file", class: "menu-icon") %>
-                        <%= t(Order.model_name.human(count: :many)) %>
-                        <%= icon('fa-solid', 'chevron-down', class: "right") %>
+                    <section class="RMenu parent" style="display: flex;">
+                        <div class="RMenu__item">
+                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                                <div class="RBulb RMenu__title-bulb">
+                                    <span class="RMenu__title">sub menu 1</span>
+                                    <div class="RBulb__badge matrix marina celano title block">1</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="RMenu__item">
+                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                                <div class="RBulb RMenu__title-bulb">
+                                    <span class="RMenu__title">sub menu 2</span>
+                                    <div class="RBulb__badge fargo marina celano title block">2</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="RMenu__item">
+                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                                <span class="RMenu__title">sub menu 3</span>
+                            </a>
+                        </div>
+                        <div class="RMenu__item">
+                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                                <span class="RMenu__title">sub menu 4</span>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                <div class="RMenu__item">
+                    <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                        <i class="RIcon rir-avatar_16 RMenu__icon"></i>
+                        <span class="RMenu__title">menu3</span>
                     </a>
-                    <ul class="widget-menu-data collapse">
-                        <li>
-                            <%= link_to orders_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "file", class: "menu-icon") %>
-                                <%= t(Order.model_name.human(count: :many)) %>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to new_order_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "file-circle-plus", class: "menu-icon") %>
-                                <%= Rails.configuration.settings.attributes[:create_order] %>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to orders_archive_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "box-archive", class: "menu-icon") %>
-                                <%= Rails.configuration.settings.attributes[:archive_orders] %>
-                            <% end %>
-                        </li>
-                    </ul>
-                </li>
-            <% else %>
-                <li class="widget-menu-li">
-                    <%= link_to licenses_path, class: "widget-menu-link" do %>
-                        <%= icon("fa-solid", "files", class: "menu-icon") %>
-                        <%= t(License.model_name.human(count: :many)) %>
-                    <% end %>
-
-                </li>
-            <% end %>
-        </ul>
-        <% if current_user.admin? %>
-            <ul class="widget widget-menu">
-                <li class="widget-menu-li">
-                    <a class="widget-menu-link">
-                        <%= icon("fa-solid", "users", class: "menu-icon") %>
-                        <%= t(User.model_name.human(count: :many)) %>
-                        <%= icon('fa-solid', 'chevron-down', class: "right") %>
-                    </a>
-                    <ul class="widget-menu-data collapse">
-                        <li>
-                            <%= link_to users_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid","users", class: "menu-icon") %>
-                                <%= t(User.model_name.human(count: :many)) %>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to new_user_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid","user-plus", class: "menu-icon") %>
-                                <%= Rails.configuration.settings.attributes[:create_user] %>
-                            <% end %>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="widget widget-menu">
-                <li class="widget-menu-li">
-                    <a class="widget-menu-link">
-                        <%= icon("fa-solid", "house-user", class: "menu-icon") %>
-                        <%= t(Department.model_name.human(count: :many)) %>
-                        <%= icon('fa-solid', 'chevron-down', class: "right") %>
-                    </a>
-                    <ul class="widget-menu-data collapse">
-                        <li>
-                            <%= link_to departments_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid", "house-user", class: "menu-icon") %>
-                                <%= t(Department.model_name.human(count: :many)) %>
-                            <% end %>
-                        </li>
-                        <li>
-                            <%= link_to new_department_path, class: "widget-menu-link" do %>
-                                <%= icon("fa-solid","house-medical", class: "menu-icon") %>
-                                <%= Rails.configuration.settings.attributes[:create_department] %>
-                            <% end %>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        <% end %>
+                </div>
+            </section>
+            <div class="RLayoutDashboard__footer">
+                <div class="departed--bg gentlemen--text feta d-flex justify-content-center align-items-center px-2" style="width: 100%; height: 40px;">
+                    <div class="RShorter">
+                        <div class="RTooltip">
+                            <div class="RTooltip__activator">
+                                <div class="RShorter__content" style="-webkit-line-clamp: 1; max-height: 20px;">
+                                    footer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <button tabindex="0" class="RButtonArrow RLayoutDashboard__compact ileneira default">
+        <i class="RIcon rir-arrow-left_12"></i>
+    </button>
 </div>

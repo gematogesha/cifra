@@ -37,7 +37,6 @@
                                 <% if agreement.file_agreement.attached?%>
                                     <%= link_to agreement.file_agreement.filename, rails_blob_path(agreement.file_agreement, disposition: 'attachment') %>
                                     <span class="file-size"><%= number_to_human_size(agreement.file_agreement.byte_size) %></span>
-                                    <%= icon("fa-solid", "file-" + agreement.file_agreement.content_type.split('/')[1]) %>   
                                 <% end %>
                             </td>
                         </tr>
@@ -58,8 +57,7 @@
                             <td>
                                 <% if agreement.file_agreement.attached?%>
                                     <%= link_to agreement.file_agreement.filename, rails_blob_path(agreement.file_agreement, disposition: 'attachment') %>
-                                    <span class="file-size"><%= number_to_human_size(agreement.file_agreement.byte_size) %></span>
-                                    <%= icon("fa-solid", "file-" + agreement.file_agreement.content_type.split('/')[1]) %>                                    
+                                    <span class="file-size"><%= number_to_human_size(agreement.file_agreement.byte_size) %></span>                               
                                 <% end %>
                             </td>
                         </tr>

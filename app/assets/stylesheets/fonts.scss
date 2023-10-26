@@ -1,0 +1,40 @@
+@font-face {
+	font-family: 'RirFont';
+	src: font-url('Golos_Regular/Golos_Regular.eot');
+	src:
+		font-url('Golos_Regular/Golos_Regular.eot?#iefix') format('embedded-opentype'),
+		font-url('Golos_Regular/Golos_Regular.woff2') format('woff2'),
+		font-url('Golos_Regular/Golos_Regular.woff') format('woff'),
+		font-url('Golos_Regular/Golos_Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'RirFont';
+	src: font-url('Golos_Bold/Golos_Bold.eot');
+	src:
+		font-url('Golos_Bold/Golos_Bold.eot?#iefix') format('embedded-opentype'),
+		font-url('Golos_Bold/Golos_Bold.woff2') format('woff2'),
+		font-url('Golos_Bold/Golos_Bold.woff') format('woff'),
+		font-url('Golos_Bold/Golos_Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'RirFont';
+	src: font-url('Golos_Medium/Golos_Medium.eot');
+	src:
+		font-url('Golos_Medium/Golos_Medium.eot?#iefix') format('embedded-opentype'),
+		font-url('Golos_Medium/Golos_Medium.woff2') format('woff2'),
+		font-url('Golos_Medium/Golos_Medium.woff') format('woff'),
+		font-url('Golos_Medium/Golos_Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+    font-family: riricon;
+    src: url(https://design.rusatom.dev/fonts/icons/riricon.eot?t=1698070554510);
+    src: url(https://design.rusatom.dev/fonts/icons/riricon.eot?t=1698070554510#iefix) format("embedded-opentype"), url(https://design.rusatom.dev/fonts/icons/riricon.woff2?t=1698070554510) format("woff2"), url(https://design.rusatom.dev/fonts/icons/riricon.woff?t=1698070554510) format("woff"), url(https://design.rusatom.dev/fonts/icons/riricon.ttf?t=1698070554510) format("truetype")
+}

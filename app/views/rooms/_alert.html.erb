@@ -1,7 +1,0 @@
-<% if @room.errors.any? %>
-    <% @room.errors.full_messages.each do |notification| %>
-        <div class="module module-alert">
-            <div class="module-head module-head-alert module-small"><%= notification %></div>
-        </div>
-    <% end %>
-<% end %>

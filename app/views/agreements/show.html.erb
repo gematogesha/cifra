@@ -17,7 +17,7 @@
                 <%= l(@agreement.updated_at, format: :long) %></span>
         <% end %>
         <% if current_user.admin? %>
-            <%= link_to icon("fa-solid", "pen"), edit_agreement_path(@agreement), title: "Редактровать", class: "right" %>
+            <%= link_to edit_agreement_path(@agreement), title: "Редактровать", class: "right" %>
         <% end %>
 
     </div>
@@ -103,7 +103,6 @@
                         <span>
                             <%= number_to_human_size(@agreement.file_agreement.byte_size) %>
                         </span>
-                        <%= icon("fa-solid", "file-" + @agreement.file_agreement.content_type.split('/')[1]) %>
                     </div>
                 </div>
             </div>
@@ -120,7 +119,7 @@
             <div class="control-group">
                 <div class="controls">
                     <div class="control-label text">
-                        <%= button_to icon("fa-solid", "trash") + " Удалить", agreement_path(@agreement), 
+                        <%= button_to " Удалить", agreement_path(@agreement), 
                         method: :delete, 
                         form: {data: {turbo_confirm: "Вы точно хотите удалить лицензию?" }}, 
                         class: "button text-alert" %>

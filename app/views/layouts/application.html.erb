@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html theme="default">
     <head>
         <title><%= content_for?(:title) ? content_for(:title) : "ЦиФРА" %></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,31 +9,16 @@
 
         <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
         <%= javascript_importmap_tags %>
-      <!--  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    -->
-      </head>
+    </head>
 
-    <body>
-        <%= render "shared/navbar" %>
-        <div class="wrapper">
+    <body class="widest">
+        <section class="RLayoutDashboard">
             <%= render "shared/notification" %>
-            <div class="container">
-                <% if !current_page?(root_url) %>
-                    <%= render "shared/sidebar" %>
-                    <div class="row-bg left">
-                        <div class="content">
-                        <% end %>
+            <% if !current_page?(root_url) %>
+                <%= render "shared/sidebar" %>
+            <% end %>
 
-                        <%= yield %>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="container">
-                <b class="copyright">© 2022 ЦиФРА
-                </b>
-                Все права защищены.</div>
-        </div>
+            <%= yield %>
+        </section>
     </body>
 </html>
