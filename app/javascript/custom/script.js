@@ -97,19 +97,14 @@ document.addEventListener("turbo:load", () => {
         $('.RRow').each(function () {
             $(this).addClass('dashboard wrap');
         });
-    });
-
-    $(function () {
         $('.RCol').each(function () {
             $(this).addClass('cols-widest-8 cols-wide-8 cols-middle-6 cols-narrow-6');
         });
-    });
-
-    $(function () {
         $('.RBulb__badge').each(function () {
             $(this).parent().addClass('RBulb');
         });
     });
+
 
     $(function () {
         $('.RMenu__item_parent').click(function () {
