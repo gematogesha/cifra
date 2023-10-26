@@ -1,0 +1,9 @@
+<%= link_to link do %>
+    <section class="RAvatar <%= size %> <%= color %> active">
+        <% if avatar_title.empty? %>
+            <i class="RIcon RAvatar__icon rir-avatar_16"></i>
+        <% else %>
+            <span class="RAvatar__title"><%= current_user.name[0] %></span>
+        <% end %>
+    </section>
+<% end %>

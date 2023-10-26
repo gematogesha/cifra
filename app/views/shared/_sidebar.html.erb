@@ -11,10 +11,11 @@
         </div>
         <div class="RLayoutDashboard__list">
             <section class="RMenu">
-                <%= render partial: "components/menu_item", locals: { icon: "night", title: "test", color: "rocky", count: "1" }  %>
+
+                <%= render partial: "components/menu_item", locals: { link: licenses_path, icon: "file", menu_title: "Лицензии", color: "rocky", count: "1", blub: true }  %>
 
                 <div class="RMenu__item">
-                    <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                    <a href tabindex="0" class="RMenu__body">
                         <i class="RIcon rir-avatar_16 RMenu__icon"></i>
                         <div class="RBulb RMenu__title-bulb">
                             <span class="RMenu__title">menu1</span>
@@ -22,17 +23,17 @@
                         </div>
                     </a>
                 </div>
-                <div class="RMenu__item">
-                    <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                <div class="RMenu__item RMenu__item_parent">
+                    <div tabindex="0" class="RMenu__body">
                         <i class="RIcon rir-avatar_16 RMenu__icon"></i>
                         <span class="RMenu__title">menu2</span>
                         <span class="RMenu__arrow">
                             <i class="RIcon rir-arrow-down_16"></i>
                         </span>
-                    </a>
-                    <section class="RMenu parent" style="display: flex;">
+                    </div>
+                    <section class="RMenu parent" style="display: none;">
                         <div class="RMenu__item">
-                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                            <a href tabindex="0" class="RMenu__body">
                                 <div class="RBulb RMenu__title-bulb">
                                     <span class="RMenu__title">sub menu 1</span>
                                     <div class="RBulb__badge matrix marina celano title block">1</div>
@@ -40,7 +41,7 @@
                             </a>
                         </div>
                         <div class="RMenu__item">
-                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                            <a href tabindex="0" class="RMenu__body">
                                 <div class="RBulb RMenu__title-bulb">
                                     <span class="RMenu__title">sub menu 2</span>
                                     <div class="RBulb__badge fargo marina celano title block">2</div>
@@ -48,33 +49,33 @@
                             </a>
                         </div>
                         <div class="RMenu__item">
-                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                            <a href tabindex="0" class="RMenu__body">
                                 <span class="RMenu__title">sub menu 3</span>
                             </a>
                         </div>
                         <div class="RMenu__item">
-                            <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                            <a href tabindex="0" class="RMenu__body">
                                 <span class="RMenu__title">sub menu 4</span>
                             </a>
                         </div>
                     </section>
                 </div>
                 <div class="RMenu__item">
-                    <a href="https://design.rusatom.dev/layout-dashboard-page" tabindex="0" class="RMenu__body">
+                    <a href tabindex="0" class="RMenu__body">
                         <i class="RIcon rir-avatar_16 RMenu__icon"></i>
                         <span class="RMenu__title">menu3</span>
                     </a>
                 </div>
             </section>
             <div class="RLayoutDashboard__footer">
-                <div class="departed--bg gentlemen--text feta d-flex justify-content-center align-items-center px-2" style="width: 100%; height: 40px;">
-                    <div class="RShorter">
-                        <div class="RTooltip">
-                            <div class="RTooltip__activator">
-                                <div class="RShorter__content" style="-webkit-line-clamp: 1; max-height: 20px;">
-                                    footer</div>
-                            </div>
-                        </div>
+                <div class="RLayoutDashboard__actions" style="margin-left: 0px;">
+                    <div class="d-flex align-items-center" style="height: 100%;">
+                        <button tabindex="0" class="RButtonSimple monithei transparent change_theme_day">
+                            <i class="RIcon rir-day_16"></i>
+                        </button>
+                        <button tabindex="0" class="RButtonSimple monithei transparent change_theme_night">
+                            <i class="RIcon rir-night_16"></i>
+                        </button>
                     </div>
                 </div>
             </div>

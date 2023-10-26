@@ -1,0 +1,16 @@
+<div class="RLayoutDashboard__head">
+    <div class="RLayoutDashboard__meta">
+        <!--<div class="RLayoutDashboard__navigation">
+                <div class="gentlemen--text departed--bg d-flex align-items-center justify-content-center" style="height: 20px; width: 100%;"></div>
+        </div>-->
+        <div class="RLayoutDashboard__title"><%= page_title %></div>
+    </div>
+
+    <section tabindex="0" class="RListItem" style="padding: 0px">
+        <%= render partial: "components/avatar", locals: { link: account_path, color: "nixilei", size: "aethelsa", avatar_title: "" }  %>
+        <section class="RListItem__content ml-4">
+            <span class="RListItem__title" style="-webkit-line-clamp: 1;"><%= current_user.name %></span>
+            <span class="RListItem__sub-title"><%= current_user.admin ? "Администратор" : current_user.post %></span>
+        </section>
+    </section> 
+</div>
