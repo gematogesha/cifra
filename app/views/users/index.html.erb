@@ -11,7 +11,7 @@
 <div class="RRow">
     <div class="RCol">
 
-        <%= turbo_frame_tag "users", src: users_get_users_path, loading: :lazy, target: "_top" do %>
+        <%= turbo_frame_tag "users", src: users_get_users_path do %>
             <%= render "components/table_loading" %>
         <% end %>
 

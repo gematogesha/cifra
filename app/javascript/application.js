@@ -4,7 +4,7 @@ import "controllers"
 
 import "jquery"
 
-import "custom/script"
+import "custom/main_controller"
 
 import "custom/tablesorter"
 

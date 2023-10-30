@@ -8,7 +8,7 @@ $(function () {
     $('.RCol').each(function () {
         $(this).addClass('cols-widest-8 cols-wide-8 cols-middle-6 cols-narrow-6');
     });
-    
+
     $('.RBulb__badge').each(function () {
         $(this).parent().addClass('RBulb');
     });
@@ -17,11 +17,11 @@ $(function () {
 
 $(function () {
     $('.RMenu__item_parent').click(function () {
-        if ($(this).children('.parent').css( "display") == "none") {
+        if ($(this).children('.parent').css("display") == "none") {
             $(this).find('.RMenu__arrow').addClass("active")
-            $(this).children('.parent').css( "display", "flex" );
+            $(this).children('.parent').css("display", "flex");
         } else {
-            $(this).children('.parent').css( "display", "none" );
+            $(this).children('.parent').css("display", "none");
             $(this).find('.RMenu__arrow').removeClass("active")
         }
 
@@ -57,7 +57,7 @@ $(function () {
     });
 })
 
-$(function() {
+$(function () {
     $(".RTable").tablesorter();
     $(".tablesorter-header").each(function () {
         if (!$(this).attr("aria-sort") == "none") {
@@ -67,41 +67,41 @@ $(function() {
         }
 
     })
-  });
+});
 
-  $(function () {
-    if ($( window ).width() < 600) {
+$(function () {
+    if ($(window).width() < 600) {
         $("body").removeClass();
         $("body").addClass("narrow");
-    } else if ($( window ).width() >= 600 && $( window ).width() < 1024) {
+    } else if ($(window).width() >= 600 && $(window).width() < 1024) {
         $("body").removeClass();
         $("body").addClass("middle");
-    } else if ($( window ).width() >= 1024 && $( window ).width() < 1300) {
+    } else if ($(window).width() >= 1024 && $(window).width() < 1300) {
         $("body").removeClass();
         $("body").addClass("wide");
-    } else if (1300 <= $( window ).width()) {
+    } else if (1300 <= $(window).width()) {
         $("body").removeClass();
         $("body").addClass("widest");
     }
-  });
+});
 
-  $(function () {
+$(function () {
     if ($("body").hasClass('narrow')) {
         $(".RLayoutDashboard__head").find(".RRadioButton__content").css("display", "none")
         $(".RLayoutDashboard__head").find(".RAvatar").toggleClass("aethelsa themise")
     }
-  });
+});
 
-  $(function () {
-    $(".RLayoutDashboard__hamburger").click( function () {
+$(function () {
+    $(".RLayoutDashboard__hamburger").click(function () {
         $(".RLayoutDashboard__menu").addClass("open")
     })
 
-    $(".RLayoutDashboard__close").click( function () {
+    $(".RLayoutDashboard__close").click(function () {
         $(".RLayoutDashboard__menu").removeClass("open")
     })
 
-    $(".RLayoutDashboard__compact").click( function () {
+    $(".RLayoutDashboard__compact").click(function () {
         if (!$(".RLayoutDashboard__menu").hasClass("compact")) {
             document.cookie = "menu=compact";
             $(".RLayoutDashboard__menu").addClass("compact")
@@ -110,6 +110,6 @@ $(function() {
             $(".RLayoutDashboard__menu").removeClass("compact")
         }
     })
-  });
+});
 
 console.log("turbo loaded");
