@@ -2,24 +2,196 @@
 
 <div class="RRow">
     <div class="RCol">
-        <table id="dttb" class="hover table-bordered cell-border">
-            <thead>
+        <table class="RTable creusa">
+            <thead class="trainspotting--bg">
                 <tr>
-                    <th style="text-align: center;">№</th>
                     <th><%= t(User.human_attribute_name :name) %></th>
                     <th><%= t(User.human_attribute_name :email) %></th>
                     <th><%= t(User.human_attribute_name :post) %></th>
                 </tr>
             </thead>
             <tbody>
-                <% @users.each_with_index do |user, index| %>
+                <% @users.each do |user| %>
                     <tr>
-                        <td style="text-align: center;"><%= index + 1 %></td>
-                        <td><%= link_to user.name, user_path(user) %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.post %></td>
+                        <td><div class="RTable__row"><%= link_to user.name, user_path(user) %></div></td>
+                        <td><div class="RTable__row"><%= user.email %></div></td>
+                        <td><div class="RTable__row"><%= user.post %></div></td>
                     </tr>
                 <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="RRow">
+    <div class="RCol">
+
+        <table class="RTable creusa">
+            <thead class="trainspotting--bg" style="top: 0px;">
+                <tr>
+                    <th>
+                        <div class="RTable__th interactive active" style="justify-content: flex-start;">
+                            <div class="RShorter">
+                                <div class="RTooltip">
+                                    <div class="RTooltip__activator">
+                                        <div class="RShorter__content RTable__name" style="-webkit-line-clamp: 1; max-height: 16px;">Модель</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="RTable__sort">
+                                <i class="RIcon rir-arrow-up_6" style="color: var(--rir-rocky);"></i>
+                                <i class="RIcon rir-arrow-down_6" style="color: var(--rir-memento);"></i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="RTable__th interactive" style="justify-content: flex-start;">
+                            <div class="RShorter">
+                                <div class="RTooltip">
+                                    <div class="RTooltip__activator">
+                                        <div class="RShorter__content RTable__name" style="-webkit-line-clamp: 1; max-height: 16px;">Владелец</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="RTable__sort">
+                                <i class="RIcon rir-arrow-up_6" style="color: var(--rir-memento);"></i>
+                                <i class="RIcon rir-arrow-down_6" style="color: var(--rir-memento);"></i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="RTable__th interactive" style="justify-content: flex-start;">
+                            <div class="RShorter">
+                                <div class="RTooltip">
+                                    <div class="RTooltip__activator">
+                                        <div class="RShorter__content RTable__name" style="-webkit-line-clamp: 1; max-height: 16px;">Гос. номер</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="RTable__sort">
+                                <i class="RIcon rir-arrow-up_6" style="color: var(--rir-memento);"></i>
+                                <i class="RIcon rir-arrow-down_6" style="color: var(--rir-memento);"></i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="RTable__th interactive" style="justify-content: flex-start;">
+                            <div class="RShorter">
+                                <div class="RTooltip">
+                                    <div class="RTooltip__activator">
+                                        <div class="RShorter__content RTable__name" style="-webkit-line-clamp: 1; max-height: 16px;">Борт. номер</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="RTable__sort">
+                                <i class="RIcon rir-arrow-up_6" style="color: var(--rir-memento);"></i>
+                                <i class="RIcon rir-arrow-down_6" style="color: var(--rir-memento);"></i>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="RTable__th interactive" style="justify-content: flex-start;">
+                            <div class="RShorter">
+                                <div class="RTooltip">
+                                    <div class="RTooltip__activator">
+                                        <div class="RShorter__content RTable__name" style="-webkit-line-clamp: 1; max-height: 16px;">Пробег, км</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="RTable__sort">
+                                <i class="RIcon rir-arrow-up_6" style="color: var(--rir-memento);"></i>
+                                <i class="RIcon rir-arrow-down_6" style="color: var(--rir-memento);"></i>
+                            </a>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td class="">
+                        <div class="RTable__row">Камаз МКЗ 7017 Н2 03</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">МУП «Горавтотранс»</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">A100AA77</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">1000</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">100 000</div>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <div class="RTable__row">Ford</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">КБ №50</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">A200AA99</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">2000</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">200 000</div>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <div class="RTable__row">Такси</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">Такси Мобиль</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">A300AA99</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">3000</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">300 000</div>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <div class="RTable__row">Toyota Camry</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">Адмнистрация города</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">A400AA99</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">4000</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">400 000</div>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <div class="RTable__row">Kia Optima</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">МУП «ЦентрЖКХ»</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">A500AA99</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">5000</div>
+                    </td>
+                    <td class="">
+                        <div class="RTable__row">500 000</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
