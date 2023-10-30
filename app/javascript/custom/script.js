@@ -37,9 +37,7 @@ document.addEventListener("turbo:load", () => {
             $('.change_theme_night').addClass('rocky');
             $('.change_theme_day').addClass('harakiri');
         }
-    })
 
-    $(function () {
         $('.change_theme_night').click(function () {
             if ($('html').attr('theme') == "default") {
                 $('.change_theme_night').toggleClass('harakiri rocky');
@@ -57,8 +55,7 @@ document.addEventListener("turbo:load", () => {
                 $('.change_theme_night').toggleClass('rocky harakiri');
             }
         });
-    });
-
+    })
 
     $(function() {
         $(".RTable").tablesorter();
@@ -69,6 +66,41 @@ document.addEventListener("turbo:load", () => {
                 $(".tablesorter-header").find(".RTable__th").removeClass("active")
             }
 
+        })
+      });
+
+      $(function () {
+        if ($( window ).width() < 600) {
+            $("body").removeClass();
+            $("body").addClass("narrow");
+        } else if ($( window ).width() >= 600 && $( window ).width() < 1024) {
+            $("body").removeClass();
+            $("body").addClass("middle");
+        } else if ($( window ).width() >= 1024 && $( window ).width() < 1300) {
+            $("body").removeClass();
+            $("body").addClass("wide");
+        } else if (1300 <= $( window ).width()) {
+            $("body").removeClass();
+            $("body").addClass("widest");
+        }
+      });
+
+      $(function () {
+        if ($("body").hasClass('narrow')) {
+            $(".RLayoutDashboard__head").find(".RRadioButton__content").css("display", "none")
+            $(".RLayoutDashboard__head").find(".RAvatar").toggleClass("aethelsa themise")
+        }
+      });
+
+      $(function () {
+        $(".RLayoutDashboard__hamburger").click( function () {
+            $(".RLayoutDashboard__menu").addClass("open")
+        })
+        $(".RLayoutDashboard__close").click( function () {
+            $(".RLayoutDashboard__menu").removeClass("open")
+        })
+        $(".RLayoutDashboard__compact").click( function () {
+            $(".RLayoutDashboard__menu").addClass("compact")
         })
       });
 

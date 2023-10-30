@@ -3,7 +3,7 @@
     <%= link_to link, class: ["RMenu__body", ("activeLink" if request.path == link)], tabindex: "0" do %>
         <i class="RIcon rir-<%= icon %>_16 RMenu__icon"></i>
         <div class="RMenu__title-bulb">
-            <span class="RMenu__title"><%= menu_title %></span>
+            <span class="RMenu__title"><%= title %></span>
             <% if blub %>
                 <div class="RBulb__badge <%= color %> marina celano title block"><%= count %></div>
             <% end %>

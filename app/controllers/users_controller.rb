@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   end
 
   def human_att
-    @human_att = [I18n.t(User.human_attribute_name :name), I18n.t(User.human_attribute_name :email), I18n.t(User.human_attribute_name :post)]
+    @human_att = [I18n.t("att.user.name"), I18n.t("att.user.email"), I18n.t("att.user.post")]
   end
 
 end
