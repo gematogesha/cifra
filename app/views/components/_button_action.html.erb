@@ -2,13 +2,5 @@
     <% if !icon.nil? %>
         <i class="RIcon RButtonAction__icon rir-<%= icon %>_16"></i>
     <% end %>
-    <div class="RButtonAction__title">
-        <div class="RShorter">
-            <div class="RTooltip">
-                <div class="RTooltip__activator">
-                    <div class="RShorter__content RButtonAction__title" style="-webkit-line-clamp: 1; max-height: 20px;"><%= title %></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="RButtonAction__title"><%= title %></div>
 </button>
