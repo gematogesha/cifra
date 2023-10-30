@@ -6,4 +6,6 @@ import "jquery"
 
 import "custom/script"
 
+import "custom/tablesorter"
+
 

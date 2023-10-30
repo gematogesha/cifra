@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :loggedin, :model_name
   before_action :admin_check, except: [:account, :settings]
   before_action :set_user, only: %i[update show destroy edit]
+  before_action :human_att
 
   add_flash_types :info, :error, :success
 
@@ -75,6 +76,10 @@ class UsersController < ApplicationController
   def model_name
     @model_one = User.model_name.human
     @model_many = User.model_name.human(count: :many)
+  end
+
+  def human_att
+    @human_att = [I18n.t(User.human_attribute_name :name), I18n.t(User.human_attribute_name :email), I18n.t(User.human_attribute_name :post)]
   end
 
 end

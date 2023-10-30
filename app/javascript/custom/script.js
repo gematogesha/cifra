@@ -4,9 +4,11 @@ document.addEventListener("turbo:load", () => {
         $('.RRow').each(function () {
             $(this).addClass('dashboard wrap');
         });
+
         $('.RCol').each(function () {
             $(this).addClass('cols-widest-8 cols-wide-8 cols-middle-6 cols-narrow-6');
         });
+        
         $('.RBulb__badge').each(function () {
             $(this).parent().addClass('RBulb');
         });
@@ -46,9 +48,7 @@ document.addEventListener("turbo:load", () => {
                 $('.change_theme_day').toggleClass('rocky harakiri');
             }
         });
-    });
 
-    $(function () {
         $('.change_theme_day').click(function () {
             if ($('html').attr('theme') == "dark") {
                 $('.change_theme_day').toggleClass('harakiri rocky');
@@ -59,6 +59,18 @@ document.addEventListener("turbo:load", () => {
         });
     });
 
+
+    $(function() {
+        $(".RTable").tablesorter();
+        $(".tablesorter-header").each(function () {
+            if (!$(this).attr("aria-sort") == "none") {
+                $(this).find(".RTable__th").addClass("active")
+            } else {
+                $(".tablesorter-header").find(".RTable__th").removeClass("active")
+            }
+
+        })
+      });
 
     console.log("turbo loaded");
 });

@@ -1,3 +1,19 @@
-#dttb {
-    width: 100% !important;
+.RTable__sort_none i {
+    color: var(--rir-memento);
+}
+
+.RTable__sort_asc .rir-arrow-up_6 {
+    color: var(--rir-rocky);
+}
+
+.RTable__sort_asc .rir-arrow-down_6 {
+    color: var(--rir-memento);
+}
+
+.RTable__sort_desc .rir-arrow-up_6 {
+    color: var(--rir-memento);
+}
+
+.RTable__sort_desc .rir-arrow-down_6 {
+    color: var(--rir-rocky);
 }
