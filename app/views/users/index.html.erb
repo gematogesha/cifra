@@ -1,40 +1,19 @@
-<%- page_title @model_many %>
+<%- page_title @page_title %>
 
 <div class="RRow mb-8">
     <div class="RCol" style="flex-grow: 0;">
-        <span class="troy--text parmigiano"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore velit consectetur laboriosam suscipit saepe enim nobis optio. Architecto, voluptas ab. </span>
+        <span class="troy--text parmigiano">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore velit consectetur laboriosam suscipit saepe enim nobis optio. Architecto, voluptas ab.
+        </span>
     </div>
 </div>
 
 <div class="RRow">
     <div class="RCol">
-        <table class="RTable creusa">
-            <thead class="trainspotting--bg">
-                <tr>
-                    <%for att in @human_att do%>
-                        <%= render partial: "components/table_item", locals: {title: att}  %>
-                    <% end %>
-                </tr>
-            </thead>
-            <tbody>
-                <% @users.each do |user| %>
-                    <tr>
-                        <td>
-                            <div class="RTable__row">
-                                <%= link_to user_path(user) do %>
-                                    <%= render partial: "components/button_action", locals: {title: user.name, color: "rocky", size: "sulguni", icon: nil}  %>
-                                <% end %>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="RTable__row"><%= user.email %></div>
-                        </td>
-                        <td>
-                            <div class="RTable__row"><%= user.post %></div>
-                        </td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
+
+        <%= turbo_frame_tag "users", src: users_get_users_path, loading: :lazy, target: "_top" do %>
+            <%= render "components/table_loading" %>
+        <% end %>
+
     </div>
 </div>

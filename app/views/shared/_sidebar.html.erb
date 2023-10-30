@@ -1,4 +1,4 @@
-<div class="RLayoutDashboard__menu">
+<div class="RMenu RLayoutDashboard__menu <%= cookies[:menu] %>">
     <button tabindex="0" class="RButtonSimple RLayoutDashboard__close larishae transparent harakiri">
         <i class="RIcon rir-close_20"></i>
     </button>
@@ -13,7 +13,7 @@
         <div class="RLayoutDashboard__list">
             <section class="RMenu">
 
-                <%= render partial: "components/menu_item", locals: { link: licenses_path, icon: "file", title: "Лицензии", color: "rocky", count: "1", blub: true }  %>
+                <%= render"components/menu_item", link: licenses_path, icon: "file", title: "Лицензии", color: "rocky", count: "1", blub: true %>
 
                 <div class="RMenu__item">
                     <a href tabindex="0" class="RMenu__body">

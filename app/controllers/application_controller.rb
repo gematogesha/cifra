@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   	helper_method :current_user
-	before_action :theme
+	before_action :set_cookies
 
 	private
 
@@ -44,10 +44,15 @@ class ApplicationController < ActionController::Base
 		end
 	end	
 
-	def theme
+	def set_cookies
 		if cookies[:theme].nil?
 			cookies[:theme] = "default"
 		end
+
+		if cookies[:menu].nil?
+			cookies[:menu] = "full"
+		end
+
 	end
 	
 

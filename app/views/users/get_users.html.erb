@@ -1,0 +1,31 @@
+<%= turbo_frame_tag "users", target: "_top" do %>
+
+    <table class="RTable creusa">
+        <thead class="trainspotting--bg">
+            <tr>
+                <%for att in @human_att do%>
+                    <%= render"components/table_item", title: att %>
+                <% end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <td>
+                        <div class="RTable__row">
+                            <%= link_to user_path(user) do %>
+                                <%= render "components/button_action", title: user.name, color: "rocky", size: "sulguni", icon: nil %>
+                            <% end %>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="RTable__row"><%= user.email %></div>
+                    </td>
+                    <td>
+                        <div class="RTable__row"><%= user.post %></div>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>

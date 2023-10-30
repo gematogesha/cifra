@@ -10,5 +10,3 @@ eagerLoadControllersFrom("controllers", application)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
 
-import ChatRefreshController from "./chat_refresh_controller"
-application.register("chat-refresh", ChatRefreshController)

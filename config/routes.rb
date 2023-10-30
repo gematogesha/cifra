@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  root to: "sessions#new"
+  get "/users/get_users"
+
   get "/session", to: redirect('/')
 
   get "/account", to: "users#account"
@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   resources :messages, only: :create
   resources :users
   resources :departments
+
+  root to: "sessions#new"
 
 end

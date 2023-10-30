@@ -7,8 +7,18 @@ class UsersController < ApplicationController
 
   add_flash_types :info, :error, :success
 
+  def index
+    @page_title = @model_many
+
+  end
+
+
   def new
     @user = User.new
+  end
+
+  def get_users
+    @users = User.all
   end
 
   def create
@@ -33,10 +43,6 @@ class UsersController < ApplicationController
 
       render :edit
     end
-  end
-
-  def index
-    @users = User.all
   end
 
   def edit
