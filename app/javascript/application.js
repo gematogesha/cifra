@@ -4,8 +4,6 @@ import "controllers"
 
 import "jquery"
 
-import "datatables"
-
 import "custom/script"
 
 

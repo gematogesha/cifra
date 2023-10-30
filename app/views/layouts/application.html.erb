@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html theme = <%= cookies[:theme] %> >
+<html theme=<%= cookies[:theme] %>>
     <head>
         <title><%= content_for?(:title) ? content_for(:title) : "ЦиФРА" %></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,7 +18,10 @@
                 <%= render "shared/sidebar" %>
             <% end %>
             <div class="RLayoutDashboard__body">
-                <%= render partial: "shared/header", locals: { page_title: @model_many}  %>
+                <% if !current_page?(root_url) %>
+                    <%= render partial: "shared/header", locals: { page_title: @model_many}  %>
+                <% end %>
+
                 <div class="RLayoutDashboard__content offset">
                     <div class="pt-4">
                         <%= yield %>
