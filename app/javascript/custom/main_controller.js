@@ -8,7 +8,9 @@ document.addEventListener("turbo:load", () => {
         });
 
         $('.RCol').each(function () {
-            $(this).addClass('cols-widest-8 cols-wide-8 cols-middle-6 cols-narrow-6');
+            if (!$(this).hasClass("custom")) {
+                $(this).addClass('cols-widest-8 cols-wide-8 cols-middle-6 cols-narrow-6');
+            }
         });
 
         $('.RBulb__badge').each(function () {
@@ -115,25 +117,3 @@ document.addEventListener("turbo:load", () => {
     });
 
 });
-
-document.addEventListener("turbo:before-fetch-response", function (e) {
-    let frame = document.getElementById("users");
-    if (frame.complete) {
-        
-        var childNodes = frame.childNodes;
-
-        for (var i = 0; i < childNodes.length; i++) {
-            if (childNodes[i].nodeType !== 3) { // nodeType 3 is a text node
-              childNodes[i].className = "current";  // <a>
-              break;
-            }        
-        }
-        
-    } else {
-      frame.loaded.then(() => {
-      
-        frame.classList.add('in')
-      
-      })
-    }
-  })

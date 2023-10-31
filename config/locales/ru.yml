@@ -9,6 +9,8 @@ ru:
       post: "Должность"
       department_id: "Отдел"
       admin: "Администратор"
+      account: "Аккаунт"
+      dashboard: "Дашборд"
     license:
       title: "Наименование"
       description: "Описание"

@@ -9,16 +9,12 @@ class UsersController < ApplicationController
 
   def index
     @page_title = @model_many
-
+    @users = User.all
   end
 
 
   def new
     @user = User.new
-  end
-
-  def get_users
-    @users = User.all
   end
 
   def create
