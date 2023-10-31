@@ -7,9 +7,9 @@
         <!--<div class="RLayoutDashboard__navigation">
                                 <div class="gentlemen--text departed--bg d-flex align-items-center justify-content-center" style="height: 20px; width: 100%;"></div>
                         </div>-->
-        <div class="RLayoutDashboard__title"><%= page_title %></div>
+        <div class="RLayoutDashboard__title"><%= @page_title %></div>
     </div>
-    <%= link_to account_path do %>
+    <%= link_to dashboard_path do %>
         <section tabindex="0" class="RRadioButton">
             <%= render "components/avatar", color: "nixilei", size: "aethelsa", title: nil %>
             <section class="RRadioButton__content ml-3">

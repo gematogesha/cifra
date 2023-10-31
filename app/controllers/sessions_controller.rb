@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     if user.present?
       session[:user_id] = user.id
 
-      redirect_to account_path, info: "Вы вошли на сайт"
+      redirect_to dashboard_path, info: "Вы вошли на сайт"
     else
       redirect_to root_path, error: "Неправельный email или пароль"
 

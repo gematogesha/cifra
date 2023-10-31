@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   get "/session", to: redirect('/')
 
-  get "/account", to: "users#account"
-  get "/account/settings", to: "users#settings"
+  get "/dashboard", to: "users#dashboard"
+  get "/settings", to: "users#settings"
   get "/orders/archive", to: "orders#archive"
 
   resources :licenses

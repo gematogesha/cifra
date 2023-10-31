@@ -1,0 +1,39 @@
+<%- page_title @page_title %>
+
+<div class="RRow mb-8">
+    <div class="RCol" style="flex-grow: 0;">
+        <span class="troy--text parmigiano">
+            <%= I18n.t("text.dashboard.text_1") %>
+        </span>
+    </div>
+</div>
+
+<div class="RRow mb-8">
+    <div class="RCol" style="flex-grow: 0;">
+        <div class="d-flex" style="height: 100%;">
+            <div class="pie__block mr-8">
+                <% pie_charts.each_with_index do |item, index| %>
+                    <% if item.present? %>
+                        <% if index == 0 %>
+                            <div class="pie <%= item.name %>" style="--p:<%= item.count * @koeff %>;--c:var(--rir-<%= item.color %>);">
+                                <span class="harakiri--text comte"><%= @pie_charts_sum %></span>
+                            </div>
+                        <% else %>
+                            <div class="pie <%= item.name %>" style="--p:<%= item.count * @koeff %>;--c:var(--rir-<%= item.color %>);"></div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+
+            <div class="pie_chart__content d-flex flex-direction-column justify-content-around mr-8" style="height: 100%;">
+                <span class="pie_chart__text pie_chart__text_new harakiri--text parmigiano"><%= I18n.t("text.dashboard.pie_chart.new") %> &mdash; <%= pie_charts[2].present? ? pie_charts[1].count : "0" %></span>
+                <span class="pie_chart__text pie_chart__text_overdue harakiri--text parmigiano"><%= I18n.t("text.dashboard.pie_chart.overdue") %> &mdash; <%= pie_charts[2].present? ? pie_charts[2].count : "0" %></span>
+            </div>
+
+            <div class="pie_chart__content d-flex flex-direction-column justify-content-around mr-8" style="height: 100%;">
+                <span class="pie_chart__text pie_chart__text_end harakiri--text parmigiano"><%= I18n.t("text.dashboard.pie_chart.end") %> &mdash; <%= pie_charts[0].present? ? pie_charts[0].count : "0" %></span>
+                <span class="pie_chart__text pie_chart__text_escalation harakiri--text parmigiano"><%= I18n.t("text.dashboard.pie_chart.escalation") %> &mdash; <%= pie_charts[3].present? ? pie_charts[3].count : "0" %></span>
+            </div>
+        </div>
+    </div>
+</div>

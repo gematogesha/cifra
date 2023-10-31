@@ -22,4 +22,6 @@ class User < ApplicationRecord
         email.strip!
         post.strip!
     end
+    
+
 end

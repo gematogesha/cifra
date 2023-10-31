@@ -116,4 +116,21 @@ document.addEventListener("turbo:load", () => {
         })
     });
 
+    $(function () {
+        var pie__block = $('.pie__block').children()
+        var length = pie__block.length
+        var deg_set = 0
+        for (var i = 0; i < length; i++) {
+
+            if (i > 0) {
+                pie__block.eq(i).css("rotate", "calc(" + deg_set + " * 3.6deg");
+            }
+
+            var deg = pie__block.eq(i).css("--p");
+            deg_set += Number(deg) + 3.5
+
+        }
+
+    });
+
 });

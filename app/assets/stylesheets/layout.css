@@ -17,3 +17,79 @@
 .RTable__sort_desc .rir-arrow-down_6 {
     color: var(--rir-rocky);
 }
+
+
+.pie__block{
+    position: relative;
+    height: 80px;
+    width: 80px;
+    padding: 0 !important;
+}
+
+.pie {
+    --p: 20;
+    --b: 8px;
+    --color: var(--rir-rocky);
+    --w: 80px;
+
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    place-content: center;
+    position: absolute;
+}
+
+.pie:before,
+.pie:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.pie:before {
+    inset: 0;
+    background:
+        radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat,
+        conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+    mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+
+.pie:after {
+    inset: calc(50% - var(--b)/2);
+    background: var(--rir-trainspotting);
+    transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+}
+
+.pie_chart__text{
+    position: relative;
+    padding-left: 20px;
+}
+
+.pie_chart__text::before{
+    content: "";
+    height: 12px;
+    width: 12px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 6px);
+}
+
+.pie_chart__text_new::before{
+    background-color: var(--rir-rocky);
+}
+
+.pie_chart__text_end::before{
+    background-color: var(--rir-matrix);
+}
+
+.pie_chart__text_overdue::before{
+    background-color: var(--rir-fargo);
+}
+
+.pie_chart__text_escalation::before{
+    background-color: var(--rir-lebowski);
+}

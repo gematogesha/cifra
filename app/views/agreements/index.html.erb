@@ -1,4 +1,4 @@
-<%- page_title @page_title_text %>
+<%- page_title @page_title %>
 
 <div class="module">
     <div class="module-head">
@@ -50,7 +50,7 @@
                             <td><%= l(agreement.begin, format: :long) %></td>
                             <td><%= l(agreement.ending, format: :long) %></td>
                             <td><%= l(agreement.updated_at, format: :long) %></td>
-                            <td><%= link_to agreement.user_id, account_path %></td>
+                            <td><%= link_to agreement.user_id, dashboard_path %></td>
                             <td>
                                 <b><%= agreement.status %></b>
                             </td>

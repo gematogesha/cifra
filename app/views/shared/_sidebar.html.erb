@@ -13,6 +13,8 @@
         <div class="RLayoutDashboard__list">
             <section class="RMenu">
 
+                <%= render"components/menu_item", link: dashboard_path, icon: "home", title: I18n.t("att.user.dashboard"), color: "rocky", count: nil, blub: false %>
+
                 <%= render"components/menu_item", link: users_path, icon: "file", title: "Users", color: "rocky", count: "1", blub: true %>
 
                 <div class="RMenu__item">

@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::Base
   	helper_method :current_user
 	before_action :set_cookies
+	helper_method :pie_charts
 
-	private
 
-	
 	def not_found
 		raise ActionController::RoutingError.new('Not Found')
 	rescue
@@ -23,6 +22,17 @@ class ApplicationController < ActionController::Base
 		render file: "#{Rails.root}/public/500.html", status: :internal_server_error
 	end
 
+	
+	private
+
+	def pie_charts
+		@pie_charts ||= []
+	  end
+	
+	def add_pie_chart(name, color = nil, count = nil)
+	pie_charts << PieChart.new(name, color, count)
+	end
+  
 
 	def current_user
 		@current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]

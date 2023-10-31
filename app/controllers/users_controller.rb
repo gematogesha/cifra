@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
 
   def new
+    @page_title = I18n.t("att.user.create")
     @user = User.new
   end
 
@@ -56,8 +57,29 @@ class UsersController < ApplicationController
 
   end
 
-  def account
-    @user
+  def dashboard
+    @page_title = I18n.t("att.user.dashboard")
+    
+    add_pie_chart("end", "matrix", 10)
+    add_pie_chart("new", "rocky", 8)
+    add_pie_chart("overdue", "fargo", 4)
+    add_pie_chart("escalation", "lebowski", nil)
+
+    @pie_charts_sum = 0
+
+    @pie_charts_count = 0 
+
+    
+    pie_charts.each_with_index do |chart, index|
+      if chart.present?
+        @pie_charts_sum += chart.count
+        @pie_charts_count += 1
+        @koeff = ((100.0 - @pie_charts_count * 3.5) / @pie_charts_sum)
+      end
+    end
+    
+    
+
   end
 
   def settings

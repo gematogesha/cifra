@@ -6,6 +6,12 @@ class LicensesController < ApplicationController
   
   add_flash_types :info, :error, :success
 
+
+  def index
+    @page_title = @model_many
+    @licenses = License.all
+  end
+
   def create
     @license = License.create(license_params)
 
@@ -40,10 +46,6 @@ class LicensesController < ApplicationController
 
   end
   
-  def index
-    @licenses = License.all
-  end
-
   def new
     @license = License.new
   end
