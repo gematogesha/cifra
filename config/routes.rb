@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   resources :agreements
   resources :orders
   resource :session, only: %i[new create destroy]
-  resources :rooms, only: %i[index create show], param: :title
-  resources :messages, only: :create
   resources :users
   resources :departments
 
