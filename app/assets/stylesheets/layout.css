@@ -21,16 +21,18 @@
 
 .pie__block{
     position: relative;
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     padding: 0 !important;
+    display: flex;
+    align-items: center;
 }
 
 .pie {
     --p: 20;
     --b: 8px;
     --color: var(--rir-rocky);
-    --w: 80px;
+    --w: 70px;
 
     width: var(--w);
     aspect-ratio: 1;
