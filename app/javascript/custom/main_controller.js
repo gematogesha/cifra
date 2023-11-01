@@ -127,7 +127,7 @@ document.addEventListener("turbo:load", () => {
             }
 
             var deg = pie__block.eq(i).css("--p");
-            deg_set += Number(deg) + 3.5
+            deg_set += Number(deg) + 4
 
         }
 

@@ -74,7 +74,7 @@ class UsersController < ApplicationController
       if chart.present?
         @pie_charts_sum += chart.count
         @pie_charts_count += 1
-        @koeff = ((100.0 - @pie_charts_count * 3.5) / @pie_charts_sum)
+        @koeff = ((100.0 - @pie_charts_count * 4) / @pie_charts_sum)
       end
     end
     

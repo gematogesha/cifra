@@ -16,9 +16,11 @@
         <div class="RLayoutDashboard__list">
             <section class="RMenu">
 
-                <%= render"components/menu_item", link: dashboard_path, icon: "home", title: I18n.t("att.user.dashboard"), color: "rocky", count: nil, blub: false %>
+                <%= render"components/menu_item", link: dashboard_path, icon: "home", title: I18n.t("att.user.dashboard"), color: "rocky", count: nil, blub: false , status: nil%>
 
-                <%= render"components/menu_item", link: users_path, icon: "file", title: "Users", color: "rocky", count: "1", blub: true %>
+                <%= render"components/menu_item", link: users_path, icon: "file", title: "Users", color: "rocky", count: "1", blub: true, status: nil %>
+
+                <%= render"components/menu_item", link: settings_path, icon: "settings", title: "SEttings", color: "rocky", count: "1", blub: false, status: "disabled"%>
 
                 <div class="RMenu__item">
                     <a href tabindex="0" class="RMenu__body">
