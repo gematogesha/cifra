@@ -5,9 +5,12 @@
     <div class="RLayoutDashboard__menu-content">
         <div class="RLayoutDashboard__header">
             <div style="display: flex; align-items: flex-start; justify-content: space-between;">
-                <span class="burrata"><%= I18n.t("app_name") %></span>
+                <span class="burrata"><%= I18n.t("app.app_name") %></span>
                 <!--  <div class="RLayoutDashboard__title"><%= I18n.t("app_name") %></div> -->
-                <sup class="mozzarella troy--text"><%= I18n.t("version") %></sup>
+                <div class="d-flex flex-direction-column align-items-end">
+                    <sup class="mozzarella troy--text"><%= I18n.t("app.version") %></sup>
+                    <sup class="mozzarella troy--text"><%= I18n.t("app.release") %></sup>
+                </div>
             </div>
         </div>
         <div class="RLayoutDashboard__list">

@@ -1,6 +1,8 @@
 ru:
-  app_name: "Цифра"
-  version: "v3.0.2"
+  app:
+    app_name: "Цифра"
+    version: "v3.0.2"
+    release: "alpha"
   att:
     user:
       name: "Имя пользователя"
