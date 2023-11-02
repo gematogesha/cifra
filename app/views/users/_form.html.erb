@@ -6,12 +6,20 @@
                 <%= form.text_field :name %>
             </div>
         </div>
+
+        <%= render "components/input", form: form, controller: @user, form_attr: :password, form_type: "password", attr: "password", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: 15, rounded: false, readonly: false %>
+
+        <%= render "components/textarea", form: form, controller: @user, form_attr: :name, attr: "name", maxlength: 15, rows: 3, readonly: false %>
+
         <div class="control-group">
             <%= form.label :password, class: "control-label" %>
             <div class="controls">
                 <%= form.password_field :password %>
             </div>
         </div>
+
+        <%= render "alert", attr: "password" %>
+
         <div class="control-group">
             <%= form.label :email, class: "control-label" %>
             <div class="controls">
@@ -36,6 +44,13 @@
                 <%= form.check_box :admin %>
             </div>
         </div>
+
+<%= form.submit %>
+
+    <%= render "components/button", type: "primary", size: "helike", width: "content", color: "rocky", icon: nil, title: "form.submit" %>
+
+</input>
+
         <div class="control-group">
             <div class="controls">
                 <%= form.submit class: "button"%>

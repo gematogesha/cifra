@@ -1,8 +1,8 @@
 <table class="RTable creusa">
     <thead class="trainspotting--bg">
         <tr>
-            <%for att in @human_att do%>
-                <%= render"components/table_item", title: att %>
+            <%for attr in @human_att do%>
+                <%= render"components/table_item", title: attr %>
             <% end %>
         </tr>
     </thead>

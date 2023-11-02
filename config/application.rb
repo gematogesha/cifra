@@ -19,7 +19,11 @@ module CifraApp
 
     config.time_zone = 'Asia/Yekaterinburg'
 
-    #SSL
+    config.action_view.field_error_proc = proc do |html_tag, instance|
+      html_tag.html_safe
+    end
+
+    #SSL                                                                                                                                                                                                                                                            
 
     config.force_ssl = false
     

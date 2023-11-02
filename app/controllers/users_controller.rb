@@ -14,11 +14,12 @@ class UsersController < ApplicationController
 
 
   def new
-    @page_title = I18n.t("att.user.create")
+    @page_title = I18n.t("attr.user.create")
     @user = User.new
   end
 
   def create
+    @page_title = I18n.t("attr.user.create")
     @user = User.new(user_params)
 
     if @user.save
@@ -58,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @page_title = I18n.t("att.user.dashboard")
+    @page_title = I18n.t("attr.user.dashboard")
     
     add_pie_chart("end", "matrix", 10)
     add_pie_chart("new", "rocky", 8)
@@ -103,7 +104,7 @@ class UsersController < ApplicationController
   end
 
   def human_att
-    @human_att = [I18n.t("att.user.name"), I18n.t("att.user.email"), I18n.t("att.user.post")]
+    @human_att = [I18n.t("attr.user.name"), I18n.t("attr.user.email"), I18n.t("attr.user.post")]
   end
 
 end

@@ -1,7 +1,9 @@
 <% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |notification| %>
-        <div class="module module-alert">
-            <div class="module-head module-head-alert module-small"><%= notification %></div>
-        </div>
+    <% @user.errors.each do |error| %>
+        <% if error.attribute.to_s == attr %>
+            <div class="module module-alert">
+                <div class="module-head module-head-alert module-small"><%= error.full_message %></div>
+            </div>
+        <% end %>
     <% end %>
 <% end %>

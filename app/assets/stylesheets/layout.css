@@ -95,3 +95,39 @@
 .pie_chart__text_escalation::before{
     background-color: var(--rir-lebowski);
 }
+
+.RNotification__list{
+    right: -400px;
+    -webkit-animation: move_notificarion 5s ease-in-out;
+    animation: move_notificarion 5s ease-in-out;
+}
+
+@-webkit-keyframes move_notificarion {
+    0,
+    5% {
+        right: -400px;
+    }
+    15%,
+    85% {
+        right: 24px;
+    }
+    95%,
+    100% {
+        right: -400px;
+    }
+}
+
+@keyframes move_notificarion {
+    0,
+    5% {
+        right: -400px;
+    }
+    15%,
+    85% {
+        right: 24px;
+    }
+    95%,
+    100% {
+        right: -400px;
+    }
+}

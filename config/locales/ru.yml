@@ -3,7 +3,7 @@ ru:
     app_name: "Цифра"
     version: "v0.3.0.2"
     release: "alpha"
-  att:
+  attr:
     user:
       name: "Имя пользователя"
       password: "Пароль"
@@ -13,7 +13,7 @@ ru:
       admin: "Администратор"
       account: "Аккаунт"
       dashboard: "Дашборд"
-      craate: "Создать пользователя"
+      create: "Создать пользователя"
       update: "Обновить пользователя"
     license:
       title: "Наименование"

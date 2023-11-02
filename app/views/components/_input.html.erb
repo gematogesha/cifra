@@ -1,1 +1,39 @@
-<label data-v-42f454dd="" class="RInput default eluno"><div class="RInput__body is-label"><label class="RInput__input" tabindex="0"><input type="text" maxlength="9" autocomplete="new-password"><label class="RInput__label">label</label></label></div><a class="RInput__after"><i class="RIcon rir-add_16"></i></a><a class="RInput__before"><i class="RIcon rir-achievement_16"></i></a></label>
+<% if controller.errors.any? %>
+    <% @error_status = "error" %>
+<% else %>
+    <% @error_status = nil %>
+<% end %>
+
+<label class="RInput <%= type %> <%= size %> <%= @error_status %> <%= "readonly" if readonly %> <%= "rounded" if rounded %>">
+    <div class="RInput__body is-label">
+        <label tabindex="0" class="RInput__input">
+            <% if form_type == "text" %>
+                <%= form.text_field form_attr, maxlength: maxlength if !maxlength.nil? %>
+            <% end%>
+            <% if form_type == "password" %>
+                <%= form.password_field form_attr, maxlength: maxlength if !maxlength.nil? %>
+            <% end%>
+            <%= form.label form_attr, class: "RInput__label" %>
+        </label>
+    </div>
+    <% if !aftericon.nil?%>
+        <a class="RInput__after">
+            <i class="RIcon rir-<%= aftericon %>_16"></i>
+        </a>
+    <% end %>
+
+    <% if !beforeicon.nil?%>
+        <a class="RInput__after">
+            <i class="RIcon rir-<%= beforeicon %>_16"></i>
+        </a>
+    <% end %>
+
+<% if controller.errors.any? %>
+    <% controller.errors.each do |error| %>
+        <% if error.attribute.to_s == attr %>
+        <span class="RInput__error"><%= error.full_message %></span>
+        <% end %>
+    <% end %>
+<% end %>
+
+</label>

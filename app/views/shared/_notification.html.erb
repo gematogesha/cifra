@@ -1,13 +1,32 @@
-<% if flash[:success].present? %>
-    <div id="notification" class="notification notification-success">
-        <span><%= flash[:success] %></span>
-    </div>
-    <% elsif flash[:error].present?%>
-    <div id="notification" class="notification notification-error">
-        <span><%= flash[:error] %></span>
-    </div>
-    <% elsif flash[:info].present?%>
-    <div id="notification" class="notification notification-info">
-        <span><%= flash[:info] %></span>
-    </div>
-<% end %>
+<section class="RNotification__list">
+    <span>
+        <% if flash[:success].present? %>
+            <div class="RNotification">
+                <div class="RNotification__content">
+                    <span class="RNotification__title"><%= flash[:success] %></span>
+                </div>
+                <div class="RNotification__icon">
+                    <i class="RIcon rir-selected_16" style="color: var(--rir-matrix);"></i>
+                </div>
+            </div>
+        <% elsif flash[:error].present?%>
+            <div class="RNotification">
+                <div class="RNotification__content">
+                    <span class="RNotification__title"><%= flash[:error] %></span>
+                </div>
+                <div class="RNotification__icon">
+                    <i class="RIcon rir-close_16" style="color: var(--rir-fargo);"></i>
+                </div>
+            </div>
+        <% elsif flash[:info].present?%>
+            <div class="RNotification">
+                <div class="RNotification__content">
+                    <span class="RNotification__title"><%= flash[:info] %></span>
+                </div>
+                <div class="RNotification__icon">
+                    <i class="RIcon rir-infod_16" style="color: var(--rir-rocky);"></i>
+                </div>
+            </div>
+        <% end %>
+    </span>
+</section>

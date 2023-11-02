@@ -23293,7 +23293,6 @@ body.widest .RLayoutDashboard__menu.compact .RLayoutDashboard__compact>.RIcon {
 
 body.narrow .RNotification__list {
     left: 24px;
-    right: 24px;
     width: calc(100% - 48px)
 }
 
@@ -23302,7 +23301,6 @@ body.narrow .RNotification-enter, body.narrow .RNotification-enter-active, body.
 }
 
 body.middle .RNotification__list {
-    right: 24px;
     width: 360px
 }
 
@@ -23311,7 +23309,6 @@ body.middle .RNotification-enter, body.middle .RNotification-enter-active, body.
 }
 
 body.wide .RNotification__list {
-    right: 24px;
     width: 360px
 }
 
@@ -23320,7 +23317,6 @@ body.wide .RNotification-enter, body.wide .RNotification-enter-active, body.wide
 }
 
 body.widest .RNotification__list {
-    right: 24px;
     width: 360px
 }
 
