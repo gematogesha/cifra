@@ -1,5 +1,21 @@
-ru: 
+ru:
   activerecord:
+    models:
+      user:
+        one: "Пользователь"
+        other: "Пользователи"       
+      license:
+        one: "Лицензия"
+        other: "Лицензии"  
+      agreement:
+        one: "Разрешение"
+        other: "Разрешения"  
+      order:
+        one: "Приказ"
+        other: "Приказы"  
+      department:
+        one: "Отдел"
+        other: "Отделы"  
     attributes:
       user:
         name: "Имя пользователя"
@@ -51,25 +67,8 @@ ru:
         title: "Наименование"
         number: "Номер"
         short_title: "Аббревиатура"
-  activerecord:
-    models:
-      user:
-        one: "Пользователь"
-        other: "Пользователи"       
-      license:
-        one: "Лицензия"
-        other: "Лицензии"  
-      agreement:
-        one: "Разрешение"
-        other: "Разрешения"  
-      order:
-        one: "Приказ"
-        other: "Приказы"  
-      department:
-        one: "Отдел"
-        other: "Отделы"  
   errors:
-    format: 'Поле "%{attribute}" %{message}'
+    format: 'Поле %{message}'
     messages:
       inclusion: "имеет непредусмотренное значение"
       exclusion: "имеет зарезервированное значение"

@@ -8,36 +8,43 @@
     </div>
 </div>
 
-<div class="RRow">
+<div class="RRow mb-8">
     <div class="RCol">
 
+        <%= render"components/tabs" %>
+
+    </div>
+</div>
+
+<div class="RRow">
+    <div class="RCol">
         <table class="RTable creusa">
             <thead class="trainspotting--bg">
                 <tr>
-                    <%for attr in @human_att do%>
-                    <%= render"components/table_item", title: attr %>
-                <% end %>
-            </tr>
-        </thead>
-        <tbody>
-            <% @users.each do |user| %>
-                <tr>
-                    <td>
-                        <div class="RTable__row">
-                            <%= link_to user_path(user) do %>
-                                <%= render "components/button_action", title: user.name, color: "rocky", size: "sulguni", icon: nil %>
-                            <% end %>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="RTable__row"><%= user.email %></div>
-                    </td>
-                    <td>
-                        <div class="RTable__row"><%= user.post %></div>
-                    </td>
+                    <%for attr in @human_att do %>
+                        <%= render"components/table_item", title: attr %>
+                    <% end %>
                 </tr>
-            <% end %>
-        </tbody>
-    </table>
-
-</div></div>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <td>
+                            <div class="RTable__row">
+                                <%= link_to user_path(user) do %>
+                                    <%= render "components/button_action", title: user.name, color: "rocky", size: "sulguni", icon: nil %>
+                                <% end %>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="RTable__row"><%= user.email %></div>
+                        </td>
+                        <td>
+                            <div class="RTable__row"><%= user.post %></div>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

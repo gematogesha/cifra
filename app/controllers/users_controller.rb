@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, success: "Пользователь успешно создан"
     else
-      flash.now[:error] = "Неправильно заполнены формы регистрации"
+      flash.now[:error] = I18n.t("errors.save")
 
       render :new
     end

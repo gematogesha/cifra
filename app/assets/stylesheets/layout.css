@@ -66,18 +66,18 @@
 
 .pie_chart__text{
     position: relative;
-    padding-left: 20px;
+    padding-left: 16px;
 }
 
 .pie_chart__text::before{
     content: "";
-    height: 12px;
-    width: 12px;
+    height: 8px;
+    width: 8px;
     display: block;
     border-radius: 50%;
     position: absolute;
     left: 0;
-    top: calc(50% - 6px);
+    top: calc(50% - 4px);
 }
 
 .pie_chart__text_new::before{

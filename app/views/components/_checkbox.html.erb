@@ -1,0 +1,23 @@
+<% if controller.errors.any? %>
+    <% @error_status = "error" %>
+<% else %>
+    <% @error_status = nil %>
+<% end %>
+
+<label class="RCheckbox" tabindex="0">
+    <input type="checkbox" tabindex="-1">
+    <%= form.check_box form_attr %>
+    <span class="RCheckbox__input"></span>
+    <div class="RCheckbox__content">
+        <%= form.label form_attr, class: "RCheckbox__title" %>
+
+        <% if controller.errors.any? %>
+            <% controller.errors.each do |error| %>
+                <% if error.attribute.to_s == attr %>
+                    <div class="RCheckbox__sub-title error">><%= error.full_message %></div>
+                <% end %>
+            <% end %>
+        <% end %>
+
+    </div>
+</label>

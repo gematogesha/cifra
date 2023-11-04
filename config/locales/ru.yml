@@ -1,8 +1,12 @@
 ru:
   app:
     app_name: "Цифра"
-    version: "v0.3.0.2"
+    version: "v0.3.0.3"
     release: "alpha"
+  action: 
+    save: "Сохранить"
+  errors:
+    save: "Неправильно заполнены формы"
   attr:
     user:
       name: "Имя пользователя"
@@ -11,7 +15,7 @@ ru:
       post: "Должность"
       department_id: "Отдел"
       admin: "Администратор"
-      account: "Аккаунт"
+      settings: "Настройки"
       dashboard: "Дашборд"
       create: "Создать пользователя"
       update: "Обновить пользователя"
@@ -59,11 +63,12 @@ ru:
       number: "Номер"
       short_title: "Аббревиатура"
   text:
-    dashboard: 
-      text_1: "Ваши лицензии и оперативаня информация по ним"
-      pie_chart: 
-        new: "Новые"
-        end: "Завершено"
-        overdue: "Просрочено"
-        escalation: "На эскаляции"
+    user:
+      dashboard: 
+        text_1: "Ваши лицензии и оперативаня информация по ним"
+        pie_chart: 
+          new: "Новые"
+          end: "Завершено"
+          overdue: "Просрочено"
+          escalation: "На эскаляции"
   

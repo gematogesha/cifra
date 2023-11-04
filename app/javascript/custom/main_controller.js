@@ -7,6 +7,10 @@ document.addEventListener("turbo:load", () => {
             $(this).addClass('dashboard wrap');
         });
 
+        $('.RRow').each(function () {
+            $(this).find('.RRow').addClass('gapHidden');;
+        });
+
         $('.RCol').each(function () {
             if (!$(this).hasClass("custom")) {
                 $(this).addClass('cols-widest-8 cols-wide-8 cols-middle-6 cols-narrow-6');
@@ -73,7 +77,7 @@ document.addEventListener("turbo:load", () => {
         })
     });
 
-    $(function breakpoint() {
+    $(function () {
         if ($(window).width() < 600) {
             document.cookie = "breakpoint=narrow";
         } else if ($(window).width() >= 600 && $(window).width() < 1024) {
@@ -126,9 +130,46 @@ document.addEventListener("turbo:load", () => {
 
             var deg = pie__block.eq(i).css("--p");
             deg_set += Number(deg) + 4
-
         }
-
     });
+
+    $(function () {
+        $(".RInput").keyup(function () {
+            if (!$(this).find("input").val() == "") {
+                $(this).addClass("active");
+                $(this).find(".RInput__label").addClass("active");
+            } else {
+                $(this).removeClass("active");
+                $(this).find(".RInput__label").removeClass("active");
+            }
+        });
+
+        $(".RInput").each(function () {
+            if (!$(this).find("input").val() == "") {
+                $(this).addClass("active");
+                $(this).find(".RInput__label").addClass("active");
+            } else {
+                $(this).removeClass("active");
+                $(this).find(".RInput__label").removeClass("active");
+            }
+        });
+
+        $(".RTextarea").keyup(function () {
+            if (!$(this).find("textarea").val() == "") {
+                $(this).addClass("active");
+            } else {
+                $(this).removeClass("active");
+            }
+        });
+
+        $(".RTextarea").each(function () {
+            if (!$(this).find("textarea").val() == "") {
+                $(this).addClass("active");
+            } else {
+                $(this).removeClass("active");
+            }
+        });
+    });
+
 
 });

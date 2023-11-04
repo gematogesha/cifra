@@ -18,12 +18,12 @@
 
                 <%= render"components/menu_item", link: dashboard_path, icon: "home", title: I18n.t("attr.user.dashboard"), color: "rocky", count: nil, blub: false , status: nil%>
 
-                <%= render"components/menu_item", link: users_path, icon: "file", title: "Users", color: "rocky", count: "1", blub: true, status: nil %>
+                <%= render"components/menu_item", link: users_path, icon: "avatar", title: I18n.t("activerecord.models.user.other"), color: "rocky", count: "1", blub: true, status: nil %>
 
-                <%= render"components/menu_item", link: settings_path, icon: "settings", title: "SEttings", color: "rocky", count: "1", blub: false, status: "disabled"%>
+                <%= render"components/menu_item", link: settings_path, icon: "settings", title: I18n.t("attr.user.settings"), color: "rocky", count: "1", blub: false, status: "disabled"%>
 
                 <div class="RMenu__item">
-                    <a href tabindex="0" class="RMenu__body">
+                    <a href="href" tabindex="0" class="RMenu__body">
                         <i class="RIcon rir-avatar_16 RMenu__icon"></i>
                         <div class="RBulb RMenu__title-bulb">
                             <span class="RMenu__title">menu1</span>
@@ -41,7 +41,7 @@
                     </div>
                     <section class="RMenu parent" style="display: none;">
                         <div class="RMenu__item">
-                            <a href tabindex="0" class="RMenu__body">
+                            <a href="href" tabindex="0" class="RMenu__body">
                                 <div class="RBulb RMenu__title-bulb">
                                     <span class="RMenu__title">sub menu 1</span>
                                     <div class="RBulb__badge matrix marina celano title block">1</div>
@@ -49,7 +49,7 @@
                             </a>
                         </div>
                         <div class="RMenu__item">
-                            <a href tabindex="0" class="RMenu__body">
+                            <a href="href" tabindex="0" class="RMenu__body">
                                 <div class="RBulb RMenu__title-bulb">
                                     <span class="RMenu__title">sub menu 2</span>
                                     <div class="RBulb__badge fargo marina celano title block">2</div>
@@ -57,19 +57,19 @@
                             </a>
                         </div>
                         <div class="RMenu__item">
-                            <a href tabindex="0" class="RMenu__body">
+                            <a href="href" tabindex="0" class="RMenu__body">
                                 <span class="RMenu__title">sub menu 3</span>
                             </a>
                         </div>
                         <div class="RMenu__item">
-                            <a href tabindex="0" class="RMenu__body">
+                            <a href="href" tabindex="0" class="RMenu__body">
                                 <span class="RMenu__title">sub menu 4</span>
                             </a>
                         </div>
                     </section>
                 </div>
                 <div class="RMenu__item">
-                    <a href tabindex="0" class="RMenu__body">
+                    <a href="href" tabindex="0" class="RMenu__body">
                         <i class="RIcon rir-avatar_16 RMenu__icon"></i>
                         <span class="RMenu__title">menu3</span>
                     </a>
@@ -88,6 +88,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <button tabindex="0" class="RButtonArrow RLayoutDashboard__compact ileneira default">
         <i class="RIcon rir-arrow-left_12"></i>
