@@ -11,7 +11,7 @@
         <%= javascript_importmap_tags %>
     </head>
 
-    <body>
+    <body class=<%= cookies[:breakpoint] %>>
         <section class="RLayoutDashboard">
             <%= render "shared/notification" %>
             <% if !current_page?(root_url) %>

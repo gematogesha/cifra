@@ -73,21 +73,19 @@ document.addEventListener("turbo:load", () => {
         })
     });
 
-    $(function () {
+    $(function breakpoint() {
         if ($(window).width() < 600) {
-            $("body").removeClass();
-            $("body").addClass("narrow");
+            document.cookie = "breakpoint=narrow";
         } else if ($(window).width() >= 600 && $(window).width() < 1024) {
-            $("body").removeClass();
-            $("body").addClass("middle");
+            document.cookie = "breakpoint=middle";
         } else if ($(window).width() >= 1024 && $(window).width() < 1300) {
-            $("body").removeClass();
-            $("body").addClass("wide");
+            document.cookie = "breakpoint=wide";
         } else if (1300 <= $(window).width()) {
-            $("body").removeClass();
-            $("body").addClass("widest");
+            document.cookie = "breakpoint=widest";
         }
     });
+
+
 
     $(function () {
         if ($("body").hasClass('narrow')) {
