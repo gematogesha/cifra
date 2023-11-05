@@ -1,6 +1,6 @@
 <div class="RMenu__item">
 
-    <%= link_to link, class: ["RMenu__body", (status if !status.nil?), ("activeLink" if request.path == link)], tabindex: "0" do %>
+    <%= link_to link, class: ["RMenu__body", (status if !status.nil?), ("activeLink" if request.path.split("/")[1] == name_path)], tabindex: "0" do %>
         <i class="RIcon rir-<%= icon %>_16 RMenu__icon"></i>
         <div class="RMenu__title-bulb">
             <span class="RMenu__title"><%= title %></span>

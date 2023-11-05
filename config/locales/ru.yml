@@ -5,6 +5,7 @@ ru:
     release: "alpha"
   action: 
     save: "Сохранить"
+    create: "Создать"
   errors:
     save: "Неправильно заполнены формы"
   attr:
@@ -19,6 +20,7 @@ ru:
       dashboard: "Дашборд"
       create: "Создать пользователя"
       update: "Обновить пользователя"
+      list: "Список пользователей"
     license:
       title: "Наименование"
       description: "Описание"

@@ -10,16 +10,25 @@ class UsersController < ApplicationController
   def index
     @page_title = @model_many
     @users = User.all
+
+    @subtitle_1 = I18n.t("attr.user.list")
+
   end
 
 
   def new
-    @page_title = I18n.t("attr.user.create")
+    @page_title = @model_many
     @user = User.new
+
+    @subtitle_1 = I18n.t("attr.user.create")
+
   end
 
   def create
-    @page_title = I18n.t("attr.user.create")
+    @page_title = @model_many
+
+    @subtitle_1 = I18n.t("attr.user.create")
+
     @user = User.new(user_params)
 
     if @user.save
