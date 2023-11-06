@@ -1,3 +1,7 @@
+label {
+    cursor: pointer;
+}
+
 .RTable__sort_none i {
     color: var(--rir-memento);
 }

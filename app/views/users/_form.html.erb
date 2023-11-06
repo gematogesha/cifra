@@ -7,7 +7,7 @@
             <%= render "components/input", form: form, controller: @user, form_attr: :password, attr: "password", form_type: "password",  type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: 8, rounded: false, readonly: false %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <%= render "components/input", form: form, controller: @user, form_attr: :email, attr: "email", form_type: "email", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false %>
+            <%= render "components/input", form: form, controller: @user, form_attr: :login, attr: "login", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
             <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false %>
@@ -24,14 +24,6 @@
             <%= render "components/checkbox", form: form, controller: @user, form_attr: :admin, attr: "admin" %>
         </div>
 
-        <div class="control-group">
-            <%= form.label :admin, class: "control-label" %>
-            <div class="controls">
-                <%= form.check_box :admin %>
-            </div>
-        </div>
-
-
         <div class="RCol">
             <%= render "components/button", type: "primary", size: "helike", width: "content", color: "rocky", icon: nil, title: I18n.t("action.save") %>
         </div>
@@ -39,4 +31,31 @@
 
     </div>
 
+
+<section data-v-1db8df14="" class="RPopover">
+    <div class="RPopover__activator" id="activator-2931f6d5-727e-b46b-6a85-56835173fb3c">
+        <label tabindex="0" class="RSelect__input">
+            <div class="RSelect__backdoor"></div>
+            <label class="RInput default eluno readonly">
+                <div class="RInput__body is-label">
+                    <label class="RInput__input">
+                        <input type="text" disabled="disabled" autocomplete="new-password">
+                            <label class="RInput__label">Title</label>
+                        </label>
+                    </div>
+                    <a class="RInput__after">
+                        <i class="RIcon rir-arrow-down_16"></i>
+                    </a>
+                </label>
+            </label>
+        </div>
+    </section>
+
+
+
+
+
 <% end %>
+
+
+

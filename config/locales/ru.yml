@@ -12,13 +12,13 @@ ru:
     user:
       name: "Имя пользователя"
       password: "Пароль"
-      email: "Почта"
+      login: "Логин"
       post: "Должность"
       department_id: "Отдел"
       admin: "Администратор"
       settings: "Настройки"
       dashboard: "Дашборд"
-      create: "Создать пользователя"
+      create: "Регистрация пользователя"
       update: "Обновить пользователя"
       list: "Список пользователей"
     license:

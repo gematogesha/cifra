@@ -20,7 +20,7 @@ ru:
       user:
         name: "Имя пользователя"
         password: "Пароль"
-        email: "Почта"
+        login: "Логин"
         post: "Должность"
         department_id: "Отдел"
         admin: "Администратор"

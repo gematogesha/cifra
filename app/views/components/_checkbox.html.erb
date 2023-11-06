@@ -5,9 +5,10 @@
 <% end %>
 
 <label class="RCheckbox" tabindex="0">
-    <input type="checkbox" tabindex="-1">
-    <%= form.check_box form_attr %>
-    <span class="RCheckbox__input"></span>
+    <%= form.check_box form_attr, tabindex: "-1" %>
+    <span class="RCheckbox__input">
+        <i class="RIcon RCheckbox__selected rir-bullit-ok_12" style="color: var(--rir-white);"></i>
+    </span>
     <div class="RCheckbox__content">
         <%= form.label form_attr, class: "RCheckbox__title" %>
 

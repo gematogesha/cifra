@@ -17813,6 +17813,14 @@ body.narrow .RAnnouncement.polydora .RAnnouncement__sub-title {
     background-color: var(--rir-rocky)
 }
 
+.RCheckbox .RCheckbox__input .RCheckbox__selected{
+    opacity: 0;
+}
+
+.RCheckbox input:checked~.RCheckbox__input .RCheckbox__selected {
+    opacity: 1;
+}
+
 .RCheckbox.hover input~.RCheckbox__input, .RCheckbox:hover input~.RCheckbox__input {
     box-shadow: 0 0 0 4px var(--rir-avengers)
 }

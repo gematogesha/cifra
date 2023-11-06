@@ -100,7 +100,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :post, :admin, :password, :department_id)
+    params.require(:user).permit(:name, :login, :post, :admin, :password, :department_id)
   end
 
   def set_user
@@ -113,7 +113,7 @@ class UsersController < ApplicationController
   end
 
   def human_att
-    @human_att = [I18n.t("attr.user.name"), I18n.t("attr.user.email"), I18n.t("attr.user.post")]
+    @human_att = [I18n.t("attr.user.name"), I18n.t("attr.user.login"), I18n.t("attr.user.post")]
   end
 
 end
