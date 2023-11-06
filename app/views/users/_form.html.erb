@@ -12,12 +12,8 @@
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
             <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false %>
         </div>
-
-        <div class="control-group">
-            <%= form.label :department_id, class: "control-label" %>
-            <div class="controls">
-                <%= form.select :department_id, Department.order(:title).map{|department|[department.title, department.id]} %>
-            </div>
+        <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
+            <%= form.select :department_id, Department.order(:title).map{|department|[department.title, department.id]}, {}, {class: "RSelect"} %>
         </div>
 
         <div class="RCol">
@@ -32,30 +28,4 @@
     </div>
 
 
-<section data-v-1db8df14="" class="RPopover">
-    <div class="RPopover__activator" id="activator-2931f6d5-727e-b46b-6a85-56835173fb3c">
-        <label tabindex="0" class="RSelect__input">
-            <div class="RSelect__backdoor"></div>
-            <label class="RInput default eluno readonly">
-                <div class="RInput__body is-label">
-                    <label class="RInput__input">
-                        <input type="text" disabled="disabled" autocomplete="new-password">
-                            <label class="RInput__label">Title</label>
-                        </label>
-                    </div>
-                    <a class="RInput__after">
-                        <i class="RIcon rir-arrow-down_16"></i>
-                    </a>
-                </label>
-            </label>
-        </div>
-    </section>
-
-
-
-
-
 <% end %>
-
-
-

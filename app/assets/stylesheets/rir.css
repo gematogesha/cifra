@@ -17480,10 +17480,10 @@ body.widest .RRow.default>.offset-widest-12 {
 .RPopover__content {
     z-index: 50;
     overflow: hidden;
-    position: absolute;
     box-shadow: 0 8px 32px 0 var(--rir-hamilton);
     border-radius: 12px;
-    background-color: var(--rir-amelie)
+    background-color: var(--rir-amelie);
+    width: 100%;
 }
 
 .RPopover__activator.disabled {
