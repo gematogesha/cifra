@@ -18,13 +18,13 @@
 
 <div class="RRow mb-4 ">
     <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
-        <span class="taleggio"><%= @subtitle_1 %></span>
+        <span class="taleggio"><%= I18n.t("attr.user.create") %></span>
     </div>
 </div>
 
 <div class="RRow">
     <div class="RCol">
-        <%= render "form", user: @user %>
+        <%= render "form", user: @user, url: @user %>
 
     </div>
 </div>

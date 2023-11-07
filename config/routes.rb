@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :agreements
   resources :orders
   resource :session, only: %i[new create destroy]
-  resources :users
+  resources :users, param: :login
   resources :departments
 
   root to: "sessions#new"

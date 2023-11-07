@@ -1,5 +1,5 @@
 <%- page_title Rails.configuration.settings.attributes[:edit_user] %>
 
 
-    <%= render "form", license: @user %>
+    <%= render "form", user: @user, url: user_path(@user.login) %>
 

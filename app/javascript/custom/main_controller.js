@@ -154,16 +154,6 @@ document.addEventListener("turbo:load", () => {
             }
         });
 
-        $(".RInput").click(function () {
-            if (!$(this).find("input").val() == "") {
-                $(this).addClass("active");
-                $(this).find(".RInput__label").addClass("active");
-            } else {
-                $(this).removeClass("active");
-                $(this).find(".RInput__label").removeClass("active");
-            }
-        });
-
         $(".RTextarea").keyup(function () {
             if (!$(this).find("textarea").val() == "") {
                 $(this).addClass("active");
@@ -177,6 +167,17 @@ document.addEventListener("turbo:load", () => {
                 $(this).addClass("active");
             } else {
                 $(this).removeClass("active");
+            }
+        });
+    });
+
+    $(function () {
+        $(".rir-eye_16").parent().click(function (){
+            var type = $(".rir-eye_16").parent().parent().find("input");
+            if (type.attr('type') == "password") {
+              type.attr('type', "text");
+            } else {
+              type.attr('type', "password");
             }
         });
     });

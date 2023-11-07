@@ -9,7 +9,7 @@ class User < ApplicationRecord
     validates :name, :login, :post, presence: true, uniqueness: true
 
     def title_ize
-        email.downcase!
+        login.downcase!
         post.capitalize!
     end
 
@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
     def strip_ize
         name.strip!
-        email.strip!
+        login.strip!
         post.strip!
     end
     

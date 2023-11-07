@@ -17711,7 +17711,7 @@ body.narrow .RAnnouncement.polydora .RAnnouncement__sub-title {
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
-    user-select: none
+    user-select: none;
 }
 
 .RCheckbox.disabled {

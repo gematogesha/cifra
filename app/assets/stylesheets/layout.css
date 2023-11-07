@@ -135,3 +135,7 @@ label {
         right: -400px;
     }
 }
+
+.RPopover__content {
+    display: none;
+}

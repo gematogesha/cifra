@@ -18,7 +18,7 @@
 
 <div  class="RRow mb-4 ">
     <div  class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
-        <span  class="taleggio"><%= @subtitle_1 %></span>
+        <span  class="taleggio"><%= I18n.t("attr.user.list") %></span>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
                     <tr>
                         <td>
                             <div class="RTable__row">
-                                <%= link_to user_path(user) do %>
+                                <%= link_to user_path(user.login) do %>
                                     <%= render "components/button_action", title: user.name, color: "rocky", size: "sulguni", icon: nil %>
                                 <% end %>
                             </div>

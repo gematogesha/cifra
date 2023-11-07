@@ -1,3 +1,5 @@
+document.addEventListener("turbo:load", () => {
+
 const dropdowns = document.querySelectorAll(".RSelect");
 
 // Check if Dropdowns are Exist
@@ -18,6 +20,7 @@ function createCustomDropdown(dropdown) {
    // Create Custom Dropdown Element and Add Class Dropdown
    const customDropdown = document.createElement("div");
    customDropdown.classList.add("RSelect");
+   customDropdown.classList.add("RSelect_show");
    dropdown.insertAdjacentElement("afterend", customDropdown);
 
    // Create Element for Selected Option
@@ -54,6 +57,7 @@ function createCustomDropdown(dropdown) {
    selected.type = "text";
    selected.disabled = "disabled";
    selected.value = optionsArr[0].textContent;
+   //selected.value = optionsArr[0].textContent;
    RInput__input_main.appendChild(selected);
 
    customDropdown.appendChild(RSelect__input_main);
@@ -63,7 +67,7 @@ function createCustomDropdown(dropdown) {
    const menu = document.createElement("div");
    menu.classList.add("RPopover__content", "mt-2");
    customDropdown.appendChild(menu);
-   selected.addEventListener("click", toggleDropdown.bind(menu));
+   RSelect__input_main.addEventListener("click", toggleDropdown.bind(menu));
 
    // Create Search Input Element
    const RSelect__search = document.createElement("div");
@@ -102,17 +106,33 @@ function createCustomDropdown(dropdown) {
 
    // Create Wrapper Element for Menu Items
    // Add Class and Append to Menu Element
-   const menuInnerWrapper = document.createElement("div");
-   menuInnerWrapper.classList.add("dropdown-menu-inner");
+   const menuInnerWrapper = document.createElement("section");
+   menuInnerWrapper.classList.add("RListGroup", "RSelect__list");
    menu.appendChild(menuInnerWrapper);
 
    // Loop All Options and Create Custom Option for Each Option
    // And Append it to Inner Wrapper Element
    optionsArr.forEach((option) => {
-      const item = document.createElement("div");
-      item.classList.add("dropdown-menu-item");
+      const item = document.createElement("section");
+      item.classList.add("RListItem");
       item.dataset.value = option.value;
-      item.textContent = option.textContent;
+
+      const RMenu__char = document.createElement("span");
+      RMenu__char.classList.add("RMenu__char");
+      RMenu__char.textContent = option.textContent[0];
+      item.appendChild(RMenu__char);
+
+      const RListItem__content = document.createElement("section");
+      RListItem__content.classList.add("RListItem__content");
+      item.appendChild(RListItem__content);
+
+      const RListItem__title = document.createElement("span");
+      RListItem__title.classList.add("RListItem__title");
+      RListItem__title.textContent = option.textContent;
+      RListItem__content.appendChild(RListItem__title);
+
+
+
       menuInnerWrapper.appendChild(item);
 
       item.addEventListener(
@@ -122,7 +142,7 @@ function createCustomDropdown(dropdown) {
    });
 
    // Add Selected Class to First Custom Select Option
-   menuInnerWrapper.querySelector("div").classList.add("selected");
+   menuInnerWrapper.querySelector("section").classList.add("selected");
 
    // Add Input Event to Search Input Element to Filter Items
    // Add Click Event to Element to Close Custom Dropdown if Clicked Outside
@@ -139,9 +159,20 @@ function createCustomDropdown(dropdown) {
 function toggleDropdown() {
    if (this.offsetParent !== null) {
       this.style.display = "none";
+      isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
    } else {
       this.style.display = "block";
       this.querySelector("input").focus();
+      isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
+   }
+   
+}
+
+function isOpen(input) {
+   if (input.classList.contains('isOpen')) {
+      input.classList.remove("isOpen");
+   } else {
+      input.classList.add("isOpen");
    }
 }
 
@@ -149,11 +180,11 @@ function toggleDropdown() {
 function setSelected(selected, dropdown, menu) {
    // Get Value and Label from Clicked Custom Option
    const value = this.dataset.value;
-   const label = this.textContent;
+   const label = this.getElementsByClassName("RListItem__title")[0].textContent;
 
    // Change the Text on Selected Element
    // Change the Value on Select Field
-   selected.textContent = label;
+   selected.value = label;
    dropdown.value = value;
 
    // Close the Menu
@@ -162,13 +193,14 @@ function setSelected(selected, dropdown, menu) {
    // And Show All Div if they Were Filtered
    // Add Selected Class to Clicked Option
    menu.style.display = "none";
+   isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
    menu.querySelector("input").value = "";
-   menu.querySelectorAll("div").forEach((div) => {
+   menu.querySelectorAll("section").forEach((div) => {
       if (div.classList.contains("is-select")) {
          div.classList.remove("is-select");
       }
       if (div.offsetParent === null) {
-         div.style.display = "block";
+         div.style.display = "flex";
       }
    });
    this.classList.add("is-select");
@@ -180,13 +212,13 @@ function filterItems(itemsArr, menu) {
    // Get Value of Search Input
    // Get Filtered Items
    // Get the Indexes of Filtered Items
-   const customOptions = menu.querySelectorAll(".dropdown-menu-inner div");
+   const customOptions = menu.querySelectorAll(".RSelect__list section");
    const value = this.value.toLowerCase();
    const filteredItems = itemsArr.filter((item) =>
-      item.value.toLowerCase().includes(value)
+      item.innerHTML.toLowerCase().includes(value)
+
    );
    const indexesArr = filteredItems.map((item) => itemsArr.indexOf(item));
-
    // Check if Option is not Inside Indexes Array
    // And Hide it and if it is Inside Indexes Array and it is Hidden Show it
    itemsArr.forEach((option) => {
@@ -194,7 +226,7 @@ function filterItems(itemsArr, menu) {
          customOptions[itemsArr.indexOf(option)].style.display = "none";
       } else {
          if (customOptions[itemsArr.indexOf(option)].offsetParent === null) {
-            customOptions[itemsArr.indexOf(option)].style.display = "block";
+            customOptions[itemsArr.indexOf(option)].style.display = "flex";
          }
       }
    });
@@ -203,10 +235,14 @@ function filterItems(itemsArr, menu) {
 // Close Dropdown if Clicked Outside Dropdown Element
 function closeIfClickedOutside(menu, e) {
    if (
-      e.target.closest(".dropdown") === null &&
+      e.target.closest(".RSelect") === null &&
       e.target !== this &&
       menu.offsetParent !== null
    ) {
       menu.style.display = "none";
+      isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
    }
+
 }
+
+});

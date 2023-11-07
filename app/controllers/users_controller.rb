@@ -10,18 +10,12 @@ class UsersController < ApplicationController
   def index
     @page_title = @model_many
     @users = User.all
-
-    @subtitle_1 = I18n.t("attr.user.list")
-
   end
 
 
   def new
     @page_title = @model_many
     @user = User.new
-
-    @subtitle_1 = I18n.t("attr.user.create")
-
   end
 
   def create
@@ -29,7 +23,7 @@ class UsersController < ApplicationController
 
     @subtitle_1 = I18n.t("attr.user.create")
 
-    @user = User.new(user_params)
+    @user = User.create(user_params)
 
     if @user.save
       redirect_to users_path, success: "Пользователь успешно создан"
@@ -88,8 +82,6 @@ class UsersController < ApplicationController
       end
     end
     
-    
-
   end
 
   def settings
@@ -104,7 +96,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id]) rescue not_found
+    @user = User.find_by!(login: params[:login]) rescue not_found
   end
 
   def model_name

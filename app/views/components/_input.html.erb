@@ -15,7 +15,7 @@
                 <%= form.text_field form_attr, maxlength: (maxlength if !maxlength.nil?) %>
             <% end%>
             <% if form_type == "password" %>
-                <%= form.password_field form_attr, maxlength: (maxlength if !maxlength.nil?) %>
+                <%= form.password_field form_attr, maxlength: (maxlength if !maxlength.nil?), value: (SecureRandom.hex(4) if rand) %>
             <% end%>
             <% if form_type == "email" %>
                 <%= form.email_field form_attr, maxlength: (maxlength if !maxlength.nil?) %>
@@ -24,13 +24,13 @@
         </label>
     </div>
     <% if !aftericon.nil?%>
-        <a class="RInput__after">
+        <a class="RInput__after events">
             <i class="RIcon rir-<%= aftericon %>_16"></i>
         </a>
     <% end %>
 
     <% if !beforeicon.nil?%>
-        <a class="RInput__after">
+        <a class="RInput__before">
             <i class="RIcon rir-<%= beforeicon %>_16"></i>
         </a>
     <% end %>
