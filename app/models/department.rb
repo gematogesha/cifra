@@ -19,6 +19,6 @@ class Department < ApplicationRecord
         title.split.each{|i| i.capitalize!}.join(' ')
     end
 
-
+    scope :ordered_by_title, -> { order(title: :asc) }
 
 end
