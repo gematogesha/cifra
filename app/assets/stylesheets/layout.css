@@ -139,3 +139,7 @@ label {
 .RPopover__content {
     display: none;
 }
+
+.RSelect input {
+    pointer-events: none;
+}

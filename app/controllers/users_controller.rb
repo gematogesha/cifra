@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      redirect_to users_path, success: I18n.t("notices.success.create"), model: "SASS"
+      redirect_to users_path, success: I18n.t("notices.success.create")
     else
       flash.now[:error] = I18n.t("notices.errors.create")
 
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :login, :post, :admin, :password, :department_id)
+    params.require(:user).permit(:name, :login, :post, :admin, :password, :department)
   end
 
   def set_user
