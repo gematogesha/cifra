@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     if current_user.present?
-      redirect_to licenses_path
+      redirect_to dashboard_path
     end
     
   end
