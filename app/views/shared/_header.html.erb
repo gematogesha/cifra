@@ -13,7 +13,7 @@
         <section tabindex="0" class="RRadioButton">
             <%= render "components/avatar", color: "nixilei", size: "aethelsa", title: nil %>
             <section class="RRadioButton__content ml-3">
-                <span class="RRadioButton__title" style="-webkit-line-clamp: 1;"><%= current_user.name %></span>
+                <span class="RRadioButton__title" style="-webkit-line-clamp: 1;"><%= current_user.full_name %></span>
                 <span class="RRadioButton__sub-title"><%= current_user.admin ? "Администратор" : current_user.post %></span>
             </section>
         </section>

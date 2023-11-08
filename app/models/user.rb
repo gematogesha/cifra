@@ -2,11 +2,11 @@ class User < ApplicationRecord
     has_secure_password
 
     has_many :license
-    has_one :department
+    belongs_to :department
 
     before_save :title_ize, :upcase_name, :strip_ize
     
-    validates :name, :login, :post, presence: true, uniqueness: true
+    validates :full_name, :login, :post, presence: true, uniqueness: true
 
     def title_ize
         login.downcase!
@@ -14,11 +14,11 @@ class User < ApplicationRecord
     end
 
     def upcase_name
-        name.split.each{|i| i.capitalize!}.join(' ')
+        full_name.split.each{|i| i.capitalize!}.join(' ')
     end
 
     def strip_ize
-        name.strip!
+        full_name.strip!
         login.strip!
         post.strip!
     end

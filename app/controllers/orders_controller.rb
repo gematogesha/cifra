@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
-    before_action :loggedin, :model_name
-    before_action :admin_check, only: %i[new create update destroy edit archive]
+    before_action :login?, :model_name
+    before_action :admin?, only: %i[new create update destroy edit archive]
     before_action :set_order, only: %i[update show destroy edit]
     
     add_flash_types :info, :error, :success

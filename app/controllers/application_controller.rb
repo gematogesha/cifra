@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 		@current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
 	end
 
-	def loggedin
+	def login?
 		if current_user.present?
 			return
 		else
@@ -46,11 +46,11 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-	def admin_check		
+	def admin?		
 		if current_user.admin?
 			return
 		else
-			unprocessable_entity
+			not_found
 		end
 	end	
 

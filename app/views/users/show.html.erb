@@ -1,25 +1,25 @@
-<%- page_title @user.name %>
+<%- page_title @user.full_name %>
 
 <div class="module">
     <div class="module-head module-small">
         <%= link_to @model_many, users_path %>
-        <%= content_tag("a", @user.name) %>
+        <%= content_tag("a", @user.full_name) %>
     </div>
 </div>
 
 <div class="module">
     <div class="module-head">
-        <h2 class="left"><%= @user.name.humanize %></h2>
+        <h2 class="left"><%= @user.full_name.humanize %></h2>
         <%= link_to edit_user_path(@user), title: "Редактровать", class: "right edit-fa" %>
 
 
     </div>
     <div class="module-body">
         <div class="control-group">
-            <%= label_tag nil, t(User.human_attribute_name :name), class: 'control-label' %>
+            <%= label_tag nil, t(User.human_attribute_name :full_name), class: 'control-label' %>
             <div class="controls">
                 <div class="control-label text">
-                    <%= @user.name %>
+                    <%= @user.full_name %>
                 </div>
             </div>
         </div>

@@ -1,15 +1,15 @@
 <div class="module-body">
     <%= form_with model: @department, data: {turbo: false} do |form| %>
         <div class="control-group">
-            <%= form.label :title, class: "control-label" %>
+            <%= form.label :name, class: "control-label" %>
             <div class="controls">
-                <%= form.text_field :title %>
+                <%= form.text_field :name %>
             </div>
         </div>
         <div class="control-group">
-            <%= form.label :number, class: "control-label" %>
+            <%= form.label :department_code, class: "control-label" %>
             <div class="controls">
-                <%= form.text_field :number %>
+                <%= form.text_field :department_code %>
             </div>
         </div>
         <div class="control-group">

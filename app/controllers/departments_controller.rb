@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   
-  before_action :loggedin, :admin_check, :model_name
+  before_action :login?, :admin?, :model_name
 
   before_action :set_department, only: %i[update show destroy edit]
 
@@ -14,8 +14,6 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.new(department_params)
 
-    short_title
-
     if @department.save
       redirect_to departments_path, success: "Отдел успешно создан"
     else
@@ -27,8 +25,6 @@ class DepartmentsController < ApplicationController
 
   def update
     @department.update(department_params)
-
-    short_title
     
     if @department.update(department_params)
       redirect_to departments_path, success: "Отдел обновлен"
@@ -55,7 +51,7 @@ class DepartmentsController < ApplicationController
   private
 
   def department_params
-    params.require(:department).permit(:title, :number, :short_name)
+    params.require(:department).permit(:name, :department_code)
   end
 
   def set_department
@@ -66,19 +62,6 @@ class DepartmentsController < ApplicationController
     @model_one = Department.model_name.human
     @model_many = Department.model_name.human(count: :many)
   end     
-
-  def short_title
-
-    @department.short_title = ''
-    @department.title.split(/[\s,-]/).each do |i|
-      if i == "и"
-        @department.short_title << i[0]
-      else
-        @department.short_title << i[0][0].capitalize
-      end
-    end 
-    
-  end
 
 
 end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :loggedin, :model_name
-  before_action :admin_check, except: [:account, :settings]
+  before_action :login?, :model_name
+  before_action :admin?, except: [:account, :settings]
   before_action :set_user, only: %i[update show destroy edit]
   before_action :human_att
 
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :login, :post, :admin, :password, :department_id)
+    params.require(:user).permit(:full_name, :login, :post, :admin, :password, :department_id)
   end
 
   def set_user
