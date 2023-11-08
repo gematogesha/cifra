@@ -63,10 +63,6 @@ class ApplicationController < ActionController::Base
 			cookies[:menu] = "full"
 		end
 
-		if cookies[:breakpoint].nil?
-			cookies[:breakpoint] = "wide"
-		end
-
 	end
 	
 

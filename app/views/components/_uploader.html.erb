@@ -1,0 +1,32 @@
+<% @error_status = nil %>
+
+<% @error_message = "ncvcvbcvbil" %>
+
+<% if controller.errors.any? %>
+    <% controller.errors.each do |error| %>
+        <% if error.attribute.to_s == attr %>
+            <% @error_status = "error"%>
+            <% @error_message = error.full_message %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<div style="width: 100%;">
+    <section class="RUploader <%= @error_status%>">
+        <label class="RUploader__attach">
+            <div class="RUploader__content">
+                <div class="RUploader__title">
+                    <i class="RIcon rir-attach_16"></i>
+                    <span class="RUploader__title--text">Загрузите файлы</span>
+                </div>
+                <div class="RUploader__sub-title"><%= @error_message %></div>
+            </div>
+            <%= form.file_field form_attr, multiple: multiple, accept: accept, class: "RUploader__input"  %>
+        </label>
+    </section>
+    <div class="RUploader__filelist mt-6" style="display: none;">
+
+        <%= render "components/file", type: "default", isFIleImage: false, background_image: "test", icon: "file", title: "Test", subtitle: "test" %>
+
+    </div>
+</div>

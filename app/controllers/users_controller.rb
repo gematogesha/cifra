@@ -21,14 +21,12 @@ class UsersController < ApplicationController
   def create
     @page_title = @model_many
 
-    @subtitle_1 = I18n.t("attr.user.create")
-
     @user = User.create(user_params)
 
     if @user.save
-      redirect_to users_path, success: "Пользователь успешно создан"
+      redirect_to users_path, success: I18n.t("notices.success.create"), model: "SASS"
     else
-      flash.now[:error] = I18n.t("errors.save")
+      flash.now[:error] = I18n.t("notices.errors.create")
 
       render :new
     end
@@ -38,9 +36,9 @@ class UsersController < ApplicationController
     @user.update(user_params)
     
     if @user.update(user_params)
-      redirect_to users_path, success: "Пользователь обновлен"
+      redirect_to users_path, success: I18n.t("notices.success.update")
     else
-      flash.now[:error] = "Неправильно заполнены формы регистрации"
+      flash.now[:error] = I18n.t("notices.errors.update")
 
       render :edit
     end

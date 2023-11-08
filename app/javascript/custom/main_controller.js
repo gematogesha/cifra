@@ -38,29 +38,32 @@ document.addEventListener("turbo:load", () => {
 
 
     $(function () {
+        var theme_day = $('.change_theme_day');
+        var theme_night = $('.change_theme_night');
+
         if ($('html').attr('theme') == "default") {
-            $('.change_theme_night').addClass('harakiri');
-            $('.change_theme_day').addClass('rocky');
+            theme_night.addClass('harakiri');
+            theme_day.addClass('rocky');
         } else {
-            $('.change_theme_night').addClass('rocky');
-            $('.change_theme_day').addClass('harakiri');
+            theme_night.addClass('rocky');
+            theme_day.addClass('harakiri');
         }
 
-        $('.change_theme_night').click(function () {
+        theme_night.click(function () {
             if ($('html').attr('theme') == "default") {
-                $('.change_theme_night').toggleClass('harakiri rocky');
+                $(this).toggleClass('harakiri rocky');
                 $('html').attr('theme', "dark");
                 document.cookie = "theme=dark";
-                $('.change_theme_day').toggleClass('rocky harakiri');
+                theme_day.toggleClass('rocky harakiri');
             }
         });
 
-        $('.change_theme_day').click(function () {
+        theme_day.click(function () {
             if ($('html').attr('theme') == "dark") {
-                $('.change_theme_day').toggleClass('harakiri rocky');
+                $(this).toggleClass('harakiri rocky');
                 $('html').attr('theme', "default");
                 document.cookie = "theme=default";
-                $('.change_theme_night').toggleClass('rocky harakiri');
+                theme_night.toggleClass('rocky harakiri');
             }
         });
     })
@@ -77,44 +80,64 @@ document.addEventListener("turbo:load", () => {
         })
     });
 
-    $(function () {
+    function screen_check() {
+        var body = $("body");
+
         if ($(window).width() < 600) {
+            body.removeClass();
+            body.addClass("narrow");
             document.cookie = "breakpoint=narrow";
         } else if ($(window).width() >= 600 && $(window).width() < 1024) {
+            body.removeClass();
+            body.addClass("middle");
             document.cookie = "breakpoint=middle";
         } else if ($(window).width() >= 1024 && $(window).width() < 1300) {
+            body.removeClass();
+            body.addClass("wide");
             document.cookie = "breakpoint=wide";
         } else if (1300 <= $(window).width()) {
+            body.removeClass();
+            body.addClass("widest");
             document.cookie = "breakpoint=widest";
         }
-    });
-
+    }
 
 
     $(function () {
+        var menu = $(".RLayoutDashboard__menu"); 
+
         if ($("body").hasClass('narrow')) {
-            $(".RLayoutDashboard__head").find(".RRadioButton__content").css("display", "none")
-            $(".RLayoutDashboard__head").find(".RAvatar").toggleClass("aethelsa themise")
+            $(".RLayoutDashboard__head").find(".RRadioButton__content").css("display", "none");
+            $(".RLayoutDashboard__head").find(".RAvatar").toggleClass("aethelsa themise");
         }
-    });
 
-    $(function () {
         $(".RLayoutDashboard__hamburger").click(function () {
-            $(".RLayoutDashboard__menu").addClass("open")
+            menu.addClass("open");
         })
 
         $(".RLayoutDashboard__close").click(function () {
-            $(".RLayoutDashboard__menu").removeClass("open")
+            menu.removeClass("open");
         })
 
         $(".RLayoutDashboard__compact").click(function () {
-            if (!$(".RLayoutDashboard__menu").hasClass("compact")) {
+            if (!menu.hasClass("compact")) {
                 document.cookie = "menu=compact";
-                $(".RLayoutDashboard__menu").addClass("compact")
+                menu.addClass("compact")
             } else {
                 document.cookie = "menu=full";
-                $(".RLayoutDashboard__menu").removeClass("compact")
+                menu.removeClass("compact")
             }
+        })
+    });
+
+
+    $(function () {
+        if (!$("body").hasClass()) {
+            screen_check()
+        }
+
+        $(window).resize(function () {
+            screen_check()
         })
     });
 
@@ -134,7 +157,10 @@ document.addEventListener("turbo:load", () => {
     });
 
     $(function () {
-        $(".RInput").keyup(function () {
+        var input = $(".RInput");
+        var textarea = $(".RTextarea");
+
+        input.keyup(function () {
             if (!$(this).find("input").val() == "") {
                 $(this).addClass("active");
                 $(this).find(".RInput__label").addClass("active");
@@ -144,7 +170,7 @@ document.addEventListener("turbo:load", () => {
             }
         });
 
-        $(".RInput").each(function () {
+        input.each(function () {
             if (!$(this).find("input").val() == "") {
                 $(this).addClass("active");
                 $(this).find(".RInput__label").addClass("active");
@@ -154,7 +180,7 @@ document.addEventListener("turbo:load", () => {
             }
         });
 
-        $(".RTextarea").keyup(function () {
+        textarea.keyup(function () {
             if (!$(this).find("textarea").val() == "") {
                 $(this).addClass("active");
             } else {
@@ -162,7 +188,7 @@ document.addEventListener("turbo:load", () => {
             }
         });
 
-        $(".RTextarea").each(function () {
+        textarea.each(function () {
             if (!$(this).find("textarea").val() == "") {
                 $(this).addClass("active");
             } else {
@@ -172,12 +198,12 @@ document.addEventListener("turbo:load", () => {
     });
 
     $(function () {
-        $(".rir-eye_16").parent().click(function (){
+        $(".rir-eye_16").parent().click(function () {
             var type = $(".rir-eye_16").parent().parent().find("input");
             if (type.attr('type') == "password") {
-              type.attr('type', "text");
+                type.attr('type', "text");
             } else {
-              type.attr('type', "password");
+                type.attr('type', "password");
             }
         });
     });

@@ -1,0 +1,43 @@
+<section class="RFile <%= type %>">
+    <% if type == "default" %>
+        <section class="RFile__preview">
+
+            <% if isFIleImage %>
+                <div class="RImage bana kano">
+                    <div class="RImage__image bana kano" style="background-image: url(&quot;<%= background_image %>&quot;); background-size: cover;"></div>
+                </div>
+            <% else %>
+                <i class="RIcon rir-<%= icon %>_20"></i>
+            <% end %>
+
+        </section>
+        <div class="RFile__content">
+            <div class="RFile__title"><%= title %></div>
+            <div class="RFile__sub-title"><%= subtitle %></div>
+        </div>
+        <a tabindex="0" class="RButtonSimple RFile__actions monithei transparent fargo">
+            <i class="RIcon rir-delete_16"></i>
+        </a>
+
+    <% else %>
+
+        <section class="RFile__preview">
+
+            <% if isFIleImage %>
+                <div class="RImage bana rada">
+                    <div class="RImage__image bana rada" style="background-image: url(&quot;<%= background_image %>&quot;); background-size: cover;"></div>
+                </div>
+            <% else %>
+                <i class="RIcon rir-<%= icon %>_16"></i>
+            <% end %>
+
+        </section>
+        <div class="RFile__content">
+            <div class="RFile__title"><%= title %></div>
+            <div class="RFile__sub-title"><%= subtitle %></div>
+        </div>
+        <a tabindex="0" class="RButtonSimple RFile__actions spelino transparent fargo">
+            <i class="RIcon rir-delete_16"></i>
+        </a>
+    <%end %>
+</section>

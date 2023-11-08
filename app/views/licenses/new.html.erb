@@ -1,14 +1,3 @@
-<%- page_title Rails.configuration.settings.attributes[:create_license] %>
-
-<div class="module">
-    <div class="module-head module-small">
-        <%= link_to @model_many, licenses_path %>
-        <%= content_tag("a", Rails.configuration.settings.attributes[:create_license]) %>
-    </div>
-</div>
-
-<%= render "alert" %>
-
 <div class="module">
     <div class="module-head">
         <h2><%= Rails.configuration.settings.attributes[:create_license] %></h2>

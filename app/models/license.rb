@@ -6,7 +6,7 @@ class License < ApplicationRecord
 
     before_save :capitalize_title, :strip_ize
 
-    validates :begin, :ending, presence: true
+    validates :begin, :ending, :file_license, presence: true
     validates :series, numericality: true
 
     def capitalize_title

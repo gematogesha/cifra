@@ -1,4 +1,3 @@
-
 <div class="module-body">
     <%= form_with model: @license, data: {turbo: false} do |form| %>
         <div class="control-group">
@@ -61,6 +60,9 @@
                 <%= form.file_field :file_license  %>
             </div>
         </div>
+
+        <%= render "components/uploader", form: form, controller: @license, form_attr: :file_license, attr: "file_license", multiple: false, accept: "application/pdf" %>
+
         <div class="control-group">
             <%= form.label :status, class: "control-label" %>
             <div class="controls">

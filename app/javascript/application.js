@@ -8,6 +8,8 @@ import "custom/main_controller"
 
 import "custom/select"
 
+import "custom/uploader"
+
 import "custom/tablesorter"
 
 

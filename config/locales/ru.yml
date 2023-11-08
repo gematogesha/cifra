@@ -6,8 +6,13 @@ ru:
   action: 
     save: "Сохранить"
     create: "Создать"
-  errors:
-    save: "Неправильно заполнены формы"
+  notices:
+    errors:
+      create: "Неправильно заполнены формы"
+      update: "Неправильно заполнены формы"
+    success:
+      create: "%{model} успешно создан"
+      update: "%{model} успешно обновлен"
   attr:
     user:
       name: "Имя пользователя"
