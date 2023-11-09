@@ -1,15 +1,15 @@
-<%- page_title @license.title.truncate(70, separator: ' ') %>
+<%- page_title @license.name.truncate(70, separator: ' ') %>
 
 <div class="module">
     <div class="module-head module-small">
         <%= link_to @model_many, licenses_path %>
-        <%= content_tag("a", @license.title.truncate(70, separator: ' ')) %>
+        <%= content_tag("a", @license.name.truncate(70, separator: ' ')) %>
     </div>
 </div>
 
 <div class="module">
     <div class="module-head">
-        <h2><%= @license.title %></h2>
+        <h2><%= @license.name %></h2>
         <% if @license.created_at == @license.updated_at %>
             <span>изменений нет</span>
         <% else %>
@@ -23,10 +23,10 @@
     </div>
     <div class="module-body">
         <div class="control-group">
-            <%= label_tag nil, t(License.human_attribute_name :title), class: 'control-label' %>
+            <%= label_tag nil, t(License.human_attribute_name :name), class: 'control-label' %>
             <div class="controls">
                 <div class="control-label text">
-                    <%= @license.title %>
+                    <%= @license.name %>
                 </div>
             </div>
         </div>

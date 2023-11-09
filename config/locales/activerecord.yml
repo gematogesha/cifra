@@ -25,7 +25,7 @@ ru:
         department_id: "Отдел"
         admin: "Администратор"
       license:
-        title: "Наименование"
+        name: "Наименование"
         description: "Описание"
         reg_number: "Регистрационный номер"
         issued: "Выдано"

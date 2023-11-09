@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_08_145704) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_09_083342) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,6 +44,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_145704) do
     t.integer "department_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "licenses", force: :cascade do |t|
+    t.text "name", null: false
+    t.text "description"
+    t.string "reg_number", null: false
+    t.string "issued", null: false
+    t.integer "series", null: false
+    t.string "content"
+    t.date "begin", null: false
+    t.date "ending", null: false
+    t.string "remark"
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_licenses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -56,7 +56,7 @@ class LicensesController < ApplicationController
   private
 
   def license_params
-    params.require(:license).permit(:title, :description, :reg_number, :issued, :series, :content, :begin, :ending, :user_id, :remark, :status, :file_license)
+    params.require(:license).permit(:name, :description, :reg_number, :issued, :series, :content, :begin, :ending, :user_id, :remark, :status, :file_license)
   end
 
   def set_license

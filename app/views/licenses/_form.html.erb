@@ -1,9 +1,9 @@
 <div class="module-body">
     <%= form_with model: @license, data: {turbo: false} do |form| %>
         <div class="control-group">
-            <%= form.label :title, class: "control-label" %>
+            <%= form.label :name, class: "control-label" %>
             <div class="controls">
-                <%= form.text_area :title, rows: 5 , cols: 45 %>
+                <%= form.text_area :name, rows: 5 , cols: 45 %>
             </div>
         </div>
         <div class="control-group">
