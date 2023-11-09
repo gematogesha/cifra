@@ -7,6 +7,7 @@ class User < ApplicationRecord
     before_save :title_ize, :upcase_name, :strip_ize
     
     validates :full_name, :login, :post, presence: true, uniqueness: true
+    validates :post, presence: true
 
     def title_ize
         login.downcase!

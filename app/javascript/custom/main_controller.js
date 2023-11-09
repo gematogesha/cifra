@@ -53,7 +53,7 @@ document.addEventListener("turbo:load", () => {
             if ($('html').attr('theme') == "default") {
                 $(this).toggleClass('harakiri rocky');
                 $('html').attr('theme', "dark");
-                document.cookie = "theme=dark";
+                localStorage.setItem('theme', 'dark');
                 theme_day.toggleClass('rocky harakiri');
             }
         });
@@ -62,7 +62,7 @@ document.addEventListener("turbo:load", () => {
             if ($('html').attr('theme') == "dark") {
                 $(this).toggleClass('harakiri rocky');
                 $('html').attr('theme', "default");
-                document.cookie = "theme=default";
+                localStorage.setItem('theme', 'default');
                 theme_night.toggleClass('rocky harakiri');
             }
         });
@@ -81,31 +81,21 @@ document.addEventListener("turbo:load", () => {
     });
 
     function screen_check() {
-        var body = $("body");
-
         if ($(window).width() < 600) {
-            body.removeClass();
-            body.addClass("narrow");
-            document.cookie = "breakpoint=narrow";
+            localStorage.setItem('breakpoint', 'narrow');
         } else if ($(window).width() >= 600 && $(window).width() < 1024) {
-            body.removeClass();
-            body.addClass("middle");
-            document.cookie = "breakpoint=middle";
+            localStorage.setItem('breakpoint', 'middle');
         } else if ($(window).width() >= 1024 && $(window).width() < 1300) {
-            body.removeClass();
-            body.addClass("wide");
-            document.cookie = "breakpoint=wide";
+            localStorage.setItem('breakpoint', 'wide');
         } else if (1300 <= $(window).width()) {
-            body.removeClass();
-            body.addClass("widest");
-            document.cookie = "breakpoint=widest";
+            localStorage.setItem('breakpoint', 'widest');
         }
     }
 
 
     $(function () {
-        var menu = $(".RLayoutDashboard__menu"); 
-
+        var menu = $(".RLayoutDashboard__menu");
+        
         if ($("body").hasClass('narrow')) {
             $(".RLayoutDashboard__head").find(".RRadioButton__content").css("display", "none");
             $(".RLayoutDashboard__head").find(".RAvatar").toggleClass("aethelsa themise");
@@ -121,21 +111,17 @@ document.addEventListener("turbo:load", () => {
 
         $(".RLayoutDashboard__compact").click(function () {
             if (!menu.hasClass("compact")) {
-                document.cookie = "menu=compact";
-                menu.addClass("compact")
+                localStorage.setItem('menu', 'compact');
+                menu.addClass("compact");
             } else {
-                document.cookie = "menu=full";
-                menu.removeClass("compact")
+                localStorage.setItem('menu', 'full');
+                menu.removeClass("compact");
             }
         })
     });
 
 
     $(function () {
-        if (!$("body").hasClass()) {
-            screen_check()
-        }
-
         $(window).resize(function () {
             screen_check()
         })
@@ -207,7 +193,6 @@ document.addEventListener("turbo:load", () => {
             }
         });
     });
-
 
 });
 

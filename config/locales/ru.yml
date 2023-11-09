@@ -15,7 +15,7 @@ ru:
       update: "%{model} успешно обновлен"
   attr:
     user:
-      name: "Имя пользователя"
+      full_name: "Имя пользователя"
       password: "Пароль"
       login: "Логин"
       post: "Должность"

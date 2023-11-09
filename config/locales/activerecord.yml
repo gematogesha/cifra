@@ -18,7 +18,7 @@ ru:
         other: "Отделы"  
     attributes:
       user:
-        name: "Имя пользователя"
+        full_name: "Имя пользователя"
         password: "Пароль"
         login: "Логин"
         post: "Должность"

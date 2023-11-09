@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html theme=<%= cookies[:theme] %>>
+<html>
     <head>
         <title><%= content_for?(:title) ? content_for(:title) : "ЦиФРА" %></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,9 +9,15 @@
 
         <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
         <%= javascript_importmap_tags %>
+        <script>
+            document.querySelector('html').setAttribute("theme", localStorage.getItem('theme'));
+        </script>
     </head>
 
-    <body class=<%= cookies[:breakpoint] %>>
+    <body>
+        <script>
+            document.querySelector('body').classList.add(localStorage.getItem('breakpoint'));
+        </script>
         <section class="RLayoutDashboard">
             <%= render "shared/notification" %>
             <% if !current_page?(root_url) %>
@@ -21,6 +27,9 @@
                 <% if !current_page?(root_url) %>
                     <%= render "shared/header" %>
                 <% end %>
+                <script>
+                    document.querySelector('.RMenu').classList.add(localStorage.getItem('menu'));
+                </script>
 
                 <div class="RLayoutDashboard__content offset">
                     <div class="pt-4">
