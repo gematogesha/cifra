@@ -1,6 +1,9 @@
 document.addEventListener("turbo:load", () => {
 
    const dropdowns = document.querySelectorAll(".RSelect");
+   const label = document.querySelectorAll(".RSelect__label")[0];
+   const label_name = label.innerHTML;
+   console.log(label_name)
 
    // Check if Dropdowns are Exist
    // Loop Dropdowns and Create Custom Dropdown for each Select Element
@@ -50,7 +53,7 @@ document.addEventListener("turbo:load", () => {
 
       const RInput__label_main = document.createElement("label");
       RInput__label_main.classList.add("RInput__label");
-      RInput__label_main.innerHTML += "КАКОЕ ТО ПОЛЕ Я НЕ ПРИДМАЛ";
+      RInput__label_main.innerHTML += label_name;
       RInput__input_main.appendChild(RInput__label_main);
 
       const selected = document.createElement("input");
@@ -110,6 +113,14 @@ document.addEventListener("turbo:load", () => {
 
       menu.appendChild(RSelect__search);
 
+
+      // Create Not Found Element
+      const Not_found = document.createElement("div");
+      Not_found.classList.add("RSelect__not-list");
+      Not_found.innerHTML += "Ничего не найдено";
+      Not_found.style.display = "none";
+      menu.appendChild(Not_found);
+
       // Create Wrapper Element for Menu Items
       // Add Class and Append to Menu Element
       const menuInnerWrapper = document.createElement("section");
@@ -125,7 +136,7 @@ document.addEventListener("turbo:load", () => {
 
          //const RMenu__char = document.createElement("span");
          //RMenu__char.classList.add("RMenu__char");
-        // RMenu__char.textContent = option.textContent[0];
+         // RMenu__char.textContent = option.textContent[0];
          //item.appendChild(RMenu__char);
 
          const RListItem__content = document.createElement("section");
@@ -182,6 +193,7 @@ document.addEventListener("turbo:load", () => {
          closeIfClickedOutside.bind(customDropdown, menu)
       );
       dropdown.style.display = "none";
+      label.style.display = "none";
    }
 
    // Toggle for Display and Hide Dropdown
@@ -241,23 +253,33 @@ document.addEventListener("turbo:load", () => {
       // Get Value of Search Input
       // Get Filtered Items
       // Get the Indexes of Filtered Items
-      const customOptions = menu.querySelectorAll(".RSelect__list section");
+      const Not_found = document.querySelector('.RSelect__not-list');
+      const RListGroup = menu.querySelector(".RListGroup");
+      const customOptions = menu.querySelectorAll(".RSelect__list .RListItem");
       const value = this.value.toLowerCase();
       const filteredItems = itemsArr.filter((item) =>
-         item.innerHTML.toLowerCase().includes(value)
-
+         item.innerHTML.toLowerCase().includes(value),
       );
       const indexesArr = filteredItems.map((item) => itemsArr.indexOf(item));
       // Check if Option is not Inside Indexes Array
       // And Hide it and if it is Inside Indexes Array and it is Hidden Show it
       itemsArr.forEach((option) => {
-         if (!indexesArr.includes(itemsArr.indexOf(option))) {
-            customOptions[itemsArr.indexOf(option)].style.display = "none";
+         if (indexesArr == '') {
+            RListGroup.style.display = "none";
+            Not_found.style.display = "flex";
          } else {
-            if (customOptions[itemsArr.indexOf(option)].offsetParent === null) {
-               customOptions[itemsArr.indexOf(option)].style.display = "flex";
+            RListGroup.style.display = "flex";
+            Not_found.style.display = "none";
+            if (!indexesArr.includes(itemsArr.indexOf(option))) {
+               customOptions[itemsArr.indexOf(option)].style.display = "none";
+            } else {
+               if (customOptions[itemsArr.indexOf(option)].offsetParent === null) {
+                  customOptions[itemsArr.indexOf(option)].style.display = "flex";
+               }
+
             }
          }
+
       });
    }
 

@@ -13,6 +13,7 @@
             <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
+            <%= form.label :department_id, class: "RSelect__label" %>
             <%= form.select :department_id, Department.order(:name).map{|department|[department.name, department.id]}, {}, {class: "RSelect"} %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
