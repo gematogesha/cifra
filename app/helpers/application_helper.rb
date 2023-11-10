@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def page_title(title)
-    content_for(:title) {I18n.t("app.app_name") }
+    content_for(:title) {"#{title} | " + I18n.t("app.app_name") }
   end
 
   def short_name(name)

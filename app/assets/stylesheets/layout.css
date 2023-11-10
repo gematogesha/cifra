@@ -138,6 +138,12 @@ label {
 
 .RPopover__content {
     display: none;
+    position: absolute;
+    width: 100%;
+}
+
+.RSelect{
+    position: relative;
 }
 
 .RSelect input {

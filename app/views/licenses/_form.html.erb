@@ -45,7 +45,7 @@
         <div class="control-group">
             <%= form.label :user_id, class: "control-label" %>
             <div class="controls">
-                <%= form.select :user_id, User.order(:full_name).map{|user|[user.name, user.id]} %>
+                <%= form.select :user_id, User.order(:full_name).map{|user|[user.full_name, user.id]} %>
             </div>
         </div>
         <div class="control-group">

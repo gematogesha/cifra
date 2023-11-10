@@ -1,7 +1,6 @@
 $(function () {
 
-    var $uploader = $(".RUploader"),
-        $input = $(".RUploader__input"),
+    var $input = $(".RUploader__input"),
         $filelist = $(".RUploader__filelist"),
         $action = $(".RFile__actions");
 

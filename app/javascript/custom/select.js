@@ -123,10 +123,10 @@ document.addEventListener("turbo:load", () => {
          item.classList.add("RListItem");
          item.dataset.value = option.value;
 
-         const RMenu__char = document.createElement("span");
-         RMenu__char.classList.add("RMenu__char");
-         RMenu__char.textContent = option.textContent[0];
-         item.appendChild(RMenu__char);
+         //const RMenu__char = document.createElement("span");
+         //RMenu__char.classList.add("RMenu__char");
+        // RMenu__char.textContent = option.textContent[0];
+         //item.appendChild(RMenu__char);
 
          const RListItem__content = document.createElement("section");
          RListItem__content.classList.add("RListItem__content");

@@ -16,16 +16,16 @@
     </div>
 </div>
 
-<div  class="RRow mb-4 ">
-    <div  class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
-        <span  class="taleggio"><%= I18n.t("attr.user.list") %></span>
+<div class="RRow mb-4 ">
+    <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
+        <span class="taleggio"><%= I18n.t("attr.user.list") %></span>
     </div>
 </div>
 
 <div class="RRow">
     <div class="RCol">
         <table class="RTable creusa">
-            <thead class="trainspotting--bg">
+            <thead>
                 <tr>
                     <%for attr in @human_att do %>
                         <%= render"components/table_item", title: attr %>
@@ -34,7 +34,7 @@
             </thead>
             <tbody>
                 <% @users.each do |user| %>
-                    <tr>
+                    <tr class="click">
                         <td>
                             <div class="RTable__row">
                                 <%= link_to user_path(user.login) do %>
@@ -54,3 +54,4 @@
         </table>
     </div>
 </div>
+
