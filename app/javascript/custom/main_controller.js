@@ -39,6 +39,10 @@ document.addEventListener("turbo:load", () => {
         var theme_day = $('.change_theme_day');
         var theme_night = $('.change_theme_night');
 
+        if (localStorage.getItem('theme') == "null") {
+            localStorage.setItem('theme', 'default');
+        }
+
         if ($('html').attr('theme') == "default") {
             theme_night.addClass('harakiri');
             theme_day.addClass('rocky');

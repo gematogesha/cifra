@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   	helper_method :current_user
-	before_action :set_cookies
 	helper_method :pie_charts
 
 
@@ -53,18 +52,5 @@ class ApplicationController < ActionController::Base
 			not_found
 		end
 	end	
-
-	def set_cookies
-		if cookies[:theme].nil?
-			cookies[:theme] = "default"
-		end
-
-		if cookies[:menu].nil?
-			cookies[:menu] = "full"
-		end
-
-	end
-	
-
 	
 end

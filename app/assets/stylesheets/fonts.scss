@@ -35,6 +35,10 @@
 }
 @font-face {
     font-family: riricon;
-    src: url(https://design.rusatom.dev/fonts/icons/riricon.eot?t=1698070554510);
-    src: url(https://design.rusatom.dev/fonts/icons/riricon.eot?t=1698070554510#iefix) format("embedded-opentype"), url(https://design.rusatom.dev/fonts/icons/riricon.woff2?t=1698070554510) format("woff2"), url(https://design.rusatom.dev/fonts/icons/riricon.woff?t=1698070554510) format("woff"), url(https://design.rusatom.dev/fonts/icons/riricon.ttf?t=1698070554510) format("truetype")
+    src: font-url('Icons/riricon.eot');
+    src: 
+		font-url('Icons/riricon.eot?#iefix') format("embedded-opentype"), 
+		font-url('Icons/riricon.woff2') format("woff2"), 
+		font-url('Icons/riricon.woff') format("woff"), 
+		font-url('Icons/riricon.ttf') format("truetype")
 }
