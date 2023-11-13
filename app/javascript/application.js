@@ -10,6 +10,8 @@ import "custom/select"
 
 import "custom/uploader"
 
+import "custom/datepicker"
+
 import "custom/tablesorter"
 
 

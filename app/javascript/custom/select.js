@@ -1,9 +1,6 @@
 document.addEventListener("turbo:load", () => {
 
    const dropdowns = document.querySelectorAll(".RSelect");
-   const label = document.querySelectorAll(".RSelect__label")[0];
-   const label_name = label.innerHTML;
-   console.log(label_name)
 
    // Check if Dropdowns are Exist
    // Loop Dropdowns and Create Custom Dropdown for each Select Element
@@ -15,6 +12,9 @@ document.addEventListener("turbo:load", () => {
 
    // Create Custom Dropdown
    function createCustomDropdown(dropdown) {
+
+      const label = document.querySelectorAll(".RSelect__label")[0];
+
       // Get All Select Options
       // And Convert them from NodeList to Array
       const options = dropdown.querySelectorAll("option");
@@ -53,12 +53,15 @@ document.addEventListener("turbo:load", () => {
 
       const RInput__label_main = document.createElement("label");
       RInput__label_main.classList.add("RInput__label");
-      RInput__label_main.innerHTML += label_name;
+      RInput__label_main.innerHTML += label.textContent;
+      RInput__label_main.htmlFor = label.htmlFor;
       RInput__input_main.appendChild(RInput__label_main);
 
       const selected = document.createElement("input");
       selected.type = "text";
       selected.disabled = "disabled";
+      //selected.id = dropdown.id;
+      selected.name = dropdown.getAttribute("name");
 
       try {
          selected.value = optionsArr[0].textContent;

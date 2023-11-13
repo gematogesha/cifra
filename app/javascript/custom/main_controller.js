@@ -1,7 +1,5 @@
 document.addEventListener("turbo:load", () => {
 
-    console.log('plugin/script load');
-
     $(function () {
         $('.RRow').each(function () {
             $(this).addClass('dashboard wrap');
