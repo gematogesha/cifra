@@ -62,12 +62,8 @@ document.addEventListener("turbo:load", () => {
       selected.disabled = "disabled";
       //selected.id = dropdown.id;
       selected.name = dropdown.getAttribute("name");
+      selected.value = '';
 
-      try {
-         selected.value = optionsArr[0].textContent;
-      } catch (error) {
-         selected.value = "Пусто";
-      };
 
       //selected.value = optionsArr[0].textContent;
       RInput__input_main.appendChild(selected);
@@ -168,24 +164,6 @@ document.addEventListener("turbo:load", () => {
          );
       });
 
-      // Add Selected Class to First Custom Select Option
-      try {
-         menuInnerWrapper.querySelector("section").classList.add("selected");
-      } catch (error) {
-
-         const item = document.createElement("section");
-         item.classList.add("RListItem");
-         menuInnerWrapper.appendChild(item);
-
-         const RListItem__content = document.createElement("section");
-         RListItem__content.classList.add("RListItem__content");
-         item.appendChild(RListItem__content);
-
-         const RListItem__title = document.createElement("span");
-         RListItem__title.classList.add("RListItem__title");
-         RListItem__title.textContent = "Пусто";
-         RListItem__content.appendChild(RListItem__title);
-      };
 
       // Add Input Event to Search Input Element to Filter Items
       // Add Click Event to Element to Close Custom Dropdown if Clicked Outside
@@ -225,11 +203,15 @@ document.addEventListener("turbo:load", () => {
       // Get Value and Label from Clicked Custom Option
       const value = this.dataset.value;
       const label = this.getElementsByClassName("RListItem__title")[0].textContent;
+      const input = document.getElementsByClassName("RSelect__input")[0].getElementsByClassName("RInput")[0];
+      const input_label = input.getElementsByClassName("RInput__label")[0];
 
       // Change the Text on Selected Element
       // Change the Value on Select Field
       selected.value = label;
       dropdown.value = value;
+      input.classList.add("active")
+      input_label.classList.add("active")
 
       // Close the Menu
       // Reset Search Input Value
@@ -298,5 +280,6 @@ document.addEventListener("turbo:load", () => {
       }
 
    }
+   
 
 });

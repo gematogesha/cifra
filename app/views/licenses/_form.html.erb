@@ -31,10 +31,8 @@
             </div>
         </div>
         <div class="control-group">
-            <%= form.label :begin, class: "control-label" %>
-            <div class="controls">
-                <%= form.date_field :begin %>
-            </div>
+            <%= form.label :begin, class: "RDatePicker__label" %>
+            <%= form.date_field :begin, class: "RDatePicker" %>
         </div>
         <div class="control-group">
             <%= form.label :ending, class: "control-label" %>
