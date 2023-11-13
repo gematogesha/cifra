@@ -10,44 +10,29 @@ document.addEventListener("turbo:load", () => {
       });
    }
 
+
+
    // Create Custom Dropdown
    function createCustomDropdown(dropdown) {
 
-      const label = document.querySelectorAll(".RSelect__label")[0];
-
-      // Get All Select Options
-      // And Convert them from NodeList to Array
-      const options = dropdown.querySelectorAll("option");
+      const options = dropdown.querySelectorAll("span");
       const optionsArr = Array.prototype.slice.call(options);
 
-      const selected = document.createElement("input");
-      selected.type = "text";
-      selected.disabled = "disabled";
-      //selected.id = dropdown.id;
-      selected.name = dropdown.getAttribute("name");
-      selected.value = '';
+      let temp = document.querySelector("#RSelect");
+      let customDropdown = temp.content.cloneNode(true);
+      dropdown.appendChild(customDropdown);
 
+      const selected = dropdown.querySelector("input");
+      selected.name = dropdown.querySelectorAll("select")[0].name;
 
-      // Create Element for Dropdown Menu
-      // Add Class and Append it to Custom Dropdown
-      const menu = document.createElement("div");
-      menu.classList.add("RPopover__content", "mt-2");
+      const menu = dropdown.querySelector(".RPopover__content");
 
-      menu.appendChild(RSelect__search);
+      dropdown.querySelectorAll(".RSelect__input")[1].addEventListener("click", toggleDropdown.bind(menu));
 
       // Loop All Options and Create Custom Option for Each Option
       // And Append it to Inner Wrapper Element
       optionsArr.forEach((option) => {
-
-         item.dataset.value = option.value;
-
-         try {
-            RListItem__title.textContent = option.textContent;
-         } catch (error) {
-            RListItem__title.textContent = "Пусто";
-         };
-
-         menuInnerWrapper.appendChild(item);
+         const item = dropdown.querySelectorAll(".RListItem");
 
          item.addEventListener(
             "click",
@@ -59,33 +44,34 @@ document.addEventListener("turbo:load", () => {
       // Add Input Event to Search Input Element to Filter Items
       // Add Click Event to Element to Close Custom Dropdown if Clicked Outside
       // Hide the Original Dropdown(Select)
+      const search = dropdown.querySelectorAll("input")[1];
       search.addEventListener("input", filterItems.bind(search, optionsArr, menu));
       document.addEventListener(
          "click",
          closeIfClickedOutside.bind(customDropdown, menu)
       );
-      dropdown.style.display = "none";
-      label.style.display = "none";
+
    }
 
    // Toggle for Display and Hide Dropdown
    function toggleDropdown() {
       if (this.offsetParent !== null) {
          this.style.display = "none";
-         isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
+         isOpen();
       } else {
          this.style.display = "block";
          this.querySelector("input").focus();
-         isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
+         isOpen();
       }
 
    }
 
-   function isOpen(input) {
-      if (input.classList.contains('isOpen')) {
-         input.classList.remove("isOpen");
+   function isOpen() {
+      const RInput = dropdowns[0].children[1].querySelector(".RInput");
+      if (RInput.classList.contains('isOpen')) {
+         RInput.classList.remove("isOpen");
       } else {
-         input.classList.add("isOpen");
+         RInput.classList.add("isOpen");
       }
    }
 
@@ -110,9 +96,10 @@ document.addEventListener("turbo:load", () => {
       // And Show All Div if they Were Filtered
       // Add Selected Class to Clicked Option
       menu.style.display = "none";
-      isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
+      
+      isOpen();
       menu.querySelector("input").value = "";
-      menu.querySelectorAll("section").forEach((div) => {
+      menu.querySelectorAll(".RListItem").forEach((div) => {
          if (div.classList.contains("active")) {
             div.classList.remove("active");
          }
@@ -129,8 +116,8 @@ document.addEventListener("turbo:load", () => {
       // Get Value of Search Input
       // Get Filtered Items
       // Get the Indexes of Filtered Items
-      const Not_found = document.querySelector('.RSelect__not-list');
-      const RListGroup = menu.querySelector(".RListGroup");
+      const Not_found = dropdowns[0].querySelector('.RSelect__not-list');
+      const RListGroup = menu.querySelectorAll(".RListGroup");
       const customOptions = menu.querySelectorAll(".RSelect__list .RListItem");
       const value = this.value.toLowerCase();
       const filteredItems = itemsArr.filter((item) =>
@@ -167,10 +154,10 @@ document.addEventListener("turbo:load", () => {
          menu.offsetParent !== null
       ) {
          menu.style.display = "none";
-         isOpen(document.querySelector('.RSelect_show').firstChild.children[0]);
+         isOpen();
       }
 
    }
-   
+
 
 });
