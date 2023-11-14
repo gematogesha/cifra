@@ -1,48 +1,49 @@
 <template id="RSelect">
     <label tabindex="0" class="RSelect__input">
-        <label class="RInput default eluno readonly">
+        <label class="RInput default eluno readonly error">
             <div class="RInput__body is-label">
                 <label class="RInput__input">
-                <input type="text" disabled="disabled" autocomplete="new-password">
-                    <label class="RInput__label">Title
+                    <input type="text" disabled="disabled" autocomplete="new-password">
+                        <label class="RInput__label">Title</label>
                     </label>
-                </label>
-            </div>
-            <a class="RInput__after">
-                <i class="RIcon rir-arrow-down_16"></i>
-            </a>
+                </div>
+                <a class="RInput__after">
+                    <i class="RIcon rir-arrow-down_16"></i>
+                </a>
+                <span class="RInput__error">asdasd</span>
+            </label>
         </label>
-    </label>
-    <div class="RPopover__content mt-2">
-        <div class="RSelect__content">
-            <div class="RSelect__search"><label class="RInput default eluno">
-                    <div class="RInput__body is-label">
-                        <label tabindex="0" class="RInput__input">
-                            <input type="text" autocomplete="new-password">
-                            <label class="RInput__label">Поиск</label>
+        <div class="RPopover__content mt-2">
+            <div class="RSelect__content">
+                <div class="RSelect__search">
+                    <label class="RInput default eluno">
+                        <div class="RInput__body is-label">
+                            <label tabindex="0" class="RInput__input">
+                                <input type="text" autocomplete="new-password">
+                                    <label class="RInput__label">Поиск</label>
+                                </label>
+                            </div>
+                            <a class="RInput__clear events" style="visibility: hidden;">
+                                <i class="RIcon rir-close_8"></i>
+                            </a>
+                            <a class="RInput__before">
+                                <i class="RIcon rir-search_16"></i>
+                            </a>
                         </label>
                     </div>
-                    <a class="RInput__clear events" style="visibility: hidden;">
-                        <i class="RIcon rir-close_8"></i>
-                    </a>
-                    <a class="RInput__before">
-                        <i class="RIcon rir-search_16"></i>
-                    </a>
-                </label>
+                    <div class="RSelect__not-list" style="display: none;">Ничего не найдено</div>
+                    <section class="RListGroup RSelect__list" id="select-list" style="display: flex;">
+                        <section tabindex="0" class="RListItem" data-value="1">
+                            <section class="RListItem__content">
+                                <span class="RListItem__title" style="-webkit-line-clamp: 1;">Test</span>
+                            </section>
+                        </section>
+                        <section tabindex="0" class="RListItem" data-value="2">
+                            <section class="RListItem__content">
+                                <span class="RListItem__title" style="-webkit-line-clamp: 1;">Unre</span>
+                            </section>
+                        </section>
+                    </section>
+                </div>
             </div>
-            <div class="RSelect__not-list" style="display: none;">Ничего не найдено</div>
-            <section class="RListGroup RSelect__list" id="select-list" style="display: flex;">
-                <section tabindex="0" class="RListItem" data-value="1">
-                    <section class="RListItem__content">
-                        <span class="RListItem__title" style="-webkit-line-clamp: 1;">Test</span>
-                    </section>
-                </section>
-                <section tabindex="0" class="RListItem" data-value="2">
-                    <section class="RListItem__content">
-                        <span class="RListItem__title" style="-webkit-line-clamp: 1;">Unre</span>
-                    </section>
-                </section>
-            </section>
-        </div>
-    </div>
-</template>
+        </template>
