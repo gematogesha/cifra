@@ -1,59 +1,47 @@
 document.addEventListener("turbo:load", () => {
 
-   const dropdowns = document.querySelectorAll(".RSelect");
+   const dropdowns = document.querySelectorAll(".RSelect__input");
+   const label = document.querySelectorAll(".RSelect__label")[0];
 
-   // Check if Dropdowns are Exist
-   // Loop Dropdowns and Create Custom Dropdown for each Select Element
    if (dropdowns.length > 0) {
       dropdowns.forEach((dropdown) => {
          createCustomDropdown(dropdown);
       });
    }
 
-
-
-   // Create Custom Dropdown
    function createCustomDropdown(dropdown) {
 
-      const options = dropdown.querySelectorAll("span");
+      const customDropdown = document.querySelector("#RSelect");
+      const clone = customDropdown.content.cloneNode(true);
+      document.querySelector(".RSelect").appendChild(clone);
+
+      const options = dropdown.querySelectorAll("option");
       const optionsArr = Array.prototype.slice.call(options);
 
-      let temp = document.querySelector("#RSelect");
-      let customDropdown = temp.content.cloneNode(true);
-      dropdown.appendChild(customDropdown);
+      const selected = document.querySelectorAll(".RSelect__input")[1].querySelector("input");
+      selected.name = dropdown.getAttribute("name")
 
-      const selected = dropdown.querySelector("input");
-      selected.name = dropdown.querySelectorAll("select")[0].name;
+      const menu = document.querySelector(".RPopover__content");
 
-      const menu = dropdown.querySelector(".RPopover__content");
+      document.querySelectorAll(".RSelect__input")[1].addEventListener("click", toggleDropdown.bind(menu));
+      document.querySelectorAll(".RSelect__input")[1].querySelectorAll(".RInput__label")[0].htmlFor = label.htmlFor;
 
-      dropdown.querySelectorAll(".RSelect__input")[1].addEventListener("click", toggleDropdown.bind(menu));
-
-      // Loop All Options and Create Custom Option for Each Option
-      // And Append it to Inner Wrapper Element
-      optionsArr.forEach((option) => {
-         const item = dropdown.querySelectorAll(".RListItem");
-
+      optionsArr.forEach( function (option, index) {
+         const item = document.querySelectorAll(".RListItem")[index];
          item.addEventListener(
             "click",
             setSelected.bind(item, selected, dropdown, menu)
          );
       });
 
-
-      // Add Input Event to Search Input Element to Filter Items
-      // Add Click Event to Element to Close Custom Dropdown if Clicked Outside
-      // Hide the Original Dropdown(Select)
-      const search = dropdown.querySelectorAll("input")[1];
+      const search = document.querySelectorAll(".RSelect__input")[1].nextElementSibling.querySelector("input");
       search.addEventListener("input", filterItems.bind(search, optionsArr, menu));
       document.addEventListener(
          "click",
          closeIfClickedOutside.bind(customDropdown, menu)
       );
-
    }
 
-   // Toggle for Display and Hide Dropdown
    function toggleDropdown() {
       if (this.offsetParent !== null) {
          this.style.display = "none";
@@ -63,11 +51,10 @@ document.addEventListener("turbo:load", () => {
          this.querySelector("input").focus();
          isOpen();
       }
-
    }
 
    function isOpen() {
-      const RInput = dropdowns[0].children[1].querySelector(".RInput");
+      const RInput = document.querySelectorAll(".RSelect__input")[1].querySelector(".RInput");
       if (RInput.classList.contains('isOpen')) {
          RInput.classList.remove("isOpen");
       } else {
@@ -75,28 +62,20 @@ document.addEventListener("turbo:load", () => {
       }
    }
 
-   // Set Selected Option
    function setSelected(selected, dropdown, menu) {
-      // Get Value and Label from Clicked Custom Option
+
       const value = this.dataset.value;
       const label = this.getElementsByClassName("RListItem__title")[0].textContent;
-      const input = document.getElementsByClassName("RSelect__input")[0].getElementsByClassName("RInput")[0];
+      const input = document.querySelectorAll(".RSelect__input")[1].querySelector(".RInput");
       const input_label = input.getElementsByClassName("RInput__label")[0];
 
-      // Change the Text on Selected Element
-      // Change the Value on Select Field
       selected.value = label;
       dropdown.value = value;
       input.classList.add("active")
       input_label.classList.add("active")
 
-      // Close the Menu
-      // Reset Search Input Value
-      // Remove Selected Class from Previously Selected Option
-      // And Show All Div if they Were Filtered
-      // Add Selected Class to Clicked Option
       menu.style.display = "none";
-      
+
       isOpen();
       menu.querySelector("input").value = "";
       menu.querySelectorAll(".RListItem").forEach((div) => {
@@ -110,22 +89,27 @@ document.addEventListener("turbo:load", () => {
       this.classList.add("active");
    }
 
-   // Filter the Items
    function filterItems(itemsArr, menu) {
-      // Get All Custom Select Options
-      // Get Value of Search Input
-      // Get Filtered Items
-      // Get the Indexes of Filtered Items
-      const Not_found = dropdowns[0].querySelector('.RSelect__not-list');
-      const RListGroup = menu.querySelectorAll(".RListGroup");
+
+      const Not_found = document.querySelector('.RSelect__not-list');
+      const RListGroup = menu.querySelector(".RListGroup");
       const customOptions = menu.querySelectorAll(".RSelect__list .RListItem");
-      const value = this.value.toLowerCase();
+      var value = this.value.toLowerCase();
+
+      const clear = menu.querySelector(".RInput__clear");
+
+      if (value != 0) {
+         clear.style.visibility = "visible";
+      } else {
+         clear.style.visibility = "hidden";
+      }
+
       const filteredItems = itemsArr.filter((item) =>
-         item.innerHTML.toLowerCase().includes(value),
+         item.textContent.toLowerCase().includes(value),
       );
+
       const indexesArr = filteredItems.map((item) => itemsArr.indexOf(item));
-      // Check if Option is not Inside Indexes Array
-      // And Hide it and if it is Inside Indexes Array and it is Hidden Show it
+
       itemsArr.forEach((option) => {
          if (indexesArr == '') {
             RListGroup.style.display = "none";
@@ -144,10 +128,21 @@ document.addEventListener("turbo:load", () => {
          }
 
       });
+
+      clear.addEventListener("click", (event) => {
+         this.value = '';
+         value = '';
+         customOptions.forEach((item) => {
+            item.style.display = "flex";
+            RListGroup.style.display = "flex";
+            Not_found.style.display = "none";
+            clear.style.visibility = "hidden";
+         });
+      });
    }
 
-   // Close Dropdown if Clicked Outside Dropdown Element
    function closeIfClickedOutside(menu, e) {
+      console.log(e.target.closest(".RSelect"))
       if (
          e.target.closest(".RSelect") === null &&
          e.target !== this &&
@@ -156,8 +151,5 @@ document.addEventListener("turbo:load", () => {
          menu.style.display = "none";
          isOpen();
       }
-
    }
-
-
 });
