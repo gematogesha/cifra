@@ -34,7 +34,7 @@ document.addEventListener("turbo:load", () => {
          );
       });
 
-      const search = document.querySelectorAll(".RSelect__input")[1].nextElementSibling.querySelector("input");
+      const search = document.querySelectorAll(".RSelect__input")[1].querySelector(".RPopover__content").querySelector("input");
       search.addEventListener("input", filterItems.bind(search, optionsArr, menu));
       document.addEventListener(
          "click",
@@ -142,7 +142,6 @@ document.addEventListener("turbo:load", () => {
    }
 
    function closeIfClickedOutside(menu, e) {
-      console.log(e.target.closest(".RSelect"))
       if (
          e.target.closest(".RSelect") === null &&
          e.target !== this &&

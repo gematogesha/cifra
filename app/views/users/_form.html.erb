@@ -4,7 +4,7 @@
             <%= render "components/input", form: form, controller: @user, form_attr: :full_name, attr: "full_name", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <%= render "components/input", form: form, controller: @user, form_attr: :password, attr: "password", form_type: "password",  type: "default", size: "eluno", beforeicon: nil, aftericon: "eye", maxlength: 8, rounded: false, readonly: false, rand: true %>
+            <%= render "components/input", form: form, controller: @user, form_attr: :password, attr: "password", form_type: "password",  type: "default", size: "eluno", beforeicon: nil, aftericon: "eye", maxlength: 8, rounded: false, readonly: false, rand: false %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
             <%= render "components/input", form: form, controller: @user, form_attr: :login, attr: "login", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false %>
@@ -28,3 +28,38 @@
         </div>
     </div>
 <% end %>
+
+<label tabindex="0" class="RDatePicker__input">
+    <label class="RInput default eluno readonly">
+    <div class="RInput__body is-label">
+        <label class="RInput__input">
+            <input type="text" disabled="disabled" autocomplete="new-password">
+            <label class="RInput__label">Label text</label>
+        </label>
+    </div>
+    <a class="RInput__after events">
+        <i class="RIcon rir-calendar_16"></i>
+    </a>
+    </label>
+</label>
+
+
+<div id="date_picker">
+    <div id="date_picker_input">
+        <label>Datepicker</label>
+        <input type="text" id="date" class="onFocus" readonly/>
+    </div>
+    <div id="date_picker_calendar" class="hidden">
+        <div id="calendar_header">
+            <button class="cal-btn back">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJUlEQVR4nO2Uv0oDQRCHR9BKrAQJ2FgIdnc7njtzSbMzd7lGC80T5DXMW+gzpNJHsPEJYuELBA60EBELsfIfBGIixvNyt0IKP9h2vt3fb1iAfxaCXZt0DGuOrO8+jmHNQ3JHnwLDeutrOI4lJDcTAcngDwSDSUSkCbK++RSEJAdfejCkfX+31/63oq1N15H0rn7Bch80s42Z22SsdGsLrHQLVxZJLioLSC8BYKlQELLbQpanCrk/Y+y2C4dPFd6bP3s9hrI455aR9GqO219HUbRSWjB6xV5qDcnL7wJ5RZs2oQpIelqi2BOoShBkq0g6LMg932m11qAOhnX/5+zlEHyALOczhp+BL6x1DSR9mPoOHsM42QSfGE6yUR+kQxO7ttfhC80HheuaG9wAq10AAAAASUVORK5CYII="></button>
+                <span></span>
+                <button class="cal-btn front">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJUlEQVR4nO2Uv0oDQRCHR9BKrAQJ2FgIdnc7njtzSbMzd7lGC80T5DXMW+gzpNJHsPEJYuELBA60EBELsfIfBGIixvNyt0IKP9h2vt3fb1iAfxaCXZt0DGuOrO8+jmHNQ3JHnwLDeutrOI4lJDcTAcngDwSDSUSkCbK++RSEJAdfejCkfX+31/63oq1N15H0rn7Bch80s42Z22SsdGsLrHQLVxZJLioLSC8BYKlQELLbQpanCrk/Y+y2C4dPFd6bP3s9hrI455aR9GqO219HUbRSWjB6xV5qDcnL7wJ5RZs2oQpIelqi2BOoShBkq0g6LMg932m11qAOhnX/5+zlEHyALOczhp+BL6x1DSR9mPoOHsM42QSfGE6yUR+kQxO7ttfhC80HheuaG9wAq10AAAAASUVORK5CYII="></button>
+                </div>
+                <div id="cal_wrapper">
+                    <div id="cal_days"></div>
+                    <div id="calendar_main"></div>
+                </div>
+            </div>
+        </div>

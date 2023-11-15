@@ -5,7 +5,7 @@
 <% end %>
 
 <section class="RTextarea <%= @error_status %> <%= " readonly" if readonly %>">
-    <%= form.text_area form_attr, rows: rows, class: "RTextarea__textarea", maxlength: maxlength if !maxlength.nil? %>
+    <%= form.text_area form_attr, rows: rows, class: "RTextarea__textarea", maxlength: (maxlength if !maxlength.nil?), autocomplete: "new-password" %>
     <%= form.label form_attr, class: "RTextarea__label" %>
 
     <% if controller.errors.any? %>
