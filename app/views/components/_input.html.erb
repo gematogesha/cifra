@@ -1,24 +1,28 @@
-<% @error_status = nil %>
+<% if iserror %>
 
-<% if controller.errors.any? %>
-    <% controller.errors.each do |error| %>
-        <% if error.attribute.to_s == attr %>
-            <% @error_status = "error"%>
+    <% @error_status = nil %>
+
+    <% if controller.errors.any? %>
+        <% controller.errors.each do |error| %>
+            <% if error.attribute.to_s == attr %>
+                <% @error_status = "error"%>
+            <% end %>
         <% end %>
     <% end %>
+
 <% end %>
 
 <label class="RInput <%= type %> <%= size %> <%= @error_status %> <%= "readonly" if readonly %> <%= "rounded" if rounded %>">
     <div class="RInput__body is-label">
         <label tabindex="0" class="RInput__input">
             <% if form_type == "text" %>
-                <%= form.text_field form_attr, maxlength: (maxlength if !maxlength.nil?), autocomplete: "off" %>
+                <%= form.text_field form_attr, maxlength: (maxlength if !maxlength.nil?), autocomplete: autocomplete %>
             <% end%>
             <% if form_type == "password" %>
-                <%= form.password_field form_attr, maxlength: (maxlength if !maxlength.nil?), value: (SecureRandom.hex(4) if rand), autocomplete: "new-password" %>
+                <%= form.password_field form_attr, maxlength: (maxlength if !maxlength.nil?), value: (SecureRandom.hex(4) if rand), autocomplete: autocomplete %>
             <% end%>
             <% if form_type == "email" %>
-                <%= form.email_field form_attr, maxlength: (maxlength if !maxlength.nil?), autocomplete: "off" %>
+                <%= form.email_field form_attr, maxlength: (maxlength if !maxlength.nil?), autocomplete: autocomplete %>
             <% end%>
             <%= form.label form_attr, class: "RInput__label" %>
         </label>
@@ -34,11 +38,12 @@
             <i class="RIcon rir-<%= beforeicon %>_16"></i>
         </a>
     <% end %>
-
-<% if controller.errors.any? %>
-    <% controller.errors.each do |error| %>
-        <% if error.attribute.to_s == attr %>
-        <span class="RInput__error"><%= error.full_message %></span>
+<% if iserror %>
+    <% if controller.errors.any? %>
+        <% controller.errors.each do |error| %>
+            <% if error.attribute.to_s == attr %>
+            <span class="RInput__error"><%= error.full_message %></span>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>

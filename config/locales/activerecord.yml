@@ -1,6 +1,8 @@
 ru:
   activerecord:
     models:
+      sessions: 
+        login: "ASD"
       user:
         one: "Пользователь"
         other: "Пользователи"       

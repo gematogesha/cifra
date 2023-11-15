@@ -6,6 +6,7 @@ ru:
   action: 
     save: "Сохранить"
     create: "Создать"
+    login: "Войти"
   notices:
     errors:
       create: "Неправильно заполнены формы"
@@ -70,6 +71,8 @@ ru:
       number: "Номер"
       short_title: "Аббревиатура"
   text:
+    session:
+      login: "Вход"
     user:
       dashboard: 
         text_1: "Ваши лицензии и оперативаня информация по ним"

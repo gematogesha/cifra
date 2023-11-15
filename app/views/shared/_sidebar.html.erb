@@ -71,10 +71,7 @@
                     </section>
                 </div>
                 <div class="RMenu__item">
-                    <a href="href" tabindex="0" class="RMenu__body">
-                        <i class="RIcon rir-avatar_16 RMenu__icon"></i>
-                        <span class="RMenu__title">menu3</span>
-                    </a>
+                    <%= button_to Rails.configuration.settings.commands[:logout], session_path, method: :delete %>
                 </div>
             </section>
             <div class="RLayoutDashboard__footer">

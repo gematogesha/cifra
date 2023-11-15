@@ -1,21 +1,29 @@
-<div class="row">
-    <div class="module module-login">
-        <div class="module-head">
-            <h2>Вход</h2>
+<section class="RModal default" style="display: inline; padding-bottom: 96px;">
+    <section tabindex="1" class="RModal__content">
+        <div class="modal" data-hidden="false">
+            <div class="RRow mb-8">
+                <div class="RCol custom cols-widest-6 offset-widest-4 cols-wide-6 offset-wide-4 cols-middle-4 offset-middle-1 cols-narrow-4 offset-narrow-1" style="flex-grow: 0;">
+                    <i class="RIcon modal__icon rir-selected_56" style="color: var(--rir-matrix);"></i>
+                    <div class="camembert mb-4"><%= I18n.t("text.session.login") %></div>
+                    <div class="RRow">
+                        <div class="RCol">
+                            <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
+                                <div class="RRow">
+                                    <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
+                                        <%= render "components/input", form: form, controller: nil, form_attr: :login, attr: "login", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: false, autocomplete: "login" %>
+                                    </div>
+                                    <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
+                                        <%= render "components/input", form: form, controller: nil, form_attr: :password, attr: "password", form_type: "password",  type: "default", size: "eluno", beforeicon: nil, aftericon: "eye", maxlength: 8, rounded: false, readonly: false, rand: false, iserror: false, autocomplete: "password" %>
+                                    </div>
+                                    <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6 mt-4">
+                                        <%= render "components/button", type: "primary", size: "helike", width: "wide", color: "rocky", icon: nil, title: I18n.t("action.login") %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
-            <div class="module-body module-body-login">
-
-                <div class="control-group">
-                    <div><%= form.text_field :login, class: "form-text-field", placeholder: "Логин" %></div>
-                </div>
-                <div class="control-group">
-                    <div><%= form.password_field :password, class: "form-text-field", placeholder: "Пароль" %></div>
-                </div>
-            </div>
-            <div class="module-foot">
-                <%= form.submit "Войти", class: "button right" %>
-            </div>
-        <% end %>
-    </div>
-</div>
+    </section>
+</section>
