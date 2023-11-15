@@ -7,6 +7,7 @@ ru:
     save: "Сохранить"
     create: "Создать"
     login: "Войти"
+    logout: "Выйти"
   notices:
     errors:
       create: "Неправильно заполнены формы"

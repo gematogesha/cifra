@@ -1,16 +1,16 @@
 <%= form_with model: @user, url: url, data: {turbo: false} do |form|%>
     <div class="RRow">
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <%= render "components/input", form: form, controller: @user, form_attr: :full_name, attr: "full_name", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true %>
+            <%= render "components/input", form: form, controller: @user, form_attr: :full_name, attr: "full_name", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true, autocomplete: "off" %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <%= render "components/input", form: form, controller: @user, form_attr: :password, attr: "password", form_type: "password",  type: "default", size: "eluno", beforeicon: nil, aftericon: "eye", maxlength: 8, rounded: false, readonly: false, rand: false, iserror: true %>
+            <%= render "components/input", form: form, controller: @user, form_attr: :password, attr: "password", form_type: "password",  type: "default", size: "eluno", beforeicon: nil, aftericon: "eye", maxlength: 8, rounded: false, readonly: false, rand: false, iserror: true, autocomplete: "off" %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <%= render "components/input", form: form, controller: @user, form_attr: :login, attr: "login", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true %>
+            <%= render "components/input", form: form, controller: @user, form_attr: :login, attr: "login", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true, autocomplete: "off" %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true %>
+            <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true, autocomplete: "off" %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
             <div class="RSelect">

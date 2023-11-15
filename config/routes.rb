@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#dashboard"
   get "/settings", to: "users#settings"
   get "/orders/archive", to: "orders#archive"
+  get "/logout", to: "sessions#destroy"
 
   resources :licenses
   resources :agreements

@@ -1,8 +1,6 @@
 ru:
   activerecord:
     models:
-      sessions: 
-        login: "ASD"
       user:
         one: "Пользователь"
         other: "Пользователи"       
@@ -19,6 +17,10 @@ ru:
         one: "Отдел"
         other: "Отделы"  
     attributes:
+      
+      sessions: 
+        login: "ASD"
+        password: "asas"
       user:
         full_name: "Имя пользователя"
         password: "Пароль"
