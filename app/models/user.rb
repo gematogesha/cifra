@@ -1,13 +1,13 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :license
+    has_many :licenses
     belongs_to :department
 
     before_save :title_ize, :upcase_name, :strip_ize
     
-    validates :full_name, :login, :post, presence: true, uniqueness: true
-    validates :post, presence: true
+    validates :login, :post, presence: true, uniqueness: true
+    validates :post, :full_name, presence: true
 
     def title_ize
         login.downcase!

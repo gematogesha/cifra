@@ -1,11 +1,26 @@
-<%- page_title @user.full_name %>
+<%- page_title @page_title %>
 
-<div class="module">
-    <div class="module-head module-small">
-        <%= link_to @model_many, users_path %>
-        <%= content_tag("a", @user.full_name) %>
+<div class="RRow mb-8">
+    <div class="RCol" style="flex-grow: 0;">
+        <span class="troy--text parmigiano">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore velit consectetur laboriosam suscipit saepe enim nobis optio. Architecto, voluptas ab.
+        </span>
     </div>
 </div>
+
+<div class="RRow mb-8">
+    <div class="RCol">
+        <%= render"components/tabs", link: [user_path(@user.login), edit_user_path(@user.login)], title: [@model_one, I18n.t("attr.user.edit")]  %>
+    </div>
+</div>
+
+<div class="RRow mb-4 ">
+    <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
+        <span class="taleggio"><%= I18n.t("attr.user.list") %></span>
+    </div>
+</div>
+
+
 
 <div class="module">
     <div class="module-head">
@@ -28,7 +43,7 @@
         <div class="control-group">
             <div class="controls">
                 <div class="control-label text">
-                    <%= button_to " Удалить", user_path(@user), 
+                    <%= button_to " Удалить", user_path(@user.login), 
                         method: :delete, 
                         form: {data: {turbo_confirm: "Вы точно хотите удалить пользователя?" }}, 
                         class: "button text-alert" %>

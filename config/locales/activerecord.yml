@@ -17,7 +17,6 @@ ru:
         one: "Отдел"
         other: "Отделы"  
     attributes:
-      
       sessions: 
         login: "ASD"
         password: "asas"

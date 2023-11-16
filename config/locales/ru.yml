@@ -1,7 +1,7 @@
 ru:
   app:
     app_name: "Цифра"
-    version: "v0.3.0.4"
+    version: "v0.3.0.5"
     release: "alpha"
   action: 
     save: "Сохранить"
@@ -13,8 +13,8 @@ ru:
       create: "Неправильно заполнены формы"
       update: "Неправильно заполнены формы"
     success:
-      create: "%{model} успешно создан"
-      update: "%{model} успешно обновлен"
+      create: "%{model} успешно создана"
+      update: "%{model} успешно обновлена"
   attr:
     user:
       full_name: "Имя пользователя"
@@ -26,7 +26,9 @@ ru:
       settings: "Настройки"
       dashboard: "Дашборд"
       create: "Регистрация пользователя"
+      new: "Регистрация пользователя"
       update: "Обновить пользователя"
+      edit: "Редактировать пользователя"
       list: "Список пользователей"
     license:
       name: "Наименование"

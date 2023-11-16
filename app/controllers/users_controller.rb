@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @page_title = @user.full_name
+  end
 
   def new
     @page_title = @model_many
@@ -33,10 +36,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    @page_title = @user.full_name
     @user.update(user_params)
     
     if @user.update(user_params)
-      redirect_to users_path, success: I18n.t("notices.success.update")
+      redirect_to users_path, success: I18n.t("notices.success.update", model: @model_one)
     else
       flash.now[:error] = I18n.t("notices.errors.update")
 
@@ -45,6 +49,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @page_title = @user.full_name
   end
 
   def destroy
@@ -53,7 +58,6 @@ class UsersController < ApplicationController
       redirect_to users_path, info: "Нельзя удалить администратора"
     else
       @user.destroy
-
       redirect_to users_path, success: "Пользователь удален"
     end
 

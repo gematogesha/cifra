@@ -1,10 +1,14 @@
 document.addEventListener("turbo:load", () => {
 
    const dropdowns = document.querySelectorAll(".RSelect__input");
-   const label = document.querySelectorAll(".RSelect__label")[0];
 
    if (dropdowns.length > 0) {
       dropdowns.forEach((dropdown) => {
+         const disableOption = document.createElement("option");
+         disableOption.value = '';
+         disableOption.disabled = true;
+         disableOption.selected = true;
+         dropdowns[0].appendChild(disableOption);
          createCustomDropdown(dropdown);
       });
    }
@@ -17,6 +21,7 @@ document.addEventListener("turbo:load", () => {
 
       const options = dropdown.querySelectorAll("option");
       const optionsArr = Array.prototype.slice.call(options);
+      const deleteLast = optionsArr.splice(-1,1);
 
       const selected = document.querySelectorAll(".RSelect__input")[1].querySelector("input");
       selected.name = dropdown.getAttribute("name")
@@ -24,7 +29,6 @@ document.addEventListener("turbo:load", () => {
       const menu = document.querySelector(".RPopover__content");
 
       document.querySelectorAll(".RSelect__input")[1].addEventListener("click", toggleDropdown.bind(menu));
-      document.querySelectorAll(".RSelect__input")[1].querySelectorAll(".RInput__label")[0].htmlFor = label.htmlFor;
 
       optionsArr.forEach( function (option, index) {
          const item = document.querySelectorAll(".RListItem")[index];
@@ -34,7 +38,7 @@ document.addEventListener("turbo:load", () => {
          );
       });
 
-      const search = document.querySelectorAll(".RSelect__input")[1].querySelector(".RPopover__content").querySelector("input");
+      const search = document.querySelector(".RSelect").querySelector(".RPopover__content").querySelector("input");
       search.addEventListener("input", filterItems.bind(search, optionsArr, menu));
       document.addEventListener(
          "click",
