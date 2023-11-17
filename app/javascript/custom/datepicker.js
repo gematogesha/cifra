@@ -1,30 +1,30 @@
-const calendar = document.querySelector("#calendar_main"),
-  input = document.querySelector("#date"),
-  calHeader = document.querySelector("#calendar_header"),
-  calHeaderTitle = document.querySelector("#calendar_header span"),
-  calDays = document.querySelector("#cal_days"),
+const calendar = document.querySelector(".RDatePicker__calendar"),
+  input = document.querySelector(".RDatePicker__input input"),
+  calHeader = document.querySelector(".RDatePicker__navigation"),
+  calHeaderTitle = document.querySelectorAll(".RDatePicker__navigation span"),
+  calDays = document.querySelector(".RDatePicker__week"),
   days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
+    "Пн",
+    "Вт",
+    "Ср",
+    "Чт",
+    "Пт",
+    "Сб",
+    "Вс"
   ],
   months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь"
   ];
 
 let oneDay = 60 * 60 * 24 * 1000;
@@ -71,12 +71,24 @@ const getDayDetails = (args) => {
   };
 };
 
+function normalWeekDay(weekDay) {
+  let result;
+
+  if (weekDay > 0) {
+    result = weekDay - 1;
+  } else {
+    result = 6;
+  }
+
+  return result;
+}
+
 // [{}] each {} with details for each day of month
 const getMonthDetails = (year, month) => {
-  let firstDay = new Date(year, month).getDay();
+  let firstDay = normalWeekDay(new Date(year, month).getDay());
   let numberOfDays = getNumberOfDays(year, month);
   let monthArray = [];
-  let rows = 5;
+  let rows = 6;
   let currentDay = null;
   let index = 0;
   let cols = 7;
@@ -106,9 +118,7 @@ let monthDetails = getMonthDetails(year, month);
 
 const isCurrentDay = (day, cell) => {
   if (day.timestamp === todayTimestamp) {
-    cell.classList.add("active");
-    cell.classList.add("isCurrent");
-    
+    cell.classList.add("now");
   }
 };
 
@@ -116,7 +126,6 @@ const isCurrentDay = (day, cell) => {
 const isSelectedDay = (day, cell) => {
   if (day.timestamp === selectedDay) {
     cell.classList.add("active");
-    cell.classList.add("isSelected");
   }
 };
 
@@ -126,8 +135,9 @@ const getMonthStr = (month) =>
 // console.log(getMonthStr(month))
 
 // Set year using arrows
-const setHeaderNav = (offset) => {
+const setHeaderNav = (offset, yearOffset) => {
   month = month + offset;
+  year = year + yearOffset;
   if (month === -1) {
     month = 11;
     year--;
@@ -146,7 +156,8 @@ const setHeaderNav = (offset) => {
 
 // Set dynamic calendar header
 const setHeader = (year, month) => {
-  calHeaderTitle.innerHTML = getMonthStr(month) + " " + year;
+  calHeaderTitle[0].innerHTML = getMonthStr(month);
+  calHeaderTitle[1].innerHTML = year;
 };
 
 // Set calendar header
@@ -175,51 +186,62 @@ setDateToInput(todayTimestamp);
 
 // Add days row to calendar
 for (let i = 0; i < days.length; i++) {
-  let div = document.createElement("div"),
-    span = document.createElement("span");
+  let div = document.createElement("span");
 
-  div.classList.add("cell_wrapper");
+  div.classList.add("RDatePicker__day");
   // div.classList.add("cal_days");
-  span.classList.add("cell_item");
 
-  span.innerText = days[i].slice(0, 2);
-
-  div.appendChild(span);
+  div.innerText = days[i].slice(0, 2);
   calDays.appendChild(div);
 }
 
 // Add dates to calendar
 const setCalBody = (monthDetails) => {
   // Add dates to calendar
-  for (let i = 0; i < monthDetails.length; i++) {
-    let div = document.createElement("div"),
-      span = document.createElement("span");
+  for (let i = 0; i < 6; i++) {
+    let div = document.createElement("div"), 
+      indexDay = i;
+    div.classList.add("RDatePicker__row");
 
-    div.classList.add("cell_wrapper");
-    div.classList.add("cal_date");
-    monthDetails[i].month === 0 && div.classList.add("current");
-    monthDetails[i].month === 0 && isCurrentDay(monthDetails[i], div);
-    span.classList.add("cell_item");
+    for (let i = 0; i < 7; i++) {
+      let a = document.createElement("a"), 
+        index = i + 7*indexDay
+      monthDetails[index].month !== 0 && a.classList.add("block");
+      monthDetails[index].month === 0 && isCurrentDay(monthDetails[index], a);
+      a.classList.add("RDatePicker__column");
 
-    span.innerText = monthDetails[i].date;
+      a.innerText = monthDetails[index].date;
+      div.appendChild(a);
+    }
 
-    div.appendChild(span);
     calendar.appendChild(div);
-  }
+  };
 };
 
 setCalBody(monthDetails);
 
 const updateCalendar = (btn) => {
-  let newCal, offset;
-  if (btn.classList.contains("back")) {
+  let newCal, offset, yearOffset;
+  let btnChildren = btn.querySelector("i")
+  if (btnChildren.classList.contains("rir-arrow-left_16")) {
     // let { year, month, monthDetails } = setHeaderNav(-1);
     offset = -1;
-  } else if (btn.classList.contains("front")) {
+    yearOffset = 0;
+  } else if (btnChildren.classList.contains("rir-arrow-right_16")) {
     // let { year, month, monthDetails } = setHeaderNav(1);
     offset = 1;
+    yearOffset = 0;
   }
-  newCal = setHeaderNav(offset);
+  if (btnChildren.classList.contains("rir-rewind_16")) {
+    // let { year, month, monthDetails } = setHeaderNav(-1);
+    offset = 0;
+    yearOffset = -1;
+  } else if (btnChildren.classList.contains("rir-forward_16")) {
+    // let { year, month, monthDetails } = setHeaderNav(1);
+    offset = 0;
+    yearOffset = 1;
+  }
+  newCal = setHeaderNav(offset, yearOffset);
   // console.log(monthDetails)
   setHeader(newCal.year, newCal.month);
   calendar.innerHTML = "";
@@ -228,10 +250,10 @@ const updateCalendar = (btn) => {
 
 // Only one calendar date is selected
 const selectOnClick = () => {
-  document.querySelectorAll(".cell_wrapper").forEach((cell) => {
-    cell.classList.contains("isSelected") && cell.classList.remove("active");
+  calendar.querySelectorAll(".RDatePicker__column").forEach((cell) => {
+    cell.classList.remove("active");
 
-    if(cell.classList.contains("isCurrent") &&
+    if (cell.classList.contains("isCurrent") &&
       !cell.classList.contains("active")) {
       cell.querySelector("span").classList.add("inactive_indicator");
     }
@@ -240,7 +262,7 @@ const selectOnClick = () => {
 
 
 const updateInput = () => {
-  let currentDay = document.querySelector(".isCurrent");
+  let currentDay = calendar.querySelector(".now");
 
   // Update input based on clicked cell
   document.querySelectorAll(".cell_wrapper").forEach((cell) => {
@@ -258,9 +280,9 @@ const updateInput = () => {
               selectOnClick();
 
               isSelectedDay(monthDetails[i], cell);
-              
-              cell.querySelector('span').classList.contains('inactive_indicator') 
-              && cell.querySelector('span').classList.remove('inactive_indicator');
+
+              cell.querySelector('span').classList.contains('inactive_indicator')
+                && cell.querySelector('span').classList.remove('inactive_indicator');
             }
           }
         }
@@ -272,7 +294,7 @@ const updateInput = () => {
 updateInput();
 
 // Set header nav actions
-document.querySelectorAll(".cal-btn").forEach((btn) => {
+calHeader.querySelectorAll("button").forEach((btn) => {
   btn.addEventListener("click", () => {
     updateCalendar(btn);
     updateInput();
