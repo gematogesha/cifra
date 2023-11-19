@@ -12,6 +12,12 @@
 
 <% end %>
 
+<div class="RSelect">
+    <div style="display: none">
+        <%= form.label :department_id, class: "RSelect__label"%>
+        <%= form.collection_select(:department_id, Department.all, :id, :name, {}, {class: "RSelect__input"}) %>
+    </div>
+</div>
 
 <template id="RSelect">
     <label tabindex="0" class="RSelect__input">

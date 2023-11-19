@@ -1,5 +1,7 @@
 const calendar = document.querySelector(".RDatePicker__calendar"),
   input = document.querySelector(".RDatePicker__input input"),
+  rInput = document.querySelector(".RDatePicker__input").querySelector(".RInput"),
+  rLabel = document.querySelector(".RDatePicker__input").querySelector(".RInput__label"),
   calHeader = document.querySelector(".RDatePicker__navigation"),
   calHeaderTitle = document.querySelectorAll(".RDatePicker__navigation span"),
   calDays = document.querySelector(".RDatePicker__week"),
@@ -26,6 +28,8 @@ const calendar = document.querySelector(".RDatePicker__calendar"),
     "Ноябрь",
     "Декабрь"
   ];
+
+  var dateSelect = '';
 
 let oneDay = 60 * 60 * 24 * 1000;
 let todayTimestamp =
@@ -156,8 +160,8 @@ const setHeaderNav = (offset, yearOffset) => {
 
 // Set dynamic calendar header
 const setHeader = (year, month) => {
-  calHeaderTitle[0].innerHTML = getMonthStr(month);
-  calHeaderTitle[1].innerHTML = year;
+  calHeaderTitle[0].textContent = getMonthStr(month);
+  calHeaderTitle[1].textContent = year;
 };
 
 // Set calendar header
@@ -181,8 +185,10 @@ const getDateStringFromTimestamp = (timestamp) => {
 const setDateToInput = (timestamp) => {
   let dateString = getDateStringFromTimestamp(timestamp);
   input.value = dateString;
+  rInput.classList.add("active")
+
 };
-setDateToInput(todayTimestamp);
+
 
 // Add days row to calendar
 for (let i = 0; i < days.length; i++) {
@@ -205,10 +211,13 @@ const setCalBody = (monthDetails) => {
 
     for (let i = 0; i < 7; i++) {
       let a = document.createElement("a"), 
-        index = i + 7*indexDay
+        index = i + 7*indexDay;
       monthDetails[index].month !== 0 && a.classList.add("block");
       monthDetails[index].month === 0 && isCurrentDay(monthDetails[index], a);
       a.classList.add("RDatePicker__column");
+      if (monthDetails[index].timestamp == dateSelect && !a.classList.contains("block")) {
+        a.classList.add("active");
+      }
 
       a.innerText = monthDetails[index].date;
       div.appendChild(a);
@@ -252,21 +261,15 @@ const updateCalendar = (btn) => {
 const selectOnClick = () => {
   calendar.querySelectorAll(".RDatePicker__column").forEach((cell) => {
     cell.classList.remove("active");
-
-    if (cell.classList.contains("isCurrent") &&
-      !cell.classList.contains("active")) {
-      cell.querySelector("span").classList.add("inactive_indicator");
-    }
   });
 };
 
 
 const updateInput = () => {
   let currentDay = calendar.querySelector(".now");
-
   // Update input based on clicked cell
-  document.querySelectorAll(".cell_wrapper").forEach((cell) => {
-    if (cell.classList.contains("current")) {
+  calendar.querySelectorAll(".RDatePicker__column").forEach((cell) => {
+    if (!cell.classList.contains("block")) {
       cell.addEventListener("click", (e) => {
         let cell_date = e.target.textContent;
 
@@ -276,19 +279,22 @@ const updateInput = () => {
           if (monthDetails[i].month === 0) {
             if (monthDetails[i].date.toString() === cell_date) {
               selectedDay = monthDetails[i].timestamp;
+              dateSelect = selectedDay;
+              console.log(selectedDay)
               setDateToInput(selectedDay);
               selectOnClick();
 
               isSelectedDay(monthDetails[i], cell);
+              rInput.classList.add("active");
+              rLabel.classList.add("active");
 
-              cell.querySelector('span').classList.contains('inactive_indicator')
-                && cell.querySelector('span').classList.remove('inactive_indicator');
             }
           }
         }
       });
     }
   });
+  console.log(dateSelect)
 };
 
 updateInput();

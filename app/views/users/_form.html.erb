@@ -13,12 +13,7 @@
             <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: false, rand: false, iserror: true, autocomplete: "new-password" %>
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
-            <div class="RSelect">
-                <div style="display: none">
-                    <%= form.label :department_id, class: "RSelect__label", style: ("") %>
-                    <%= form.collection_select(:department_id, Department.all, :id, :name, {}, {class: "RSelect__input"}) %>
-                </div>
-            </div>
+
         </div>
         <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
             <%= render "components/checkbox", form: form, controller: @user, form_attr: :admin, attr: "admin" %>
@@ -31,4 +26,3 @@
     <%= render "components/select", form: form, controller: @user, form_attr: :department_id, attr: "department_id", type: "default", iserror: true, data: Department.all %>
 
 <% end %>
-
