@@ -1,4 +1,4 @@
-<button tabindex="0" class="RButton <%= type %> <%= size %> <%= color %> <%= width %>" type="submit">
+<button tabindex="0" class="RButton <%= type %> <%= size %> <%= color %> <%= width %>" <%= "disabled" if disabled %> type="submit">
     <div class="RButton__content">
         <% if !icon.nil? %>
             <i class="RIcon rir-<%= icon %>_16 RButton__icon"></i>

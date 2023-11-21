@@ -72,7 +72,7 @@
                 </div>
                 <div class="RMenu__item mt-8">
                     <%= link_to logout_path do %>
-                        <%= render "components/button", type: "primary", size: "helike", width: "wide", color: "rocky", icon: "exit", title: I18n.t("action.logout") %>
+                        <%= render "components/button", type: "primary", size: "helike", width: "wide", color: "rocky", icon: "exit", disabled: false, title: I18n.t("action.logout") %>
                     <% end %>
                 </div>
             </section>

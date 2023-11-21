@@ -26,15 +26,71 @@
             </div>
 
             <div class="pie_chart__content d-flex flex-direction-column justify-content-around mr-8" style="height: 100%;">
-                <span class="pie_chart__text pie_chart__text_new harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.new") %> &mdash; <%= pie_charts[2].present? ? pie_charts[1].count : "0" %></span>
-                <span class="pie_chart__text pie_chart__text_overdue harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.overdue") %> &mdash; <%= pie_charts[2].present? ? pie_charts[2].count : "0" %></span>
+                <span class="pie_chart__text pie_chart__text_new harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.new") %>
+                    &mdash;
+                    <%= pie_charts[2].present? ? pie_charts[1].count : "0" %></span>
+                <span class="pie_chart__text pie_chart__text_overdue harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.overdue") %>
+                    &mdash;
+                    <%= pie_charts[2].present? ? pie_charts[2].count : "0" %></span>
             </div>
 
             <div class="pie_chart__content d-flex flex-direction-column justify-content-around" style="height: 100%;">
-                <span class="pie_chart__text pie_chart__text_end harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.end") %> &mdash; <%= pie_charts[0].present? ? pie_charts[0].count : "0" %></span>
-                <span class="pie_chart__text pie_chart__text_escalation harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.escalation") %> &mdash; <%= pie_charts[3].present? ? pie_charts[3].count : "0" %></span>
+                <span class="pie_chart__text pie_chart__text_end harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.end") %>
+                    &mdash;
+                    <%= pie_charts[0].present? ? pie_charts[0].count : "0" %></span>
+                <span class="pie_chart__text pie_chart__text_escalation harakiri--text parmigiano"><%= I18n.t("text.user.dashboard.pie_chart.escalation") %>
+                    &mdash;
+                    <%= pie_charts[3].present? ? pie_charts[3].count : "0" %></span>
             </div>
         </div>
     </div>
 </div>
 
+<div class="RRow">
+    <div class="RCol custom cols-widest-4 cols-wide-4 cols-middle-6 cols-narrow-6">
+        <div class="blackjack mb-6">
+            <div class="field mb-2">
+                <div class="card drive--bg">
+                    <div class="frame">
+                        <span class="fargo--text sulguni mb-2">A</span>
+                        <br>
+                            <span class="fargo--text maasdam ml-3 suit">♥</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="troy--text sulguni mb-2">
+                    <span class="maasdam score__user">0</span>
+                    VS
+                    <span class="maasdam score__bot">0</span>
+                </div>
+                <div class="field">
+                    <div class="card drive--bg">
+                        <div class="frame">
+                            <span class="fargo--text sulguni mb-2">A</span>
+                            <br>
+                                <span class="fargo--text maasdam ml-3 suit">♥</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="RRow mb-6">
+                    <div class="RCol custom cols-widest-4 cols-wide-4 cols-middle-2 cols-narrow-2">
+                        <%= render "components/button", type: "primary bj__start", size: "helike", width: "wide", color: "rocky", icon: nil, disabled: false, title: "Начать" %>
+                    </div>
+                    <div class="RCol custom cols-widest-4 cols-wide-4 cols-middle-2 cols-narrow-2">
+                        <%= render "components/button", type: "primary bj__more", size: "helike", width: "wide", color: "matrix", icon: nil, disabled: true, title: "Еще" %>
+                    </div>
+                    <div class="RCol custom cols-widest-4 cols-wide-4 cols-middle-2 cols-narrow-2">
+                        <%= render "components/button", type: "primary bj__pass", size: "helike", width: "wide", color: "fargo", icon: nil, disabled: true, title: "Пас" %>
+                    </div>
+                </div>
+                <div class="RRow">
+                    <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-3 cols-narrow-3">
+                        <%= render "components/button", type: "primary ace__one", size: "helike", width: "wide", color: "rocky", icon: nil, disabled: true, title: "+1" %>
+                    </div>
+                    <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-3 cols-narrow-3">
+                        <%= render "components/button", type: "primary ace__more", size: "helike", width: "wide", color: "rocky", icon: nil, disabled: true, title: "+11" %>
+                    </div>
+                </div>
+            </div>
+        </div>

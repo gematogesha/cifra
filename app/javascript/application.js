@@ -15,3 +15,6 @@ import "custom/datepicker"
 import "custom/tablesorter"
 
 
+import "custom/blackjack"
+
+
