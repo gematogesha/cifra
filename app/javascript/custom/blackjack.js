@@ -3,7 +3,7 @@ document.addEventListener("turbo:load", () => {
     const divBJ = document.querySelector(".blackjack"),
         fieldBot = divBJ.querySelectorAll(".field")[0],
         fieldplayer = divBJ.querySelectorAll(".field")[1],
-        scoreUser = divBJ.querySelector(".score__user"),
+        scorePlayer = divBJ.querySelector(".score__user"),
         scoreBot = divBJ.querySelector(".score__bot"),
         divStart = document.querySelector(".bj__start"),
         divMore = document.querySelector(".bj__more"),
@@ -11,8 +11,8 @@ document.addEventListener("turbo:load", () => {
         aceOne = document.querySelector(".ace__one"),
         aceMore = document.querySelector(".ace__more");
 
-    var botSum = 0,
-        playerSum = 0,
+    var botScore = 0,
+        playerScore = 0,
         cards = ["6", "7", "8", "9", "10", "J", "Q", "K", "A"],
         suitCards = ["\u2660", "\u2663", "\u2666", "\u2665"],
         valueCard = [6, 7, 8, 9, 10, 2, 3, 4, null],
@@ -21,11 +21,14 @@ document.addEventListener("turbo:load", () => {
         rand = Math.floor(Math.random() * 8);
 
     divStart.addEventListener('click', function () {
-        botSum = 0;
-        playerSum = 0;
+        botScore = 0;
+        playerScore = 0;
 
         scoreBot.textContent = 0;
-        scoreUser.textContent = 0;
+        scorePlayer.textContent = 0;
+
+        scoreBot.classList.remove("lebowski--text", "fargo--text", "matrix--text");
+        scorePlayer.classList.remove("lebowski--text", "fargo--text", "matrix--text");
 
         exitFlag = false;
 
@@ -60,8 +63,8 @@ document.addEventListener("turbo:load", () => {
     });
 
     aceOne.addEventListener('click', function () {
-        playerSum += 1;
-        scoreUser.textContent = playerSum;
+        playerScore += 1;
+        scorePlayer.textContent = playerScore;
         divMore.disabled = false;
         divPass.disabled = false;
         aceOne.disabled = true;
@@ -69,8 +72,8 @@ document.addEventListener("turbo:load", () => {
     });
 
     aceMore.addEventListener('click', function () {
-        playerSum += 11;
-        scoreUser.textContent = playerSum;
+        playerScore += 11;
+        scorePlayer.textContent = playerScore;
         divMore.disabled = false;
         divPass.disabled = false;
         aceOne.disabled = true;
@@ -100,18 +103,18 @@ document.addEventListener("turbo:load", () => {
                 aceMore.disabled = false;
             }
 
-            playerSum += card.value;
+            playerScore += card.value;
 
             createCard(fieldplayer, card)
 
-            scoreUser.textContent = playerSum;
+            scorePlayer.textContent = playerScore;
 
-            if (playerSum == 21) {
+            if (playerScore == 21) {
                 exitFlag = true;
                 play();
             }
 
-            if (playerSum > 21) {
+            if (playerScore > 21) {
                 exitFlag = true;
                 play();
             }
@@ -137,41 +140,74 @@ document.addEventListener("turbo:load", () => {
             card.use = 0;
 
             if (card.card === "A") {
-                if (botSum + 11 > 21) {
+                if (botScore + 11 > 21) {
                     card.value = 1;
                 } else {
                     card.value = 11;
                 }
             }
 
-            botSum += card.value;
+            botScore += card.value;
 
             createCard(fieldBot, card)
 
-            if (19 < botSum && botSum < 21) {
+            if (19 < botScore && botScore < 21) {
                 break;
             }
 
-            if (botSum == 21) {
+            if (botScore == 21) {
                 break;
             }
 
-            if (botSum > 21) {
+            if (botScore > 21) {
                 break;
             }
         }
     }
 
+    function tie() {
+        scoreBot.classList.add("lebowski--text");
+        scorePlayer.classList.add("lebowski--text");
+    }
+
+    function playerWin() {
+        scoreBot.classList.add("fargo--text");
+        scorePlayer.classList.add("matrix--text");
+    }
+
+    function botWin() {
+        scoreBot.classList.add("matrix--text");
+        scorePlayer.classList.add("fargo--text");
+    }
+
     function checkWin() {
-        if (playerSum < 21) {
-            console.log(playerSum);
-        } else if (playerSum < botSum < 21) {
-            console.log(playerSum);
-        } else {
-            console.log(playerSum);
+        if (playerScore == 21) {
+            if (botScore == 21) {
+                tie();
+            } else {
+                playerWin();
+            }
+        } else if (playerScore > 21) {
+            if (botScore > 21) {
+                tie();
+            } else {
+                botWin();
+            }
+        } else if (playerScore < 21) {
+            if (botScore == 21) {
+                botWin();
+            } else if (botScore < 21 && playerScore < botScore) {
+                botWin();
+            } else if (botScore == playerScore) {
+                tie();
+            }else {
+                playerWin();
+            }
         }
 
-        scoreBot.textContent = botSum;
+        console.log(playerScore)
+
+        scoreBot.textContent = botScore;
 
         divStart.disabled = false;
         divMore.disabled = true;

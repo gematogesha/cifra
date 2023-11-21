@@ -168,6 +168,7 @@ label {
     width: 56px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 var(--rir-hamilton);
+    user-select: none;
 }
 
 .card:not(:first-child) { 
@@ -183,4 +184,18 @@ label {
 
 .card .suit {
     font-size: 32px;
+}
+
+.score__user::before{
+    content: "Вы ";
+    font-size: 14px;
+    color: var(--rir-troy);
+    font-weight: 400;
+}
+
+.score__bot::after{
+    content: " Бот";
+    font-size: 14px;
+    color: var(--rir-troy);
+    font-weight: 400;
 }
