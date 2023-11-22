@@ -1,80 +1,35 @@
-<% if iserror %>
-
-    <% @error_status = nil %>
-
-    <% if controller.errors.any? %>
-        <% controller.errors.each do |error| %>
-            <% if error.attribute.to_s == attr %>
-                <% @error_status = "error"%>
-            <% end %>
-        <% end %>
-    <% end %>
-
-<% end %>
-
-<div class="RSelect">
-    <div style="display: none">
-        <%= form.label :department_id, class: "RSelect__label"%>
-        <%= form.collection_select(:department_id, Department.all, :id, :name, {}, {class: "RSelect__input"}) %>
-    </div>
-</div>
-
-<template id="RSelect">
-    <label tabindex="0" class="RSelect__input">
-        <label class="RInput <%= type %> eluno readonly <%= @error_status %>">
-            <div class="RInput__body is-label">
-                <label class="RInput__input">
-                    <input type="text" disabled="disabled" autocomplete="new-password">
-                    <%= form.label form_attr, class: "RInput__label" %>
-                </label>
-            </div>
-            <a class="RInput__after">
-                <i class="RIcon rir-arrow-down_16"></i>
-            </a>
-            <% if iserror %>
-                <% if controller.errors.any? %>
-                    <% controller.errors.each do |error| %>
-                        <% if error.attribute.to_s == attr %>
-                            <span class="RInput__error"><%= error.full_message %></span>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            <% end %>
-        </label>
-    </label>
-
-    <div class="RPopover__content mt-2">
-        <div class="RSelect__content">
-            <div class="RSelect__search">
-                <label class="RInput default eluno">
-                    <div class="RInput__body is-label">
-                        <label tabindex="0" class="RInput__input">
-                            <input type="text" autocomplete="new-password">
-                            <label class="RInput__label">Поиск</label>
-                        </label>
-                    </div>
-                    <a class="RInput__clear events" style="visibility: hidden;">
-                        <i class="RIcon rir-close_8"></i>
-                    </a>
-                    <a class="RInput__before">
-                        <i class="RIcon rir-search_16"></i>
-                    </a>
-                </label>
-            </div>
-            <div class="RSelect__not-list" style="display: none;">Ничего не найдено</div>
-            <% if !data.exists? %>
-                <div class="RSelect__not-list">Пусто</div>
-            <% else %>
+<div class="RPopover__content mt-2">
+    <div class="RSelect__content">
+        <div class="RSelect__search">
+            <label class="RInput default eluno">
+                <div class="RInput__body is-label">
+                    <label tabindex="0" class="RInput__input">
+                        <input type="text" autocomplete="new-password">
+                        <label class="RInput__label">Поиск</label>
+                    </label>
+                </div>
+                <a class="RInput__clear events" style="visibility: hidden;">
+                    <i class="RIcon rir-close_8"></i>
+                </a>
+                <a class="RInput__before">
+                    <i class="RIcon rir-search_16"></i>
+                </a>
+            </label>
+        </div>
+        <div class="RSelect__not-list" style="display: none;">Ничего не найдено</div>
+        <% if !data.exists? %>
+            <div class="RSelect__not-list">Пусто</div>
+        <% else %>
+            <section class="RListGroup RSelect__list" id="select-list" style="display: flex;">
                 <% data.each do |data| %>
-                    <section class="RListGroup RSelect__list" id="select-list" style="display: flex;">
-                        <section tabindex="0" class="RListItem" data-value="<%= data.id %>">
-                            <section class="RListItem__content">
-                                <span class="RListItem__title" style="-webkit-line-clamp: 1;"><%= data.name %></span>
-                            </section>
+                    <section tabindex="0" class="RListItem" data-value="<%= data.id %>">
+                        <section class="RListItem__content">
+                            <span class="RListItem__title" style="-webkit-line-clamp: 1;"><%= data.name %></span>
                         </section>
                     </section>
+
                 <% end %>
-            <% end %>
-        </div>
+            </section>
+        <% end %>
     </div>
-</template>
+</div>

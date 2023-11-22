@@ -1,82 +1,83 @@
 document.addEventListener("turbo:load", () => {
 
-   const dropdowns = document.querySelectorAll(".RSelect__input");
+   const RSelect__input = document.querySelectorAll(".RSelect__input"),
+      selected = document.createElement("input");
+   var mainInput = '';
+   var rInput = '';
+   selected.type = "text";
+   selected.setAttribute("disabled", "disabled");
+   selected.autocomplete = "new-password";
 
-   if (dropdowns.length > 0) {
-      dropdowns.forEach((dropdown) => {
-         const disableOption = document.createElement("option");
-         disableOption.value = '';
-         disableOption.disabled = true;
-         disableOption.selected = true;
-         dropdowns[0].appendChild(disableOption);
-         createCustomDropdown(dropdown);
+   if (RSelect__input.length > 0) {
+      RSelect__input.forEach((item) => {
+         const menu = item.nextElementSibling;
+         rInput = item.querySelector(".RInput");
+         mainInput = item.querySelector("input");
+         mainInput.style.display = 'none';
+         item.querySelector(".RInput__input").appendChild(selected);
+         activateDropdown(item, menu);
+         setNullSelected(item, menu);
       });
    }
 
-   function createCustomDropdown(dropdown) {
+   function activateDropdown(input, menu) {
+      input.addEventListener("click", toggleDropdown.bind(menu));
+      let optionsArr = menu.querySelectorAll(".RListItem");
 
-      const customDropdown = document.querySelector("#RSelect");
-      const clone = customDropdown.content.cloneNode(true);
-      document.querySelector(".RSelect").appendChild(clone);
-
-      const options = dropdown.querySelectorAll("option");
-      const optionsArr = Array.prototype.slice.call(options);
-      const deleteLast = optionsArr.splice(-1,1);
-
-      const selected = document.querySelectorAll(".RSelect__input")[1].querySelector("input");
-      selected.name = dropdown.getAttribute("name")
-
-      const menu = document.querySelector(".RPopover__content");
-
-      document.querySelectorAll(".RSelect__input")[1].addEventListener("click", toggleDropdown.bind(menu));
-
-      optionsArr.forEach( function (option, index) {
-         const item = document.querySelectorAll(".RListItem")[index];
+      optionsArr.forEach((item) => {
          item.addEventListener(
             "click",
-            setSelected.bind(item, selected, dropdown, menu)
+            setSelected.bind(item, selected, menu)
          );
       });
 
-      const search = document.querySelector(".RSelect").querySelector(".RPopover__content").querySelector("input");
+      const search = menu.querySelector("input");
       search.addEventListener("input", filterItems.bind(search, optionsArr, menu));
       document.addEventListener(
          "click",
-         closeIfClickedOutside.bind(customDropdown, menu)
+         closeIfClickedOutside.bind(input, menu)
       );
    }
 
    function toggleDropdown() {
-      if (this.offsetParent !== null) {
+      if (this.nextElementSibling !== null) {
          this.style.display = "none";
          isOpen();
       } else {
          this.style.display = "block";
-         this.querySelector("input").focus();
          isOpen();
       }
    }
 
    function isOpen() {
-      const RInput = document.querySelectorAll(".RSelect__input")[1].querySelector(".RInput");
-      if (RInput.classList.contains('isOpen')) {
-         RInput.classList.remove("isOpen");
-      } else {
-         RInput.classList.add("isOpen");
+      RSelect__input.forEach((item) => {
+         const RInput = item.querySelector(".RInput");
+         if (RInput.classList.contains('isOpen')) {
+            RInput.classList.remove("isOpen");
+         } else {
+            RInput.classList.add("isOpen");
+         }
+      });
+   }
+
+   function setNullSelected(item, menu) {
+      if (selected.value = ' ') {
+         const value = item.querySelectorAll("input")[0].value;
+         const label = menu.querySelector("[data-value='" + value + "']").textContent;
+
+         selected.value = label.trim();
       }
    }
 
-   function setSelected(selected, dropdown, menu) {
+   function setSelected(selected, menu) {
 
       const value = this.dataset.value;
-      const label = this.getElementsByClassName("RListItem__title")[0].textContent;
-      const input = document.querySelectorAll(".RSelect__input")[1].querySelector(".RInput");
-      const input_label = input.getElementsByClassName("RInput__label")[0];
+      const label = this.querySelector(".RListItem__title").textContent;
 
       selected.value = label;
-      dropdown.value = value;
-      input.classList.add("active")
-      input_label.classList.add("active")
+      mainInput.value = value;
+      rInput.classList.add("active")
+      rInput.querySelector(".RInput__label").classList.add("active")
 
       menu.style.display = "none";
 
@@ -92,6 +93,7 @@ document.addEventListener("turbo:load", () => {
       });
       this.classList.add("active");
    }
+
 
    function filterItems(itemsArr, menu) {
 

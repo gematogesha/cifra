@@ -4,8 +4,6 @@ import "controllers"
 
 import "jquery"
 
-import "custom/main_controller"
-
 import "custom/select"
 
 import "custom/uploader"
@@ -14,7 +12,6 @@ import "custom/datepicker"
 
 import "custom/tablesorter"
 
+//import "custom/blackjack"
 
-import "custom/blackjack"
-
-
+import "custom/main_controller"
