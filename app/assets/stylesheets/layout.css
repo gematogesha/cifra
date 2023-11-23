@@ -162,6 +162,7 @@ input:disabled {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
 }
 
 .blackjack .field {
@@ -192,6 +193,9 @@ input:disabled {
 
 .card .suit {
     font-size: 32px;
+    width: 100%;
+    display: block;
+    text-align: center;
 }
 
 .score__user::before{

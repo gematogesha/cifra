@@ -12,6 +12,6 @@ import "custom/datepicker"
 
 import "custom/tablesorter"
 
-//import "custom/blackjack"
+import "custom/blackjack"
 
 import "custom/main_controller"

@@ -204,9 +204,6 @@ document.addEventListener("turbo:load", () => {
                 playerWin();
             }
         }
-
-        console.log(playerScore)
-
         scoreBot.textContent = botScore;
 
         divStart.disabled = false;
@@ -240,7 +237,7 @@ document.addEventListener("turbo:load", () => {
         }
 
         spanCard.classList.add(color + "--text", "sulguni", "mb-2");
-        spanSuit.classList.add(color + "--text", "maasdam", "ml-3", "suit");
+        spanSuit.classList.add(color + "--text", "maasdam", "suit");
 
         divFrame.appendChild(spanCard);
         divFrame.appendChild(br);
