@@ -147,7 +147,7 @@ input:disabled {
 .RPopover__content {
     display: none;
     position: absolute;
-    width: 100%;
+    width: max-content;
 }
 
 .RSelect{
