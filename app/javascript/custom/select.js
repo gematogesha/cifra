@@ -141,7 +141,6 @@ document.addEventListener("turbo:load", () => {
                             let start = '<span class="RSelect__query">';
                             let end = '</span>';
                             let highlightedWord = option.slice(optionText.indexOf(word), optionText.indexOf(word) + word.length);
-                            console.log(highlightedWord)
                             customOptions[itemsArr.indexOf(option)].querySelector(".RListItem__title").innerHTML = option.replace(highlightedWord, start + highlightedWord + end);
                         }
                         if (value == '') {
