@@ -22,7 +22,7 @@ document.addEventListener("turbo:load", () => {
     }
 
     function activateDropdown(input, menu) {
-        input.addEventListener("click", toggleDropdown.bind(menu));
+        mainInput.addEventListener("click", toggleDropdown.bind(menu));
         let optionsArr = menu.querySelectorAll(".RListItem");
 
         optionsArr.forEach((item) => {
@@ -44,23 +44,21 @@ document.addEventListener("turbo:load", () => {
     function toggleDropdown() {
         if (this.nextElementSibling !== null) {
             this.style.display = "none";
-            isOpen();
+            isOpen(rInput);
         } else {
             this.style.display = "block";
             this.querySelector("input").focus();
-            isOpen();
+            isOpen(rInput);
         }
+
     }
 
-    function isOpen() {
-        RSelect__input.forEach((item) => {
-            const RInput = item.querySelector(".RInput");
-            if (RInput.classList.contains('isOpen')) {
-                RInput.classList.remove("isOpen");
-            } else {
-                RInput.classList.add("isOpen");
-            }
-        });
+    function isOpen(input) {
+        if (input.classList.contains('isOpen')) {
+            input.classList.remove("isOpen");
+        } else {
+            input.classList.add("isOpen");
+        }
     }
 
     function setNullSelected(item, menu) {
@@ -84,7 +82,7 @@ document.addEventListener("turbo:load", () => {
 
         menu.style.display = "none";
 
-        isOpen();
+        isOpen(rInput);
         menu.querySelector("input").value = "";
         menu.querySelectorAll(".RListItem").forEach((div) => {
             if (div.classList.contains("active")) {
@@ -172,7 +170,7 @@ document.addEventListener("turbo:load", () => {
             menu.offsetParent !== null
         ) {
             menu.style.display = "none";
-            isOpen();
+            isOpen(rInput);
         }
     }
 });
