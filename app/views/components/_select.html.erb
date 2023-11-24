@@ -21,10 +21,11 @@
             <div class="RSelect__not-list">Пусто</div>
         <% else %>
             <section class="RListGroup RSelect__list" id="select-list" style="display: flex;">
-                <% data.each do |data| %>
-                    <section tabindex="0" class="RListItem" data-value="<%= data.id %>">
+                <% data.each do |item| %>
+                    <section tabindex="0" class="RListItem" data-value="<%= item.id %>">
                         <section class="RListItem__content">
-                            <span class="RListItem__title" style="-webkit-line-clamp: 1;"><%= data.name %></span>
+                            <span class="RListItem__title" style="-webkit-line-clamp: 1;"><%= item.name %></span>
+                            <span class="RListItem__sub-title"><%= eval("item." + subtitle) %></span>
                         </section>
                     </section>
 
