@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @page_title = @user.full_name
+    @department_name = Department.find_by(id: @user.department_id).name
   end
 
   def new

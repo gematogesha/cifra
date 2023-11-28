@@ -16999,7 +16999,7 @@ body.widest .RRow.default>.offset-widest-12 {
 
 .RInput.readonly {
     cursor: default;
-    opacity: .8;
+    opacity: 1;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;

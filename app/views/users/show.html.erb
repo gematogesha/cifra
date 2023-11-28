@@ -16,7 +16,28 @@
 
 <div class="RRow mb-4 ">
     <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
-        <span class="taleggio"><%= I18n.t("attr.user.list") %></span>
+        <span class="taleggio"><%= I18n.t("attr.user.data") %></span>
+    </div>
+</div>
+
+<div class="RRow">
+    <div class="RCol custom cols-widest-8 cols-wide-10 cols-middle-6 cols-narrow-6">
+        <%= form_with model: @user, url: user_path(@user.login), data: {turbo: false} do |form|%>
+            <div class="RRow">
+                <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
+                    <%= render "components/input", form: form, controller: @user, form_attr: :login, attr: "login", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: true, rand: false, iserror: false, autocomplete: "new-password" %>
+                </div>
+                <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
+                    <%= render "components/input", form: form, controller: @user, form_attr: :post, attr: "post", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: true, rand: false, iserror: false, autocomplete: "new-password" %>
+                </div>
+                <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
+                    <%= render "components/input", form: form, controller: @user, form_attr: :department_id, attr: "department_id", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: nil, maxlength: nil, rounded: false, readonly: true, rand: false, iserror: false, autocomplete: "new-password" %>
+                </div>
+                <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
+                    <%= render "components/checkbox", form: form, controller: @user, form_attr: :admin, attr: "admin" %>
+                </div>
+            </div>
+        <% end %>
     </div>
 </div>
 
@@ -53,6 +74,3 @@
     </div>
 </div>
 
-
-
-<%= render "components/datepicker"%>

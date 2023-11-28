@@ -59,6 +59,9 @@
             </div>
         </div>
 
+        <%= render "components/datepicker"%>
+
+
         <%= render "components/uploader", form: form, controller: @license, form_attr: :file_license, attr: "file_license", multiple: false, accept: "application/pdf" %>
 
         <div class="control-group">

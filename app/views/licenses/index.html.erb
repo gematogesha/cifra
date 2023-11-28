@@ -1,5 +1,27 @@
 <%- page_title @page_title %>
 
+<div class="RRow mb-8">
+    <div class="RCol" style="flex-grow: 0;">
+        <span class="troy--text parmigiano">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore velit consectetur laboriosam suscipit saepe enim nobis optio. Architecto, voluptas ab.
+        </span>
+    </div>
+</div>
+
+<div class="RRow mb-8">
+    <div class="RCol">
+
+        <%= render"components/tabs", link: [licenses_path, new_license_path], title: [@model_many, I18n.t("attr.license.create")]  %>
+
+    </div>
+</div>
+
+<div class="RRow mb-4 ">
+    <div class="RCol custom cols-widest-12 cols-wide-12 cols-middle-6 cols-narrow-6">
+        <span class="taleggio"><%= I18n.t("attr.license.list") %></span>
+    </div>
+</div>
+
 <div class="module">
     <div class="module-head">
         <h2><%= @model_many %></h2>
