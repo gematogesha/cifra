@@ -38,7 +38,7 @@
             <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
                 <%= button_to user_path(@user.login), 
                         method: :delete, 
-                        form: {data: {turbo_confirm: "Вы точно хотите удалить пользователя?" }}, 
+                        form: {data: {turbo_confirm: I18n.t("notices.confirm.delete") }}, 
                         class: "hidden" do %>
                     <%= render "components/button", type: "primary", size: "helike", width: "content", color: "fargo", icon: "delete", disabled: false, title: I18n.t("action.delete") %>
                 <% end %>

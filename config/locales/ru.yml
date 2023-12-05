@@ -16,6 +16,8 @@ ru:
     success:
       create: "%{model} успешно создана"
       update: "%{model} успешно обновлена"
+    confirm:
+      delete: "Вы точно уверены, что хотите удалить?"
   attr:
     user:
       full_name: "Имя пользователя"
