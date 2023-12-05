@@ -4,25 +4,17 @@ class User < ApplicationRecord
     has_many :licenses
     belongs_to :department
 
-    before_save :title_ize, :upcase_name, :strip_ize
+    before_save :normal
     
-    validates :login, :post, presence: true, uniqueness: true
+    validates :login, presence: true, uniqueness: true
     validates :post, :full_name, presence: true
 
-    def title_ize
-        login.downcase!
-        post.capitalize!
+    def normal
+        self.login = self.login.downcase.strip
+        self.full_name = self.full_name.titleize.strip
+        self.post = self.post.humanize.strip
     end
 
-    def upcase_name
-        full_name.split.each{|i| i.capitalize!}.join(' ')
-    end
-
-    def strip_ize
-        full_name.strip!
-        login.strip!
-        post.strip!
-    end
-    
+    scope :not_admin, -> { where(admin: false) }
 
 end

@@ -1,0 +1,21 @@
+<label class="RInput <%= type %> <%= size %> readonly <%= "rounded" if rounded %>">
+    <div class="RInput__body is-label">
+        <label tabindex="0" class="RInput__input">
+            <%= text_field_tag attr, value %>
+            <%= label_tag attr, label_name, class: "RInput__label active" %>
+        </label>
+    </div>
+
+    <% if !aftericon.nil?%>
+        <a class="RInput__after events">
+            <i class="RIcon rir-<%= aftericon %>_16"></i>
+        </a>
+    <% end %>
+
+    <% if !beforeicon.nil?%>
+        <a class="RInput__before">
+            <i class="RIcon rir-<%= beforeicon %>_16"></i>
+        </a>
+    <% end %>
+
+</label>

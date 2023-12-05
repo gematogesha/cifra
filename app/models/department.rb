@@ -4,7 +4,7 @@ class Department < ApplicationRecord
 
     has_many :users
 
-    validates :department_code, numericality: {less_than_or_equal_to: 999}, uniqueness: true
+    validates :code, numericality: {less_than_or_equal_to: 999}, uniqueness: true
     validates :name, presence: true, uniqueness: true
 
     def capitalize_title

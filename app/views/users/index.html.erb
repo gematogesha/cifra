@@ -27,9 +27,9 @@
         <table class="RTable creusa">
             <thead>
                 <tr>
-                    <%for attr in @human_att do %>
-                        <%= render"components/table_item", title: attr %>
-                    <% end %>
+                    <%= render"components/table_item", title: I18n.t("attr.user.full_name") %>
+                    <%= render"components/table_item", title: I18n.t("attr.user.login") %>
+                    <%= render"components/table_item", title: I18n.t("attr.user.post") %>
                 </tr>
             </thead>
             <tbody>
@@ -54,4 +54,3 @@
         </table>
     </div>
 </div>
-

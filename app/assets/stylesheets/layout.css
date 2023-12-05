@@ -148,6 +148,7 @@ input:disabled {
     display: none;
     position: absolute;
     width: max-content;
+    max-width: 100%;
 }
 
 .RSelect{
@@ -210,4 +211,8 @@ input:disabled {
     font-size: 14px;
     color: var(--rir-troy);
     font-weight: 400;
+}
+
+.hidden{
+    display: none;
 }

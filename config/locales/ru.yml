@@ -6,6 +6,7 @@ ru:
   action: 
     save: "Сохранить"
     create: "Создать"
+    delete: "Удалить"
     login: "Войти"
     logout: "Выйти"
   notices:

@@ -19,7 +19,7 @@
                     <label class="RSelect__input">
                         <%= render "components/input", form: form, controller: @user, form_attr: :department_id, attr: "department_id", form_type: "text", type: "default", size: "eluno", beforeicon: nil, aftericon: "arrow-down", maxlength: nil, rounded: false, readonly: true, rand: false, iserror: true, autocomplete: "new-password" %>
                     </label>
-                    <%= render "components/select", form: form, controller: @user, form_attr: :department_id, attr: "department_id", type: "default", data: Department.all, subtitle: "department_code" %>
+                    <%= render "components/select", form: form, controller: @user, form_attr: :department_id, attr: "department_id", type: "default", data: Department.all, subtitle: "code" %>
                 </div>
             </div>
             <div class="RCol custom cols-widest-6 cols-wide-6 cols-middle-6 cols-narrow-6">
